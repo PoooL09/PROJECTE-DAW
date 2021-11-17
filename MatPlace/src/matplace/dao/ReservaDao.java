@@ -14,6 +14,7 @@ public class ReservaDao implements Crud{
     @Override
     public void create(Object object) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        //ME CHUPAS 3 PINGOS
     }
 
     @Override
