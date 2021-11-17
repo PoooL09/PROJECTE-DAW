@@ -21,8 +21,10 @@ import java.util.logging.Logger;
 public class FileService {
 
     private static FileService instance;
-    
+
     private final File CARPETA_ARCHIVOS = new File(System.getProperty("user.home") + File.separator + "MatPlace");
+    
+    private final String CHARACTER_SPLIT = "#";
 
     /**
      * Constructor privado. Patrón singleton.
@@ -95,4 +97,11 @@ public class FileService {
 
     }
 
+    public File getCARPETA_ARCHIVOS() {
+        return CARPETA_ARCHIVOS;
+    }
+
+    public String getCHARACTER_SPLIT() {
+        return CHARACTER_SPLIT;
+    }
 }

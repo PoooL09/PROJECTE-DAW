@@ -14,21 +14,20 @@ import matplace.model.Conserje;
  */
 public class ConserjeDao implements Crud {
 
-    private File archivoDestino = new File("conserje");
+    private FileService fileService = FileService.getInstance();
+    
+    private File archivoDestino = new File(fileService.getCARPETA_ARCHIVOS() + File.separator + "conserje");
 
     public void create(Conserje conserje) {
-        FileService fileService = FileService.getInstance();
 
-        //fileService.escribirFichero(ficheroDestino, textoGuardado);
-        String nombre;
-        String apellidos;
-        String DNI;
+        
 
     }
-    
+
     @Override
     public void create(Object object) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        Conserje conserje = (Conserje) object;
+        fileService.escribirFichero(archivoDestino, conserje.getID() + fileService.getCHARACTER_SPLIT() + conserje.getDNI());
     }
 
     @Override
