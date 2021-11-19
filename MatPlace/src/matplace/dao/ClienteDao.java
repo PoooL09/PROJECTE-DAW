@@ -7,6 +7,8 @@ package matplace.dao;
 
 import java.io.File;
 
+import matplace.model.Cliente;
+
 /**
  *
  * @author pg_po
@@ -18,10 +20,13 @@ public class ClienteDao implements Crud{
     
     private File archivoDestino = new File(fileService.getCARPETA_ARCHIVOS() + File.separator + "cliente");
 
+    // String nombre, String apellidos, String DNI, String telefono, String mail
+
 
     @Override
     public void create(Object object) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        Cliente cliente = (Cliente) object;
+        fileService.escribirFichero(archivoDestino, cliente.getID() + fileService.getCHARACTER_SPLIT() + cliente.getDNI() + fileService.getCHARACTER_SPLIT() + cliente.getTelefono() + fileService.getCHARACTER_SPLIT() + cliente.getMail());
     }
 
     @Override
