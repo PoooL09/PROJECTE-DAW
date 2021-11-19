@@ -19,15 +19,15 @@ public class ConserjeDao implements Crud {
     private File archivoDestino = new File(fileService.getCARPETA_ARCHIVOS() + File.separator + "conserje");
 
     public void create(Conserje conserje) {
-
-        
-
     }
+
+    
+        // String nombre, String apellidos, String DNI, String telefono, String mail
 
     @Override
     public void create(Object object) {
         Conserje conserje = (Conserje) object;
-        fileService.escribirFichero(archivoDestino, conserje.getID() + fileService.getCHARACTER_SPLIT() + conserje.getDNI());
+        fileService.escribirFichero(archivoDestino, conserje.getID() + fileService.getCHARACTER_SPLIT() + conserje.getDNI() + fileService.getCHARACTER_SPLIT() + conserje.getTelefono() + fileService.getCHARACTER_SPLIT() + conserje.getMail());
     }
 
     @Override
