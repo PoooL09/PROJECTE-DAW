@@ -5,11 +5,19 @@
  */
 package matplace.dao;
 
+import java.io.File;
+
 /**
  *
  * @author pg_po
  */
 public class ClienteDao implements Crud{
+
+
+    private FileService fileService = FileService.getInstance();
+    
+    private File archivoDestino = new File(fileService.getCARPETA_ARCHIVOS() + File.separator + "cliente");
+
 
     @Override
     public void create(Object object) {
