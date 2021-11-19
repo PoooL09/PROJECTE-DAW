@@ -11,16 +11,40 @@ package matplace.model;
  */
 public class Conserje extends Persona {
 
+    private String DNI;
+    private int ID;
     private static int incrementoID;
 
-    public Conserje() {
-        super.setID(incrementoID);
-        incrementoID++;
-    }
 
     public Conserje(String nombre, String apellidos, String DNI, String telefono, String mail) {
-        super(nombre, apellidos, DNI, telefono, mail, incrementoID);
+        super(nombre, apellidos, telefono, mail);
         incrementoID++;
+        this.ID = incrementoID;
+        this.DNI = DNI;
+    }
+
+
+
+
+    public int getID() {
+        return this.ID;
+    }
+
+    public void setID(int ID) {
+        this.ID = ID;
+    }    
+
+    public String getDNI() {
+        return this.DNI;
+    }
+
+    public void setDNI(String DNI) {
+        this.DNI = DNI;
+    }
+
+    public Conserje DNI(String DNI) {
+        setDNI(DNI);
+        return this;
     }
 
     public static int getIncrementoID() {
@@ -30,5 +54,7 @@ public class Conserje extends Persona {
     public static void setIncrementoID(int incrementoID) {
         Conserje.incrementoID = incrementoID;
     }
+
+
 
 }

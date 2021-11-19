@@ -10,18 +10,35 @@ package matplace.model;
  * @author pg_po
  */
 public class Cliente extends Persona {
-
+    
+    private String DNI;
+    private int ID;
     private static int incrementoID;
 
-    public Cliente() {
-        super.setID(incrementoID);
+    public Cliente(String nombre, String apellidos, String DNI, String telefono, String mail) {
+        super(nombre, apellidos, telefono, mail);
         incrementoID++;
+        this.ID = incrementoID;
+        this.DNI = DNI;
     }
 
-    public Cliente(String nombre, String apellidos, String DNI, String telefono, String mail) {
-        super(nombre, apellidos, DNI, telefono, mail, incrementoID);
-        incrementoID++;
+
+    public String getDNI() {
+        return this.DNI;
     }
+
+    public void setDNI(String DNI) {
+        this.DNI = DNI;
+    }
+
+    public int getID() {
+        return this.ID;
+    }
+
+    public void setID(int ID) {
+        this.ID = ID;
+    }
+
 
     public static int getIncrementoID() {
         return incrementoID;
@@ -30,5 +47,8 @@ public class Cliente extends Persona {
     public static void setIncrementoID(int incrementoID) {
         Cliente.incrementoID = incrementoID;
     }
+
+
+
 
 }

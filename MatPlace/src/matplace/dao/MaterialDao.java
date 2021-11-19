@@ -7,6 +7,8 @@ package matplace.dao;
 
 import java.io.File;
 
+import matplace.model.Material;
+
 /**
  *
  * @author pg_po
@@ -19,7 +21,8 @@ public class MaterialDao implements Crud{
     
     @Override
     public void create(Object object) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        Material material = (Material) object;
+        fileService.escribirFichero(archivoDestino, material.getEAN() + fileService.getCHARACTER_SPLIT() + material.getNombre() + fileService.getCHARACTER_SPLIT() + material.getDescripcion()  + fileService.getCHARACTER_SPLIT() + material.getDescripcion() + fileService.getCHARACTER_SPLIT() + material.getCantidad() + fileService.getCHARACTER_SPLIT() + material.getCantidad_disponible());
     }
 
     @Override

@@ -22,7 +22,6 @@ public class ClienteDao implements Crud{
 
     // String nombre, String apellidos, String DNI, String telefono, String mail
 
-
     @Override
     public void create(Object object) {
         Cliente cliente = (Cliente) object;

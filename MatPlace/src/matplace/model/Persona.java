@@ -13,27 +13,34 @@ public abstract class Persona {
 
     private String nombre;
     private String apellidos;
-    private String DNI;
+    // private String DNI;
     private String telefono;
     private String mail;
-    private int ID;
+    //private int ID;
 
-    public Persona(String nombre, String apellidos, String DNI, String telefono, String mail, int ID) {
+    public Persona(String nombre, String apellidos, String telefono, String mail) {
         this.nombre = nombre;
         this.apellidos = apellidos;
-        this.DNI = DNI;
+        //this.DNI = DNI;
         this.telefono = telefono;
         this.mail = mail;
-        this.ID = ID;
+        //this.ID = ID;
     }
 
     public Persona() {
     }
 
+
     @Override
     public String toString() {
-        return "Persona{" + "nombre=" + nombre + ", apellidos=" + apellidos + ", DNI=" + DNI + ", telefono=" + telefono + ", mail=" + mail + ", ID=" + ID + '}';
+        return "{" +
+            " nombre='" + getNombre() + "'" +
+            ", apellidos='" + getApellidos() + "'" +
+            ", telefono='" + getTelefono() + "'" +
+            ", mail='" + getMail() + "'" +
+            "}";
     }
+    
 
     public String getNombre() {
         return nombre;
@@ -49,22 +56,6 @@ public abstract class Persona {
 
     public void setApellidos(String apellidos) {
         this.apellidos = apellidos;
-    }
-
-    public String getDNI() {
-        return DNI;
-    }
-
-    public void setDNI(String DNI) {
-        this.DNI = DNI;
-    }
-
-    public int getID() {
-        return ID;
-    }
-
-    public void setID(int ID) {
-        this.ID = ID;
     }
 
     public String getTelefono() {
