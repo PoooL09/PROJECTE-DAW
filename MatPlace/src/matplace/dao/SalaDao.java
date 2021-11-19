@@ -1,5 +1,7 @@
 package matplace.dao;
 
+import java.io.File;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -12,6 +14,10 @@ package matplace.dao;
  */
 public class SalaDao implements Crud{
 
+    private FileService fileService = FileService.getInstance();
+    
+    private File archivoDestino = new File(fileService.getCARPETA_ARCHIVOS() + File.separator + "conserje");
+    
     @Override
     public void create(Object object) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.

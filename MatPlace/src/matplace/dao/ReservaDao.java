@@ -5,12 +5,18 @@
  */
 package matplace.dao;
 
+import java.io.File;
+
 /**
  *
  * @author pg_po
  */
 public class ReservaDao implements Crud{
 
+    private FileService fileService = FileService.getInstance();
+    
+    private File archivoDestino = new File(fileService.getCARPETA_ARCHIVOS() + File.separator + "conserje");
+    
     @Override
     public void create(Object object) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
