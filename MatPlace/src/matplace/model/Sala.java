@@ -24,7 +24,11 @@ public class Sala {
         ID = incrementoID;
         incrementoID++;
     }
-
+Sala joisejfoshnfoiv# lfnkjsdn # reserva1 | reserva 2
+    // reserva1 # 17:50 # pol|aitor|oriol # tuputamadre
+       reserva2
+               
+    
     public Sala(String nombre, String descripcion, int capacidad, ArrayList<Reserva> reservas) {
         this.nombre = nombre;
         this.descripcion = descripcion;

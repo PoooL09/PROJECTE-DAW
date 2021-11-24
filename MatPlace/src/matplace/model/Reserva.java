@@ -14,7 +14,7 @@ import java.util.Date;
  */
 public class Reserva {
 
-    private ArrayList<Usuario> miembrosSala = new ArrayList<>();
+    private ArrayList<Persona> miembrosSala = new ArrayList<>();
     private Cliente responsable;
     private Conserje conserje;
     private Material material;
@@ -24,7 +24,7 @@ public class Reserva {
     public Reserva() {
     }
 
-    public Reserva(ArrayList<Usuario> miembrosSala,Cliente responsable, Conserje conserje, Material material, Date dataInici, Date dataFinal) {
+    public Reserva(ArrayList<Persona> miembrosSala,Cliente responsable, Conserje conserje, Material material, Date dataInici, Date dataFinal) {
         this.miembrosSala = miembrosSala;
         this.responsable = responsable;
         this.conserje = conserje;
@@ -38,11 +38,11 @@ public class Reserva {
         return miembrosSala + "," + responsable + "," + conserje + "," + material + "," + dataInici + "," + dataFinal;
     }
 
-    public ArrayList<Usuario> getMiembrosSala() {
+    public ArrayList<Persona> getMiembrosSala() {
         return miembrosSala;
     }
 
-    public void setMiembrosSala(ArrayList<Usuario> miembrosSala) {
+    public void setMiembrosSala(ArrayList<Persona> miembrosSala) {
         this.miembrosSala = miembrosSala;
     }
 

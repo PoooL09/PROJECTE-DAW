@@ -13,7 +13,6 @@ import matplace.model.Conserje;
 import matplace.model.Material;
 import matplace.model.Persona;
 import matplace.model.Reserva;
-import matplace.model.Usuario;
 
 // PROBLEMA, NO DECLARAMOS LOS SEPARADORES ENTRE LOS DATOS Y NO VA A SABER LEERLO (EL ARRAY)
 /**

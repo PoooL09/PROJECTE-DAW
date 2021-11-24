@@ -7,7 +7,6 @@ import matplace.model.Conserje;
 import matplace.model.Material;
 import matplace.model.Reserva;
 import matplace.model.Sala;
-import matplace.model.Usuario;
 
 public class Format {
     
@@ -17,8 +16,8 @@ public class Format {
     public String takeData(Reserva reserva, String characterSplit) {
 
         return takeData(reserva.getMiembrosSala(), characterSplit, fileService.getCHARACTER_SPLIT_ARRAY()) + characterSplit + 
-        takeData(reserva.getResponsable(), fileService.getCHARACTER_SPLIT_ARRAY()) + characterSplit + 
-        takeData(reserva.getConserje(), fileService.getCHARACTER_SPLIT_ARRAY()) + characterSplit + 
+       //takeData(reserva.getResponsable(), fileService.getCHARACTER_SPLIT_ARRAY()) + characterSplit + 
+        //takeData(reserva.getConserje(), fileService.getCHARACTER_SPLIT_ARRAY()) + characterSplit + 
         takeData(reserva.getMaterial(), fileService.getCHARACTER_SPLIT_ARRAY()) + characterSplit + 
         reserva.getDataInici() + characterSplit + 
         reserva.getDataFinal();
@@ -80,7 +79,7 @@ public class Format {
 // String nombre, String descripcion, int capacidad, ArrayList<Reserva> reservas
 
     public String takeData(Sala sala, String character_SPLIT) {
-        return sala.getName() + character_SPLIT +
+        return sala.getNombre() + character_SPLIT +
         "";
     }
 

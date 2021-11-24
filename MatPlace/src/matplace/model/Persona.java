@@ -9,14 +9,12 @@ package matplace.model;
  *
  * @author pg_po
  */
-public abstract class Persona {
+public class Persona {
 
     private String nombre;
     private String apellidos;
-    // private String DNI;
     private String telefono;
     private String mail;
-    //private int ID;
 
     public Persona(String nombre, String apellidos, String telefono, String mail) {
         this.nombre = nombre;

@@ -24,14 +24,8 @@ import javafx.stage.Stage;
 public class Controller extends Application implements Initializable {
 
     @FXML
-    TableView tvFicheros;
-
-    @FXML
     Button btnLogout;
-
-    @FXML
-    TableColumn colNombre, colTam, colFechaSubida;
-
+    
     @FXML
     ImageView logo;
 
@@ -51,7 +45,34 @@ public class Controller extends Application implements Initializable {
     }
 
     /**
-     * Sube un objeto a la nuve
+     * 
+     *
+     * @param event
+     */
+    @FXML
+    private void handleButtonSubir(ActionEvent event) {
+
+    }
+     /**
+     * 
+     *
+     * @param event
+     */
+    @FXML
+    private void handleButtonSubir(ActionEvent event) {
+
+    }
+     /**
+     * 
+     *
+     * @param event
+     */
+    @FXML
+    private void handleButtonSubir(ActionEvent event) {
+
+    }
+     /**
+     * 
      *
      * @param event
      */
