@@ -20,11 +20,10 @@ public class SalaDao implements Crud{
     
     private File archivoDestino = new File(fileService.getCARPETA_ARCHIVOS() + File.separator + "conserje");
     private Format format = new Format();
-// String nombre, String descripcion, int capacidad, ArrayList<Reserva> reservas
 
     @Override
     public void create(Object object) {
-        
+        // String nombre, String descripcion, int capacidad, ArrayList<Reserva> reservas
         Sala sala = (Sala) object;
         fileService.escribirFichero(archivoDestino, format.takeData(sala, fileService.getCHARACTER_SPLIT()));
         /*sala.getNombre() + fileService.getCHARACTER_SPLIT() + 

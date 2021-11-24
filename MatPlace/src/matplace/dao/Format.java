@@ -77,10 +77,11 @@ public class Format {
         dato.getCantidad_disponible();
     }
 
+// String nombre, String descripcion, int capacidad, ArrayList<Reserva> reservas
 
     public String takeData(Sala sala, String character_SPLIT) {
-        
-        return ;
+        return sala.getName() + character_SPLIT +
+        "";
     }
 
 
