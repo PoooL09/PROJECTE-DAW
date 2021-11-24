@@ -89,7 +89,7 @@ public class FileService {
         }
 
         while (entrada.hasNext()) {
-            contenido += entrada.nextLine();
+            contenido += entrada.nextLine() + "\n";
             numeroDeLinea++;
         }
 
