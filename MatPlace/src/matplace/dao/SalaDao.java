@@ -18,7 +18,7 @@ public class SalaDao implements Crud{
 
     private FileService fileService = FileService.getInstance();
     
-    private File archivoDestino = new File(fileService.getCARPETA_ARCHIVOS() + File.separator + "conserje");
+    private File archivoDestino = new File(fileService.getCARPETA_ARCHIVOS() + File.separator + "sala");
     private Format format = new Format();
 
     @Override
