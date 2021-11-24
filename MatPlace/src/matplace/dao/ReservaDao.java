@@ -24,6 +24,7 @@ import matplace.model.Usuario;
 public class ReservaDao implements Crud{
 
     private FileService fileService = FileService.getInstance();
+    private Format format = new Format();
     
     private File archivoDestino = new File(fileService.getCARPETA_ARCHIVOS() + File.separator + "conserje");
     
@@ -32,7 +33,7 @@ public class ReservaDao implements Crud{
     @Override
     public void create(Object object) {
         Reserva reserva = (Reserva) object;
-        fileService.escribirFichero(archivoDestino, takeData(reserva.getMiembrosSala()) + fileService.getCHARACTER_SPLIT() + takeData(reserva.getResponsable()) + fileService.getCHARACTER_SPLIT() + takeData(reserva.getConserje()) + fileService.getCHARACTER_SPLIT() + takeData(reserva.getMaterial()) + fileService.getCHARACTER_SPLIT() + reserva.getDataInici() + fileService.getCHARACTER_SPLIT() + reserva.getDataFinal());
+        fileService.escribirFichero(archivoDestino, format.takeData(reserva, fileService.getCHARACTER_SPLIT()));
     }
 
     @Override
@@ -50,7 +51,7 @@ public class ReservaDao implements Crud{
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-
+/*
     public String takeData(ArrayList<Usuario> dato) {
 
         String valor = "";
@@ -65,26 +66,44 @@ public class ReservaDao implements Crud{
 
     public String takeData(Cliente dato) {
 
-        return dato.getID() + fileService.getCHARACTER_SPLIT() + dato.getNombre() + fileService.getCHARACTER_SPLIT() + dato.getApellidos() + fileService.getCHARACTER_SPLIT() +  dato.getDNI() + fileService.getCHARACTER_SPLIT() + dato.getTelefono() + fileService.getCHARACTER_SPLIT() + dato.getMail();
+        return dato.getID() + fileService.getCHARACTER_SPLIT_ARRAY() + 
+        dato.getNombre() + fileService.getCHARACTER_SPLIT_ARRAY() + 
+        dato.getApellidos() + fileService.getCHARACTER_SPLIT_ARRAY() +  
+        dato.getDNI() + fileService.getCHARACTER_SPLIT_ARRAY() + 
+        dato.getTelefono() + fileService.getCHARACTER_SPLIT_ARRAY() + 
+        dato.getMail();
     }
 
     public String takeData(Conserje dato) {
 
-        return dato.getID() + fileService.getCHARACTER_SPLIT() + dato.getNombre() + fileService.getCHARACTER_SPLIT() + dato.getApellidos() + fileService.getCHARACTER_SPLIT() +  dato.getDNI() + fileService.getCHARACTER_SPLIT() + dato.getTelefono() + fileService.getCHARACTER_SPLIT() + dato.getMail();
+        return dato.getID() + fileService.getCHARACTER_SPLIT_ARRAY() + 
+        dato.getNombre() + fileService.getCHARACTER_SPLIT_ARRAY() + 
+        dato.getApellidos() + fileService.getCHARACTER_SPLIT_ARRAY() +  
+        dato.getDNI() + fileService.getCHARACTER_SPLIT_ARRAY() + 
+        dato.getTelefono() + fileService.getCHARACTER_SPLIT_ARRAY() + 
+        dato.getMail();
     }
 
     public String takeData(Usuario dato) {
 
-        return  dato.getNombre() + fileService.getCHARACTER_SPLIT() + dato.getApellidos() + fileService.getCHARACTER_SPLIT() +  dato.getTelefono() + fileService.getCHARACTER_SPLIT() + dato.getMail();
+        return  dato.getNombre() + fileService.getCHARACTER_SPLIT_ARRAY() + 
+        dato.getApellidos() + fileService.getCHARACTER_SPLIT_ARRAY() +  
+        dato.getTelefono() + fileService.getCHARACTER_SPLIT_ARRAY() + 
+        dato.getMail();
     }
 
     // String EAN, String nombre, String descripcion, int cantidad, int cantidad_disponible
 
     public String takeData(Material dato) {
 
-        return dato.getEAN() + fileService.getCHARACTER_SPLIT() + dato.getNombre() + fileService.getCHARACTER_SPLIT() + dato.getDescripcion()  + fileService.getCHARACTER_SPLIT() + dato.getDescripcion() + fileService.getCHARACTER_SPLIT() + dato.getCantidad() + fileService.getCHARACTER_SPLIT() + dato.getCantidad_disponible();
+        return dato.getEAN() + fileService.getCHARACTER_SPLIT_ARRAY() + 
+        dato.getNombre() + fileService.getCHARACTER_SPLIT_ARRAY() + 
+        dato.getDescripcion()  + fileService.getCHARACTER_SPLIT_ARRAY() + 
+        dato.getDescripcion() + fileService.getCHARACTER_SPLIT_ARRAY() + 
+        dato.getCantidad() + fileService.getCHARACTER_SPLIT_ARRAY() + 
+        dato.getCantidad_disponible();
     }
 
-
+*/
 
 }

@@ -25,8 +25,11 @@ public class Sala {
         incrementoID++;
     }
 
-    public Sala(String nombre) {
+    public Sala(String nombre, String descripcion, int capacidad, ArrayList<Reserva> reservas) {
         this.nombre = nombre;
+        this.descripcion = descripcion;
+        this.capacidad = capacidad;
+        this.reservas = reservas;
         ID = incrementoID;
         incrementoID++;
     }
@@ -34,44 +37,22 @@ public class Sala {
     //public void afegir(Reserva reserva) {
     //  reservas.add(reserva);
     //}
-    public void afegeixReserva() {
-
-    }
-
-    public void anulaReserva() {
-
-    }
-
-    public ArrayList<Reserva> getReservas() {
-        return reservas;
-    }
-
-    public void setReservas(ArrayList<Reserva> reservas) {
-        this.reservas = reservas;
-    }
 
     public int getID() {
-        return ID;
+        return this.ID;
     }
 
+
     public String getNombre() {
-        return nombre;
+        return this.nombre;
     }
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
 
-    public static int getIncrementoID() {
-        return incrementoID;
-    }
-
-    public static void setIncrementoID(int incrementoID) {
-        Sala.incrementoID = incrementoID;
-    }
-
     public String getDescripcion() {
-        return descripcion;
+        return this.descripcion;
     }
 
     public void setDescripcion(String descripcion) {
@@ -79,11 +60,20 @@ public class Sala {
     }
 
     public int getCapacidad() {
-        return capacidad;
+        return this.capacidad;
     }
 
     public void setCapacidad(int capacidad) {
         this.capacidad = capacidad;
     }
+
+    public ArrayList<Reserva> getReservas() {
+        return this.reservas;
+    }
+
+    public void setReservas(ArrayList<Reserva> reservas) {
+        this.reservas = reservas;
+    }
+    
 
 }

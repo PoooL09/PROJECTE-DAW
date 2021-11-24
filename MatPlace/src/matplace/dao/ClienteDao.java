@@ -22,10 +22,17 @@ public class ClienteDao implements Crud{
 
     // String nombre, String apellidos, String DNI, String telefono, String mail
 
+    private Format format = new Format();
+
+
     @Override
     public void create(Object object) {
         Cliente cliente = (Cliente) object;
-        fileService.escribirFichero(archivoDestino, cliente.getID() + fileService.getCHARACTER_SPLIT() + cliente.getDNI() + fileService.getCHARACTER_SPLIT() + cliente.getTelefono() + fileService.getCHARACTER_SPLIT() + cliente.getMail());
+        fileService.escribirFichero(archivoDestino, format.takeData(cliente, fileService.getCHARACTER_SPLIT()));
+        /*cliente.getID() + fileService.getCHARACTER_SPLIT() + 
+        cliente.getDNI() + fileService.getCHARACTER_SPLIT() + 
+        cliente.getTelefono() + fileService.getCHARACTER_SPLIT() + 
+        cliente.getMail());*/
     }
 
     @Override

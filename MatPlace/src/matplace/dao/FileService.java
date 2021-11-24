@@ -25,6 +25,7 @@ public class FileService {
     private final File CARPETA_ARCHIVOS = new File(System.getProperty("user.home") + File.separator + "MatPlace");
     
     private final String CHARACTER_SPLIT = "#";
+    private final String CHARACTER_SPLIT_ARRAY = "|";
 
     /**
      * Constructor privado. Patrón singleton.
@@ -104,4 +105,11 @@ public class FileService {
     public String getCHARACTER_SPLIT() {
         return CHARACTER_SPLIT;
     }
+
+
+    public String getCHARACTER_SPLIT_ARRAY() {
+        return CHARACTER_SPLIT_ARRAY;
+    }
+
+
 }
