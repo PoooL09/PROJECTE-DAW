@@ -19,10 +19,18 @@ public class MaterialDao implements Crud{
     
     private File archivoDestino = new File(fileService.getCARPETA_ARCHIVOS() + File.separator + "conserje");
     
+    private Format format = new Format();
+
+
     @Override
     public void create(Object object) {
         Material material = (Material) object;
-        fileService.escribirFichero(archivoDestino, material.getEAN() + fileService.getCHARACTER_SPLIT() + material.getNombre() + fileService.getCHARACTER_SPLIT() + material.getDescripcion()  + fileService.getCHARACTER_SPLIT() + material.getDescripcion() + fileService.getCHARACTER_SPLIT() + material.getCantidad() + fileService.getCHARACTER_SPLIT() + material.getCantidad_disponible());
+        fileService.escribirFichero(archivoDestino, format.takeData(material, fileService.getCHARACTER_SPLIT())); 
+        /*material.getEAN() + fileService.getCHARACTER_SPLIT() + 
+        material.getNombre() + fileService.getCHARACTER_SPLIT() + 
+        material.getDescripcion()  + fileService.getCHARACTER_SPLIT() + 
+        material.getCantidad() + fileService.getCHARACTER_SPLIT() + 
+        material.getCantidad_disponible());*/
     }
 
     @Override
