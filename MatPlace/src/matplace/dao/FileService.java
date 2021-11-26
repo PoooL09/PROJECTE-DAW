@@ -99,8 +99,8 @@ public class FileService {
 
     }
     
-   public static boolean actualizar(File fichero0bjetivo, String lineaEliminarID, String lineaNuevaText) {
-        String nombreF = fichero0bjetivo.toString() + "temp";
+   public boolean actualizar(File fichero0bjetivo, String lineaEliminarID, String lineaNuevaText) {
+        String nombreF = "temp" + fichero0bjetivo.toString();
         File fileTemp = new File(nombreF);
 
         Scanner entrada = null;
