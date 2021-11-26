@@ -94,8 +94,7 @@ public class FileService {
             contenido += entrada.nextLine() + "\n";
             numeroDeLinea++;
         }
-arrray[0]
-     array[1]
+
         return contenido;
 
     }

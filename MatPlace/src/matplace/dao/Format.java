@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import matplace.model.Cliente;
 import matplace.model.Conserje;
 import matplace.model.Material;
+import matplace.model.Persona;
 import matplace.model.Reserva;
 import matplace.model.Sala;
 
@@ -24,11 +25,11 @@ public class Format {
     }
 
 
-    public String takeData(ArrayList<Usuario> dato, String characterSplit, String characterSplitThis) {
+    public String takeData(ArrayList<Persona> dato, String characterSplit, String characterSplitThis) {
 
         String valor = "";
 
-        for (Usuario usuario : dato) {
+        for (Persona usuario : dato) {
             valor += takeData(usuario, characterSplit) + characterSplitThis;
         }
 
@@ -56,7 +57,7 @@ public class Format {
         dato.getMail();
     }
 
-    public String takeData(Usuario dato, String characterSplit) {
+    public String takeData(Persona dato, String characterSplit) {
 
         return  dato.getNombre() + characterSplit + 
         dato.getApellidos() + characterSplit +  

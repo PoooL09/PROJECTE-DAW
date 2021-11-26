@@ -32,7 +32,7 @@ public class ReservaDao implements Crud{
     @Override
     public void create(Object object) {
         Reserva reserva = (Reserva) object;
-        fileService.escribirFichero(archivoDestino, format.takeData(reserva, fileService.getCHARACTER_SPLIT()));
+//        fileService.escribirFichero(archivoDestino, format.takeData(reserva, fileService.getCHARACTER_SPLIT()));
     }
 
     @Override

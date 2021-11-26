@@ -14,6 +14,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 
@@ -29,9 +30,6 @@ public class Controller extends Application implements Initializable {
     @FXML
     ImageView logo;
 
-    long start = System.currentTimeMillis();
-    long end = System.currentTimeMillis();
-
     /**
      * Inicia el controlador
      *
@@ -41,7 +39,8 @@ public class Controller extends Application implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
-       
+       logo.setImage(new Image("icon.png"));
+        
     }
 
     /**
@@ -50,7 +49,7 @@ public class Controller extends Application implements Initializable {
      * @param event
      */
     @FXML
-    private void handleButtonSubir(ActionEvent event) {
+    private void handleButtonSalas(ActionEvent event) {
 
     }
      /**
@@ -59,7 +58,7 @@ public class Controller extends Application implements Initializable {
      * @param event
      */
     @FXML
-    private void handleButtonSubir(ActionEvent event) {
+    private void handleButtonPersonas(ActionEvent event) {
 
     }
      /**
@@ -68,7 +67,7 @@ public class Controller extends Application implements Initializable {
      * @param event
      */
     @FXML
-    private void handleButtonSubir(ActionEvent event) {
+    private void handleButtonReservas(ActionEvent event) {
 
     }
      /**
@@ -77,7 +76,7 @@ public class Controller extends Application implements Initializable {
      * @param event
      */
     @FXML
-    private void handleButtonSubir(ActionEvent event) {
+    private void handleButtonMateriales(ActionEvent event) {
 
     }
 
