@@ -7,10 +7,16 @@ package matplace.presentacio.controller;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -22,11 +28,11 @@ import javafx.stage.Stage;
  * @author pg_po
  * @version: 02/06/2021/A
  */
-public class Controller extends Application implements Initializable {
+public class ControllerGestioSalas extends Application implements Initializable {
 
     @FXML
     Button btnLogout;
-    
+
     @FXML
     ImageView logo;
 
@@ -39,21 +45,28 @@ public class Controller extends Application implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
-       logo.setImage(new Image("icon.png"));
-        
+        logo.setImage(new Image("icon.png"));
+
     }
 
     /**
-     * 
+     *
      *
      * @param event
      */
     @FXML
     private void handleButtonSalas(ActionEvent event) {
+        Node st = (Node) event.getSource();
 
+        try {
+            this.start((Stage) st.getScene().getWindow());
+        } catch (Exception ex) {
+            Logger.getLogger(ControllerGestioSalas.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
-     /**
-     * 
+
+    /**
+     *
      *
      * @param event
      */
@@ -61,8 +74,9 @@ public class Controller extends Application implements Initializable {
     private void handleButtonPersonas(ActionEvent event) {
 
     }
-     /**
-     * 
+
+    /**
+     *
      *
      * @param event
      */
@@ -70,20 +84,28 @@ public class Controller extends Application implements Initializable {
     private void handleButtonReservas(ActionEvent event) {
 
     }
-     /**
-     * 
+
+    /**
+     *
      *
      * @param event
      */
     @FXML
     private void handleButtonMateriales(ActionEvent event) {
-
+ 
     }
 
     @Override
-    public void start(Stage primaryStage) throws Exception {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void start(Stage stage) throws Exception {
+        Parent root = FXMLLoader.load(getClass().getResource("/bitcloud/client/presentacion/view/FXML_MenuPrincipal.fxml"));
+
+        Scene scene = new Scene(root);
+
+        stage.setTitle("BitCloud");
+        stage.setScene(scene);
+        stage.getIcons().add(new Image("file:icon.png"));
+        stage.setResizable(false);
+        stage.show();
     }
 
-   
 }

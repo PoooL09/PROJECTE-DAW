@@ -15,7 +15,7 @@ import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import matplace.model.Sala;
-import matplace.presentacio.controller.Controller;
+import matplace.presentacio.controller.ControllerMenuPrincipal;
 
 /**
  *
@@ -71,13 +71,13 @@ public class MatPlace extends Application {
     public void start(Stage stage) throws Exception {
         Parent root = null;
 
-        root = FXMLLoader.load(getClass().getResource("/matPlace/presentacio/view/FXML.fxml"));
+        root = FXMLLoader.load(getClass().getResource("/matPlace/presentacio/view/FXML_MenuPrincipal.fxml"));
 
         Scene scene = new Scene(root);
 
         stage.setTitle("MatPlace");
         stage.setScene(scene);
-        stage.getIcons().add(new Image("file:icon.png"));
+        stage.getIcons().add(new Image("icon.png"));
         stage.setResizable(false);
         stage.show();
     }
