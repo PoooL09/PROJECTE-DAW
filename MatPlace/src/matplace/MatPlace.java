@@ -56,9 +56,9 @@ public class MatPlace {
      */
     public static void main(String[] args) {
         
-        Sala pistaFutbolA = new Sala("Pista de Futbol/Basquet 1");
-        Sala pistaFutbolB = new Sala("Pista de Futbol/Basquet 2");
-        Sala pistaFutbolC = new Sala("Pista de Futbol/Basquet 3");
+        //Sala pistaFutbolA = new Sala("Pista de Futbol/Basquet 1");
+        //Sala pistaFutbolB = new Sala("Pista de Futbol/Basquet 2");
+        //Sala pistaFutbolC = new Sala("Pista de Futbol/Basquet 3");
         
     }
     

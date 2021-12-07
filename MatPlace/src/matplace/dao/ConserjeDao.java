@@ -28,7 +28,7 @@ public class ConserjeDao implements Crud {
     @Override
     public void create(Object object) {
         Conserje conserje = (Conserje) object;
-        fileService.escribirFichero(archivoDestino, format.takeData(conserje, fileService.getCHARACTER_SPLIT()));
+        fileService.escribirFichero(archivoDestino, format.takeData(conserje, fileService.getCHARACTER_SPLIT_LV1()));
         /*conserje.getID() + fileService.getCHARACTER_SPLIT() + 
         conserje.getDNI() + fileService.getCHARACTER_SPLIT() + 
         conserje.getTelefono() + fileService.getCHARACTER_SPLIT() + 

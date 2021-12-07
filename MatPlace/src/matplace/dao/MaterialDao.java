@@ -25,7 +25,7 @@ public class MaterialDao implements Crud{
     @Override
     public void create(Object object) {
         Material material = (Material) object;
-        fileService.escribirFichero(archivoDestino, format.takeData(material, fileService.getCHARACTER_SPLIT())); 
+        fileService.escribirFichero(archivoDestino, format.takeData(material, fileService.getCHARACTER_SPLIT_LV1()));
         /*material.getEAN() + fileService.getCHARACTER_SPLIT() + 
         material.getNombre() + fileService.getCHARACTER_SPLIT() + 
         material.getDescripcion()  + fileService.getCHARACTER_SPLIT() + 

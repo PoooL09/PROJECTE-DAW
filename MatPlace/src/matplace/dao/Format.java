@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import matplace.model.Cliente;
 import matplace.model.Conserje;
 import matplace.model.Material;
+import matplace.model.Persona;
 import matplace.model.Reserva;
 import matplace.model.Sala;
 
@@ -13,28 +14,41 @@ public class Format {
     private FileService fileService = FileService.getInstance();
 
     // revisar spliters characters
-    public String takeData(Reserva reserva, String characterSplit) {
+    public String takeData(Reserva reserva, String characterSplitLv1, String characterSplitLv2, String characterSplitLv3) {
 
-        return takeData(reserva.getMiembrosSala(), characterSplit, fileService.getCHARACTER_SPLIT_ARRAY()) + characterSplit + 
-       //takeData(reserva.getResponsable(), fileService.getCHARACTER_SPLIT_ARRAY()) + characterSplit + 
-        //takeData(reserva.getConserje(), fileService.getCHARACTER_SPLIT_ARRAY()) + characterSplit + 
-        takeData(reserva.getMaterial(), fileService.getCHARACTER_SPLIT_ARRAY()) + characterSplit + 
-        reserva.getDataInici() + characterSplit + 
+        return takeDataPersona(reserva.getMiembrosSala(), characterSplitLv2, characterSplitLv3) + characterSplitLv1 +
+        takeData(reserva.getResponsable(), characterSplitLv2) + characterSplitLv1 +
+        takeData(reserva.getConserje(), characterSplitLv2) + characterSplitLv1 +
+        takeData(reserva.getMaterial(), characterSplitLv2) + characterSplitLv1 +
+        reserva.getDataInici() + characterSplitLv1 +
         reserva.getDataFinal();
     }
 
 
-    public String takeData(ArrayList<Usuario> dato, String characterSplit, String characterSplitThis) {
+    public String takeDataPersona(ArrayList<Persona> dato, String characterSplitLv1, String characterSplitLv2) {
 
         String valor = "";
 
-        for (Usuario usuario : dato) {
-            valor += takeData(usuario, characterSplit) + characterSplitThis;
+        for (Persona usuario : dato) {
+            valor += takeData(usuario, characterSplitLv2) + characterSplitLv1;
         }
 
     return valor;
 
     }
+
+    public String takeDataReserva(ArrayList<Reserva> dato, String characterSplitLv1, String characterSplitLv2, String character_split_lv4, String character_split_lv5) {
+
+        String valor = "";
+
+        for (Reserva reserva : dato) {
+            valor += takeData(reserva, characterSplitLv2, character_split_lv4, character_split_lv5) + characterSplitLv1;
+        }
+
+    return valor;
+
+    }
+
 
     public String takeData(Cliente dato, String characterSplit) {
 
@@ -56,7 +70,7 @@ public class Format {
         dato.getMail();
     }
 
-    public String takeData(Usuario dato, String characterSplit) {
+    public String takeData(Persona dato, String characterSplit) {
 
         return  dato.getNombre() + characterSplit + 
         dato.getApellidos() + characterSplit +  
@@ -78,9 +92,11 @@ public class Format {
 
 // String nombre, String descripcion, int capacidad, ArrayList<Reserva> reservas
 
-    public String takeData(Sala sala, String character_SPLIT) {
-        return sala.getNombre() + character_SPLIT +
-        "";
+    public String takeData(Sala sala, String characterSplitLv1, String characterSplitLv2, String characterSplitSplitLv3, String character_split_lv4, String character_split_lv5) {
+        return sala.getNombre() + characterSplitLv1 +
+        sala.getDescripcion() + characterSplitLv1 +
+        sala.getCapacidad() + characterSplitLv1 +
+        takeDataReserva(sala.getReservas(), characterSplitLv2, characterSplitSplitLv3, character_split_lv4, character_split_lv5);
     }
 
 

@@ -17,6 +17,8 @@ public class Material {
     int cantidad;
     int cantidad_disponible;
 
+
+
     public Material(String EAN, String nombre, String descripcion, int cantidad, int cantidad_disponible) {
         this.EAN = EAN;
         this.nombre = nombre;

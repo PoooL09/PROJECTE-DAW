@@ -24,8 +24,11 @@ public class FileService {
 
     private final File CARPETA_ARCHIVOS = new File(System.getProperty("user.home") + File.separator + "MatPlace");
     
-    private final String CHARACTER_SPLIT = "#";
-    private final String CHARACTER_SPLIT_ARRAY = "|";
+    private final String CHARACTER_SPLIT_LV1 = "#";
+    private final String CHARACTER_SPLIT_LV2_ARRAY = "|";
+    private final String CHARACTER_SPLIT_LV3_DEEP = "¬";
+    private final String CHARACTER_SPLIT_LV4 = "ª";
+    private final String CHARACTER_SPLIT_LV5 = "º";
 
     /**
      * Constructor privado. Patrón singleton.
@@ -93,8 +96,8 @@ public class FileService {
             contenido += entrada.nextLine() + "\n";
             numeroDeLinea++;
         }
-arrray[0]
-     array[1]
+//arrray[0]
+     //array[1]
         return contenido;
 
     }
@@ -103,14 +106,25 @@ arrray[0]
         return CARPETA_ARCHIVOS;
     }
 
-    public String getCHARACTER_SPLIT() {
-        return CHARACTER_SPLIT;
+    public String getCHARACTER_SPLIT_LV1() {
+        return CHARACTER_SPLIT_LV1;
     }
 
 
-    public String getCHARACTER_SPLIT_ARRAY() {
-        return CHARACTER_SPLIT_ARRAY;
+    public String getCHARACTER_SPLIT_LV2_ARRAY() {
+        return CHARACTER_SPLIT_LV2_ARRAY;
     }
 
 
+    public String getCHARACTER_SPLIT_LV3_DEEP() {
+        return this.CHARACTER_SPLIT_LV3_DEEP;
+    }
+
+    public String getCHARACTER_SPLIT_LV4() {
+        return CHARACTER_SPLIT_LV4;
+    }
+
+    public String getCHARACTER_SPLIT_LV5() {
+        return CHARACTER_SPLIT_LV5;
+    }
 }

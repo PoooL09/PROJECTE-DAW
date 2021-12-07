@@ -6,7 +6,6 @@
 package matplace.model;
 
 /**
- *
  * @author pg_po
  */
 public class Conserje extends Persona {
@@ -15,6 +14,11 @@ public class Conserje extends Persona {
     private int ID;
     private static int incrementoID;
 
+    public Conserje(int ID, String nombre, String apellidos, String telefono, String mail, String DNI) {
+        super(nombre, apellidos, telefono, mail);
+        this.DNI = DNI;
+        this.ID = ID;
+    }
 
     public Conserje(String nombre, String apellidos, String DNI, String telefono, String mail) {
         super(nombre, apellidos, telefono, mail);
@@ -24,15 +28,13 @@ public class Conserje extends Persona {
     }
 
 
-
-
     public int getID() {
         return this.ID;
     }
 
     public void setID(int ID) {
         this.ID = ID;
-    }    
+    }
 
     public String getDNI() {
         return this.DNI;
@@ -54,7 +56,6 @@ public class Conserje extends Persona {
     public static void setIncrementoID(int incrementoID) {
         Conserje.incrementoID = incrementoID;
     }
-
 
 
 }

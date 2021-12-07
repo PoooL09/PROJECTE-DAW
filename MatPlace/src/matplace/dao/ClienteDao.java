@@ -28,7 +28,7 @@ public class ClienteDao implements Crud{
     @Override
     public void create(Object object) {
         Cliente cliente = (Cliente) object;
-        fileService.escribirFichero(archivoDestino, format.takeData(cliente, fileService.getCHARACTER_SPLIT()));
+        fileService.escribirFichero(archivoDestino, format.takeData(cliente, fileService.getCHARACTER_SPLIT_LV1()));
         /*cliente.getID() + fileService.getCHARACTER_SPLIT() + 
         cliente.getDNI() + fileService.getCHARACTER_SPLIT() + 
         cliente.getTelefono() + fileService.getCHARACTER_SPLIT() + 

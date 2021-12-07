@@ -25,7 +25,7 @@ public class SalaDao implements Crud{
     public void create(Object object) {
         // String nombre, String descripcion, int capacidad, ArrayList<Reserva> reservas
         Sala sala = (Sala) object;
-        fileService.escribirFichero(archivoDestino, format.takeData(sala, fileService.getCHARACTER_SPLIT()));
+        fileService.escribirFichero(archivoDestino, format.takeData(sala, fileService.getCHARACTER_SPLIT_LV1(), fileService.getCHARACTER_SPLIT_LV2_ARRAY(), fileService.getCHARACTER_SPLIT_LV3_DEEP(), fileService.getCHARACTER_SPLIT_LV4(), fileService.getCHARACTER_SPLIT_LV5()));
         /*sala.getNombre() + fileService.getCHARACTER_SPLIT() + 
         sala.getDescripcion() + fileService.getCHARACTER_SPLIT() + 
         sala.getCapacidad() + fileService.getCHARACTER_SPLIT() + 
