@@ -10,6 +10,67 @@ import java.util.Locale;
 
 public class Undo {
 
+    public Cliente yourClient(String dato, int id, String characterSplitLv1) {
+
+        String[] clientesString = separate(dato, "\n");
+
+        for (String x : clientesString) {
+            Cliente cliente = creatorCliente(separate(x, characterSplitLv1));
+            if (id == cliente.getID()) {
+                return cliente;
+            }
+        }
+
+        return null;
+    }
+
+    public Conserje yourConserje(String dato, int id, String characterSplitLv1) {
+
+        String[] conserjeString = separate(dato, "\n");
+
+        for (String x : conserjeString) {
+            Conserje conserje = creatorConserje(separate(x, characterSplitLv1));
+            if (id == conserje.getID()) {
+                return conserje;
+            }
+        }
+
+        return null;
+    }
+
+    public Material yourMaterial(String dato, int id, String characterSplitLv1) {
+
+        // material no tiene id int sino k es ean String
+        /*
+        Material material = creatorMaterial(separate(dato, characterSplitLv1));
+        return material;
+        */
+        return null;
+    }
+
+    public Reserva yourReserva(String dato, int id, String characterSplitLv1, String characterSplitLv2, String characterSplitLv3) {
+        /*
+        Reserva reserva = creatorReserva(separate(dato, characterSplitLv1), characterSplitLv2, characterSplitLv3);
+        return reserva;
+         */
+        return null;
+    }
+
+    public Sala yourSala(String dato, int id, String characterSplitLv1, String characterSplitLv2, String characterSplitLv3, String characterSplitLv4, String characterSplitLv5) {
+
+        String[] salaString = separate(dato, "\n");
+
+        for (String x : salaString) {
+            Sala sala = creatorSala(separate(x, characterSplitLv1), characterSplitLv2, characterSplitLv3, characterSplitLv4, characterSplitLv5);
+            if (id == sala.getID()) {
+                return sala;
+            }
+        }
+
+        return null;
+    }
+
+
     public String[] separate(String dato, String characterSplitLv1) {
 
         String[] chopped = dato.split(characterSplitLv1);
@@ -78,7 +139,6 @@ public class Undo {
     }
 
 
-
     public ArrayList<Reserva> arrayReserva(String dato, String charactherSplitLv2, String charatherSplitLv3, String charatherSplitLv4, String charatherSplitLv5) {
 
         String[] abc = separate(dato, charactherSplitLv2);
@@ -104,5 +164,6 @@ public class Undo {
 
         return sala;
     }
+
 
 }

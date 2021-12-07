@@ -7,6 +7,7 @@ package matplace.dao;
 
 import java.io.File;
 
+import matplace.model.Conserje;
 import matplace.model.Material;
 
 /**
@@ -20,6 +21,7 @@ public class MaterialDao implements Crud{
     private File archivoDestino = new File(fileService.getCARPETA_ARCHIVOS() + File.separator + "conserje");
     
     private Format format = new Format();
+    private Undo undo = new Undo();
 
 
     @Override
@@ -33,19 +35,23 @@ public class MaterialDao implements Crud{
         material.getCantidad_disponible());*/
     }
 
+    // material no tiene id int sino k es ean String
     @Override
     public Object read(int id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        Material material = undo.yourMaterial(fileService.leerFichero(archivoDestino), id, fileService.getCHARACTER_SPLIT_LV1());
+        return material;
     }
 
     @Override
     public void update(Object object) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        Material material = (Material) object;
+        // FileService.update(material, archivoDestino)
     }
 
     @Override
     public void delete(Object object) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        Material material = (Material) object;
+        // FileService.delete(material, archivoDestino)
     }
     
     

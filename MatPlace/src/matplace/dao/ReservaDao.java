@@ -6,48 +6,50 @@
 package matplace.dao;
 
 import java.io.File;
-import java.util.ArrayList;
 
-import matplace.model.Cliente;
-import matplace.model.Conserje;
-import matplace.model.Material;
-import matplace.model.Persona;
 import matplace.model.Reserva;
 
 // PROBLEMA, NO DECLARAMOS LOS SEPARADORES ENTRE LOS DATOS Y NO VA A SABER LEERLO (EL ARRAY)
+
 /**
- *
  * @author pg_po
  */
 
-public class ReservaDao implements Crud{
+public class ReservaDao implements Crud {
 
     private FileService fileService = FileService.getInstance();
     private Format format = new Format();
-    
+    private Undo undo = new Undo();
+
     private File archivoDestino = new File(fileService.getCARPETA_ARCHIVOS() + File.separator + "conserje");
-    
+
     //ArrayList<Persona> miembrosSala,Cliente responsable, Conserje conserje, Material material, Date dataInici, Date dataFinal
 
     @Override
     public void create(Object object) {
         Reserva reserva = (Reserva) object;
-        fileService.escribirFichero(archivoDestino, format.takeData(reserva, fileService.getCHARACTER_SPLIT_LV1(), fileService.getCHARACTER_SPLIT_LV2_ARRAY(), fileService.getCHARACTER_SPLIT_LV3_DEEP()));
+        fileService.escribirFichero(archivoDestino, format.takeData(reserva, fileService.getCHARACTER_SPLIT_LV1(), fileService.getCHARACTER_SPLIT_LV2(), fileService.getCHARACTER_SPLIT_LV3()));
     }
 
     @Override
     public Object read(int id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        Reserva reserva = undo.yourReserva(fileService.leerFichero(archivoDestino), id,
+                fileService.getCHARACTER_SPLIT_LV1(),
+                fileService.getCHARACTER_SPLIT_LV2(),
+                fileService.getCHARACTER_SPLIT_LV3());
+        return reserva;
     }
 
     @Override
     public void update(Object object) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        Reserva reserva = (Reserva) object;
+        // FileService.update(reserva, archivoDestino)
     }
 
     @Override
     public void delete(Object object) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        Reserva reserva = (Reserva) object;
+        // FileService.delete(reserva, archivoDestino)
     }
 
 /*

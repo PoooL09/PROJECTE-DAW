@@ -23,6 +23,7 @@ public class ClienteDao implements Crud{
     // String nombre, String apellidos, String DNI, String telefono, String mail
 
     private Format format = new Format();
+    private Undo undo = new Undo();
 
 
     @Override
@@ -37,17 +38,22 @@ public class ClienteDao implements Crud{
 
     @Override
     public Object read(int id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+
+        Cliente cliente = undo.yourClient(fileService.leerFichero(archivoDestino), id, fileService.getCHARACTER_SPLIT_LV1());
+
+        return cliente;
     }
 
     @Override
     public void update(Object object) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        Cliente cliente = (Cliente) object;
+        // FileService.update(cliente, archivoDestino)
     }
 
     @Override
     public void delete(Object object) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        Cliente cliente = (Cliente) object;
+        // FileService.delete(cliente, archivoDestino)
     }
 
 
