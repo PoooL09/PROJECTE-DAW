@@ -2,7 +2,11 @@ package matplace.dao;
 
 import matplace.model.*;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.Locale;
 
 public class Undo {
 
@@ -52,11 +56,53 @@ public class Undo {
 
     // ArrayList<Persona> miembrosSala,Cliente responsable, Conserje conserje, Material material, Date dataInici, Date dataFinal
     public Reserva creatorReserva(String[] dato, String charactherSplitLv2, String charatherSplitLv3) {
-        Reserva reserva = new Reserva(arrayPersona(dato[0], charactherSplitLv2, charatherSplitLv3), creatorCliente(separate(dato[0], charactherSplitLv2)), dato[0], dato[0], dato[0], dato[0]);
+        Reserva reserva = new Reserva(arrayPersona(dato[0], charactherSplitLv2, charatherSplitLv3),
+                creatorCliente(separate(dato[1], charactherSplitLv2)),
+                creatorConserje(separate(dato[2], charactherSplitLv2)),
+                creatorMaterial(separate(dato[3], charactherSplitLv2)),
+                takeDate(dato[4]),
+                takeDate(dato[5]));
         return reserva;
     }
 
+    public Date takeDate(String dato) {
+        //DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MMMM d, yyyy", Locale.ENGLISH);
+        //Date date = formatter.parse(dato);
+        Date thedate = null;
+        try {
+            thedate = new SimpleDateFormat("MMMM d, yyyy", Locale.ENGLISH).parse(dato);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        return thedate;
+    }
+
+
+
+    public ArrayList<Reserva> arrayReserva(String dato, String charactherSplitLv2, String charatherSplitLv3, String charatherSplitLv4, String charatherSplitLv5) {
+
+        String[] abc = separate(dato, charactherSplitLv2);
+        ArrayList<Reserva> reservas = null;
+
+        for (String x : abc) {
+            Reserva reserva = creatorReserva(separate(x, charatherSplitLv3), charatherSplitLv4, charatherSplitLv5);
+            reservas.add(reserva);
+        }
+
+        return reservas;
+    }
 
     // int ID, String nombre, String descripcion, int capacidad, ArrayList<Reserva> reservas
+
+    public Sala creatorSala(String[] dato, String charactherSplitLv2, String charatherSplitLv3, String charatherSplitLv4, String charatherSplitLv5) {
+
+        Sala sala = new Sala(Integer.parseInt(dato[0]),
+                dato[1],
+                dato[2],
+                Integer.parseInt(dato[3]),
+                arrayReserva(dato[4], charactherSplitLv2, charatherSplitLv3, charatherSplitLv4, charatherSplitLv5));
+
+        return sala;
+    }
 
 }
