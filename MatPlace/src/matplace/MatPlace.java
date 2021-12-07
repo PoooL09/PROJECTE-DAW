@@ -5,61 +5,81 @@
  */
 package matplace;
 
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.image.Image;
+import javafx.stage.Stage;
 import matplace.model.Sala;
+import matplace.presentacio.controller.ControllerMenuPrincipal;
 
 /**
  *
  * @author pg_po
  */
-public class MatPlace {
+public class MatPlace extends Application {
 
     /**
      * @param args the command line arguments
-     * 
+     *
      * Projecte 1 - Espais centre cívic
-     * 
-     * Gestió de:
-     *      -Tres pistes de bàsquet/futbol
-     *      -Dues sales multius
-     *      -Una sala d'actes
-     * 
-     * Per fer-ho es necessita una aplicació que permeti fer aquesta gestió fàcilment.
-     * 
+     *
+     * Gestió de: -Tres pistes de bàsquet/futbol -Dues sales multius -Una sala
+     * d'actes
+     *
+     * Per fer-ho es necessita una aplicació que permeti fer aquesta gestió
+     * fàcilment.
+     *
      * Requisits:
-     * 
-     * Cada sala s'ha de reservar per franges horaries(30 min)
-     *      -La sala d'actes necesita a mes la disponibilitat d'un bidell.
-     * Per fer la reserva s'ha d'estar donat d'alta al sistema
-     *      -Cal poder registar tots el usuaris de la sala (tema covid). No es el mateix que donarlos d'alta. 
-     *       (El responsable de la sala te que estar donat d'alts al sistema, pero la resta de membres de la sala no es necesari que ho estiguin.)
-     * El usuari pot reserver la sala per un o més períodes de temps consecutius,
-     * Posiibilitat de reserves periòdiques.
-     * A part de la sala, es pot reservar opcionalment material. -> pilotes, raquetes, equip de so, etc
-     * S'ha de controlar el material en cadascuna de les franges
-     * Responsable del la reserva tambe es responsable del material.
-     * Llistats d'ocupació de cada sala per franges horaries(diari setmanal, rang)
-     * 
+     *
+     * Cada sala s'ha de reservar per franges horaries(30 min) -La sala d'actes
+     * necesita a mes la disponibilitat d'un bidell. Per fer la reserva s'ha
+     * d'estar donat d'alta al sistema -Cal poder registar tots el usuaris de la
+     * sala (tema covid). No es el mateix que donarlos d'alta. (El responsable
+     * de la sala te que estar donat d'alts al sistema, pero la resta de membres
+     * de la sala no es necesari que ho estiguin.) El usuari pot reserver la
+     * sala per un o més períodes de temps consecutius, Posiibilitat de reserves
+     * periòdiques. A part de la sala, es pot reservar opcionalment material. ->
+     * pilotes, raquetes, equip de so, etc S'ha de controlar el material en
+     * cadascuna de les franges Responsable del la reserva tambe es responsable
+     * del material. Llistats d'ocupació de cada sala per franges horaries(diari
+     * setmanal, rang)
+     *
      * Framework: Laravel
-     * 
+     *
      * No funcionals:
-     * 
-     * Cal desacoblar la UI de la resta de l'aplicació.
-     *        -Es començarà la implementació sense UI o s'afegiran clases de proves
-     *        -En una segona iteració s'implementarà una interficie gràfica.
-     * Cal desacoblar l'acces a les dades de les propies dades.
-     * El projecta s'ha d'implementar en java i ha d'estar orientat a objectes.
-     * No es poden utilizar BD's i per tant l'emmagatzematge de dades s'haurà de fer en fitxers plans (serialització o en txt)
-     * Cal implementar bateries de proves per tot el backend.
-     * Implementar javadoc.
-     * Diagrama de clases.
-     * 
+     *
+     * Cal desacoblar la UI de la resta de l'aplicació. -Es començarà la
+     * implementació sense UI o s'afegiran clases de proves -En una segona
+     * iteració s'implementarà una interficie gràfica. Cal desacoblar l'acces a
+     * les dades de les propies dades. El projecta s'ha d'implementar en java i
+     * ha d'estar orientat a objectes. No es poden utilizar BD's i per tant
+     * l'emmagatzematge de dades s'haurà de fer en fitxers plans (serialització
+     * o en txt) Cal implementar bateries de proves per tot el backend.
+     * Implementar javadoc. Diagrama de clases.
+     *
      */
     public static void main(String[] args) {
-        
-        //Sala pistaFutbolA = new Sala("Pista de Futbol/Basquet 1");
-        //Sala pistaFutbolB = new Sala("Pista de Futbol/Basquet 2");
-        //Sala pistaFutbolC = new Sala("Pista de Futbol/Basquet 3");
-        
+        launch(args);
     }
-    
+
+    @Override
+    public void start(Stage stage) throws Exception {
+        Parent root = null;
+
+        root = FXMLLoader.load(getClass().getResource("/matPlace/presentacio/view/FXML_MenuPrincipal.fxml"));
+
+        Scene scene = new Scene(root);
+
+        stage.setTitle("MatPlace");
+        stage.setScene(scene);
+        stage.getIcons().add(new Image("icon.png"));
+        stage.setResizable(false);
+        stage.show();
+    }
+
 }

@@ -1,10 +1,13 @@
 package matplace.dao;
 
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -96,9 +99,99 @@ public class FileService {
             contenido += entrada.nextLine() + "\n";
             numeroDeLinea++;
         }
-//arrray[0]
-     //array[1]
+
         return contenido;
+
+    }
+
+    public boolean actualizar(File fichero0bjetivo, String lineaEliminarID, String lineaNuevaText) {
+        String nombreF = "temp" + fichero0bjetivo.toString();
+        File fileTemp = new File(nombreF);
+
+        Scanner entrada = null;
+        String linea;
+        FileWriter fw = null;
+        PrintWriter pw = null;
+
+        int numeroDeLinea = 1;
+
+        try {
+            fw = new FileWriter(nombreF, true);
+            pw = new PrintWriter(fw);
+            entrada = new Scanner(fichero0bjetivo);
+
+            while (entrada.hasNext()) {
+                linea = entrada.nextLine().toLowerCase();
+                String id = linea.split("#")[0];
+                if (id.equals(lineaEliminarID)) {
+                    String split[] = leerFichero(fichero0bjetivo).split("\n");
+                    split[numeroDeLinea - 1] = lineaNuevaText;
+
+                    try {
+                        for (int i = 0; i < split.length; i++) {
+                            pw.println(split[i]);
+                        }
+                        fichero0bjetivo.delete();
+                        fileTemp.renameTo(fichero0bjetivo);
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    } finally {
+                        try {
+                            if (null != fw) {
+                                fw.close();
+                            }
+                        } catch (Exception e2) {
+                            e2.printStackTrace();
+                        }
+                    }
+                    return true;
+                }
+                numeroDeLinea++;
+            }
+
+        } catch (IOException ex) {
+            Logger.getLogger(FileService.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return false;
+    }
+
+    public void eliminar(File ficheroDestino, String lineaEliminarID) {
+        String lineToRemove = "";
+        File tempFile = new File("tempFile.txt");
+        BufferedReader reader = null;
+        BufferedWriter writer = null;
+        Scanner entrada = null;
+        String linea;
+        int numeroDeLinea = 1;
+        try {
+            writer = new BufferedWriter(new FileWriter(tempFile));
+            reader = new BufferedReader(new FileReader(ficheroDestino));
+            entrada = new Scanner(ficheroDestino);
+            while (entrada.hasNext()) {
+                linea = entrada.nextLine().toLowerCase();
+                String id = linea.split("#")[0];
+                if (id.equals(lineaEliminarID)) {
+                    String split[] = leerFichero(ficheroDestino).split("\n");
+                    lineToRemove = split[numeroDeLinea - 1];
+                }
+                numeroDeLinea++;
+            }
+
+            while ((linea = reader.readLine()) != null) {
+                String trimmedLine = linea.trim();
+                if (trimmedLine.equals(lineToRemove)) {
+                    continue;
+                }
+                writer.write(linea + System.getProperty("line.separator"));
+            }
+            writer.close();
+            reader.close();
+            tempFile.renameTo(ficheroDestino);
+
+        } catch (IOException ex) {
+            Logger.getLogger(FileService.class.getName()).log(Level.SEVERE, null, ex);
+        }
 
     }
 

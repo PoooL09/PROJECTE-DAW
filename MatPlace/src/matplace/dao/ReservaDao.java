@@ -8,6 +8,10 @@ package matplace.dao;
 import java.io.File;
 import java.util.ArrayList;
 
+import matplace.model.Cliente;
+import matplace.model.Conserje;
+import matplace.model.Material;
+import matplace.model.Persona;
 import matplace.model.Reserva;
 
 // PROBLEMA, NO DECLARAMOS LOS SEPARADORES ENTRE LOS DATOS Y NO VA A SABER LEERLO (EL ARRAY)
