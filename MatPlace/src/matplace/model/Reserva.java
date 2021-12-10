@@ -21,6 +21,7 @@ public class Reserva {
     private Date dataInici;
     private Date dataFinal;
 
+
     public Reserva() {
     }
 

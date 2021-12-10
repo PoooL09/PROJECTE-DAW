@@ -40,20 +40,19 @@ public class ClienteDao implements Crud{
     public Object read(int id) {
 
         Cliente cliente = undo.yourClient(fileService.leerFichero(archivoDestino), id, fileService.getCHARACTER_SPLIT_LV1());
-
         return cliente;
     }
 
     @Override
     public void update(Object object) {
         Cliente cliente = (Cliente) object;
-        // FileService.update(cliente, archivoDestino)
+        fileService.actualizar(archivoDestino, String.valueOf(cliente.getID()), format.takeData(cliente, fileService.getCHARACTER_SPLIT_LV1()));
     }
 
     @Override
-    public void delete(Object object) {
+    public void delete(Object object) { // se podria recibir un id y ya
         Cliente cliente = (Cliente) object;
-        // FileService.delete(cliente, archivoDestino)
+        fileService.eliminar(archivoDestino, String.valueOf(cliente.getID()));
     }
 
 
