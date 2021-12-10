@@ -92,7 +92,7 @@ public class Undo {
 
     // String EAN, String nombre, String descripcion, int cantidad, int cantidad_disponible
     public Material creatorMaterial(String[] dato) {
-        Material material = new Material(dato[0], dato[1], dato[2], Integer.parseInt(dato[3]), Integer.parseInt(dato[4]));
+        Material material = new Material(Integer.parseInt(dato[0]), dato[1], dato[2], Integer.parseInt(dato[3]), Integer.parseInt(dato[4]));
         return material;
     }
 
