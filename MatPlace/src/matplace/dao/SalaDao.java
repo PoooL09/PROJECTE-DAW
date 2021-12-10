@@ -46,13 +46,14 @@ public class SalaDao implements Crud {
     @Override
     public void update(Object object) {
         Sala sala = (Sala) object;
-        // FileService.update(sala, archivoDestino)
+        fileService.actualizar(archivoDestino, String.valueOf(sala.getID()), format.takeData(sala, fileService.getCHARACTER_SPLIT_LV1(), fileService.getCHARACTER_SPLIT_LV2(), fileService.getCHARACTER_SPLIT_LV3(), fileService.getCHARACTER_SPLIT_LV4(), fileService.getCHARACTER_SPLIT_LV5()));
+
     }
 
     @Override
     public void delete(Object object) {
         Sala sala = (Sala) object;
-        // FileService.delete(sala, archivoDestino)
+        fileService.eliminar(archivoDestino, String.valueOf(sala.getID()));
     }
 
 

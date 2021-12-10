@@ -43,13 +43,13 @@ public class ReservaDao implements Crud {
     @Override
     public void update(Object object) {
         Reserva reserva = (Reserva) object;
-        // FileService.update(reserva, archivoDestino)
+        fileService.actualizar(archivoDestino, String.valueOf(reserva.getID()), format.takeData(reserva, fileService.getCHARACTER_SPLIT_LV1(), fileService.getCHARACTER_SPLIT_LV2(), fileService.getCHARACTER_SPLIT_LV3()));
     }
 
     @Override
     public void delete(Object object) {
         Reserva reserva = (Reserva) object;
-        // FileService.delete(reserva, archivoDestino)
+        fileService.eliminar(archivoDestino, String.valueOf(reserva.getID()));
     }
 
 /*

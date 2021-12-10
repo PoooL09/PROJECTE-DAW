@@ -45,6 +45,16 @@ public class Undo {
         Material material = creatorMaterial(separate(dato, characterSplitLv1));
         return material;
         */
+
+        String[] materialString = separate(dato, "\n");
+
+        for (String x : materialString) {
+            Material material = creatorMaterial(separate(x, characterSplitLv1));
+            if (id == material.getEAN()) {
+                return material;
+            }
+        }
+
         return null;
     }
 
@@ -53,6 +63,16 @@ public class Undo {
         Reserva reserva = creatorReserva(separate(dato, characterSplitLv1), characterSplitLv2, characterSplitLv3);
         return reserva;
          */
+
+        String[] materialString = separate(dato, "\n");
+
+        for (String x : materialString) {
+            Reserva reserva = creatorReserva(separate(x, characterSplitLv1), characterSplitLv2, characterSplitLv3);
+            if (id == reserva.getID()) {
+                return reserva;
+            }
+        }
+
         return null;
     }
 
@@ -117,12 +137,13 @@ public class Undo {
 
     // ArrayList<Persona> miembrosSala,Cliente responsable, Conserje conserje, Material material, Date dataInici, Date dataFinal
     public Reserva creatorReserva(String[] dato, String charactherSplitLv2, String charatherSplitLv3) {
-        Reserva reserva = new Reserva(arrayPersona(dato[0], charactherSplitLv2, charatherSplitLv3),
-                creatorCliente(separate(dato[1], charactherSplitLv2)),
-                creatorConserje(separate(dato[2], charactherSplitLv2)),
-                creatorMaterial(separate(dato[3], charactherSplitLv2)),
-                takeDate(dato[4]),
-                takeDate(dato[5]));
+        Reserva reserva = new Reserva(Integer.parseInt(dato[0]),
+                arrayPersona(dato[1], charactherSplitLv2, charatherSplitLv3),
+                creatorCliente(separate(dato[2], charactherSplitLv2)),
+                creatorConserje(separate(dato[3], charactherSplitLv2)),
+                creatorMaterial(separate(dato[4], charactherSplitLv2)),
+                takeDate(dato[5]),
+                takeDate(dato[6]));
         return reserva;
     }
 

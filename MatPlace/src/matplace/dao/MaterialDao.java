@@ -45,13 +45,13 @@ public class MaterialDao implements Crud{
     @Override
     public void update(Object object) {
         Material material = (Material) object;
-        // FileService.update(material, archivoDestino)
+        fileService.actualizar(archivoDestino, String.valueOf(material.getEAN()), format.takeData(material, fileService.getCHARACTER_SPLIT_LV1()));
     }
 
     @Override
     public void delete(Object object) {
         Material material = (Material) object;
-        // FileService.delete(material, archivoDestino)
+        fileService.eliminar(archivoDestino, String.valueOf(material.getEAN()));
     }
     
     
