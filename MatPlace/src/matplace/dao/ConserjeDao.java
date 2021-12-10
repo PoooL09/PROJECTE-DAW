@@ -49,13 +49,13 @@ public class ConserjeDao implements Crud {
     @Override
     public void update(Object object) {
         Conserje conserje = (Conserje) object;
-        // FileService.update(conserje, archivoDestino)
+        fileService.actualizar(archivoDestino, String.valueOf(conserje.getID()),format.takeData(conserje, fileService.getCHARACTER_SPLIT_LV1()));
     }
 
     @Override
     public void delete(Object object) {
         Conserje conserje = (Conserje) object;
-        // FileService.delete(conserje, archivoDestino)
+        fileService.eliminar(archivoDestino, String.valueOf(conserje.getID()));
     }
 
 }
