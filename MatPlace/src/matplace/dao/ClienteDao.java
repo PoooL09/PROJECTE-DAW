@@ -23,12 +23,13 @@ public class ClienteDao implements Crud{
     // String nombre, String apellidos, String DNI, String telefono, String mail
 
     private Format format = new Format();
+    private Undo undo = new Undo();
 
 
     @Override
     public void create(Object object) {
         Cliente cliente = (Cliente) object;
-        fileService.escribirFichero(archivoDestino, format.takeData(cliente, fileService.getCHARACTER_SPLIT()));
+        fileService.escribirFichero(archivoDestino, format.takeData(cliente, fileService.getCHARACTER_SPLIT_LV1()));
         /*cliente.getID() + fileService.getCHARACTER_SPLIT() + 
         cliente.getDNI() + fileService.getCHARACTER_SPLIT() + 
         cliente.getTelefono() + fileService.getCHARACTER_SPLIT() + 
@@ -37,17 +38,21 @@ public class ClienteDao implements Crud{
 
     @Override
     public Object read(int id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+
+        Cliente cliente = undo.yourClient(fileService.leerFichero(archivoDestino), id, fileService.getCHARACTER_SPLIT_LV1());
+        return cliente;
     }
 
     @Override
     public void update(Object object) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        Cliente cliente = (Cliente) object;
+        fileService.actualizar(archivoDestino, String.valueOf(cliente.getID()), format.takeData(cliente, fileService.getCHARACTER_SPLIT_LV1()));
     }
 
     @Override
-    public void delete(Object object) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void delete(Object object) { // se podria recibir un id y ya
+        Cliente cliente = (Cliente) object;
+        fileService.eliminar(archivoDestino, String.valueOf(cliente.getID()));
     }
 
 

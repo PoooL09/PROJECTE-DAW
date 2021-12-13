@@ -11,21 +11,21 @@ import matplace.model.Sala;
  */
 
 /**
- *
  * @author pg_po
  */
-public class SalaDao implements Crud{
+public class SalaDao implements Crud {
 
     private FileService fileService = FileService.getInstance();
-    
+
     private File archivoDestino = new File(fileService.getCARPETA_ARCHIVOS() + File.separator + "sala");
     private Format format = new Format();
+    private Undo undo = new Undo();
 
     @Override
     public void create(Object object) {
         // String nombre, String descripcion, int capacidad, ArrayList<Reserva> reservas
         Sala sala = (Sala) object;
-        //fileService.escribirFichero(archivoDestino, format.takeData(sala, fileService.getCHARACTER_SPLIT()));
+        fileService.escribirFichero(archivoDestino, format.takeData(sala, fileService.getCHARACTER_SPLIT_LV1(), fileService.getCHARACTER_SPLIT_LV2(), fileService.getCHARACTER_SPLIT_LV3(), fileService.getCHARACTER_SPLIT_LV4(), fileService.getCHARACTER_SPLIT_LV5()));
         /*sala.getNombre() + fileService.getCHARACTER_SPLIT() + 
         sala.getDescripcion() + fileService.getCHARACTER_SPLIT() + 
         sala.getCapacidad() + fileService.getCHARACTER_SPLIT() + 
@@ -34,19 +34,27 @@ public class SalaDao implements Crud{
 
     @Override
     public Object read(int id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        Sala sala = undo.yourSala(fileService.leerFichero(archivoDestino), id,
+                fileService.getCHARACTER_SPLIT_LV1(),
+                fileService.getCHARACTER_SPLIT_LV2(),
+                fileService.getCHARACTER_SPLIT_LV3(),
+                fileService.getCHARACTER_SPLIT_LV4(),
+                fileService.getCHARACTER_SPLIT_LV5());
+        return sala;
     }
 
     @Override
     public void update(Object object) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        Sala sala = (Sala) object;
+        fileService.actualizar(archivoDestino, String.valueOf(sala.getID()), format.takeData(sala, fileService.getCHARACTER_SPLIT_LV1(), fileService.getCHARACTER_SPLIT_LV2(), fileService.getCHARACTER_SPLIT_LV3(), fileService.getCHARACTER_SPLIT_LV4(), fileService.getCHARACTER_SPLIT_LV5()));
+
     }
 
     @Override
     public void delete(Object object) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        Sala sala = (Sala) object;
+        fileService.eliminar(archivoDestino, String.valueOf(sala.getID()));
     }
 
-    
-       
+
 }

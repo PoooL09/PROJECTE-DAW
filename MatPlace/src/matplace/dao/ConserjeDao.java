@@ -6,6 +6,8 @@
 package matplace.dao;
 
 import java.io.File;
+
+import matplace.model.Cliente;
 import matplace.model.Conserje;
 
 /**
@@ -18,6 +20,7 @@ public class ConserjeDao implements Crud {
     
     private File archivoDestino = new File(fileService.getCARPETA_ARCHIVOS() + File.separator + "conserje");
     private Format format = new Format();
+    private Undo undo = new Undo();
 
     public void create(Conserje conserje) {
     }
@@ -28,7 +31,7 @@ public class ConserjeDao implements Crud {
     @Override
     public void create(Object object) {
         Conserje conserje = (Conserje) object;
-        fileService.escribirFichero(archivoDestino, format.takeData(conserje, fileService.getCHARACTER_SPLIT()));
+        fileService.escribirFichero(archivoDestino, format.takeData(conserje, fileService.getCHARACTER_SPLIT_LV1()));
         /*conserje.getID() + fileService.getCHARACTER_SPLIT() + 
         conserje.getDNI() + fileService.getCHARACTER_SPLIT() + 
         conserje.getTelefono() + fileService.getCHARACTER_SPLIT() + 
@@ -37,17 +40,22 @@ public class ConserjeDao implements Crud {
 
     @Override
     public Object read(int id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+
+        Conserje conserje = undo.yourConserje(fileService.leerFichero(archivoDestino), id, fileService.getCHARACTER_SPLIT_LV1());
+
+        return conserje;
     }
 
     @Override
     public void update(Object object) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        Conserje conserje = (Conserje) object;
+        fileService.actualizar(archivoDestino, String.valueOf(conserje.getID()),format.takeData(conserje, fileService.getCHARACTER_SPLIT_LV1()));
     }
 
     @Override
     public void delete(Object object) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        Conserje conserje = (Conserje) object;
+        fileService.eliminar(archivoDestino, String.valueOf(conserje.getID()));
     }
 
 }

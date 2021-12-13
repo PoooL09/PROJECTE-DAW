@@ -11,13 +11,15 @@ package matplace.model;
  */
 public class Material {
     
-    String EAN; //identificador unico de cada producto.
+    int EAN; //identificador unico de cada producto.
     String nombre;
     String descripcion;
     int cantidad;
     int cantidad_disponible;
 
-    public Material(String EAN, String nombre, String descripcion, int cantidad, int cantidad_disponible) {
+
+
+    public Material(int EAN, String nombre, String descripcion, int cantidad, int cantidad_disponible) {
         this.EAN = EAN;
         this.nombre = nombre;
         this.descripcion = descripcion;
@@ -40,11 +42,11 @@ public class Material {
         this.nombre = nombre;
     }
 
-    public String getEAN() {
+    public int getEAN() {
         return EAN;
     }
 
-    public void setEAN(String EAN) {
+    public void setEAN(int EAN) {
         this.EAN = EAN;
     }
 

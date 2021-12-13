@@ -17,8 +17,8 @@ import java.util.logging.Logger;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+
 /**
- *
  * @author pg_po
  */
 public class FileService {
@@ -27,8 +27,11 @@ public class FileService {
 
     private final File CARPETA_ARCHIVOS = new File(System.getProperty("user.home") + File.separator + "MatPlace");
 
-    private final String CHARACTER_SPLIT = "#";
-    private final String CHARACTER_SPLIT_ARRAY = "|";
+    private final String CHARACTER_SPLIT_LV1 = "#";
+    private final String CHARACTER_SPLIT_LV2 = "|";
+    private final String CHARACTER_SPLIT_LV3 = "¬";
+    private final String CHARACTER_SPLIT_LV4 = "ª";
+    private final String CHARACTER_SPLIT_LV5 = "º";
 
     /**
      * Constructor privado. Patrón singleton.
@@ -196,11 +199,25 @@ public class FileService {
         return CARPETA_ARCHIVOS;
     }
 
-    public String getCHARACTER_SPLIT() {
-        return CHARACTER_SPLIT;
+    public String getCHARACTER_SPLIT_LV1() {
+        return CHARACTER_SPLIT_LV1;
     }
 
-    public String getCHARACTER_SPLIT_ARRAY() {
-        return CHARACTER_SPLIT_ARRAY;
+
+    public String getCHARACTER_SPLIT_LV2() {
+        return CHARACTER_SPLIT_LV2;
+    }
+
+
+    public String getCHARACTER_SPLIT_LV3() {
+        return this.CHARACTER_SPLIT_LV3;
+    }
+
+    public String getCHARACTER_SPLIT_LV4() {
+        return CHARACTER_SPLIT_LV4;
+    }
+
+    public String getCHARACTER_SPLIT_LV5() {
+        return CHARACTER_SPLIT_LV5;
     }
 }

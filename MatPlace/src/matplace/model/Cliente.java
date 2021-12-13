@@ -15,6 +15,15 @@ public class Cliente extends Persona {
     private int ID;
     private static int incrementoID;
 
+    public Cliente() {
+    }
+
+    public Cliente(int ID, String nombre, String apellidos, String telefono, String mail, String DNI) {
+        super(nombre, apellidos, telefono, mail);
+        this.DNI = DNI;
+        this.ID = ID;
+    }
+
     public Cliente(String nombre, String apellidos, String DNI, String telefono, String mail) {
         super(nombre, apellidos, telefono, mail);
         incrementoID++;

@@ -20,8 +20,20 @@ public class Reserva {
     private Material material;
     private Date dataInici;
     private Date dataFinal;
+    private int ID;
+    private int incrementoID;
 
     public Reserva() {
+    }
+
+    public Reserva(int id, ArrayList<Persona> miembrosSala,Cliente responsable, Conserje conserje, Material material, Date dataInici, Date dataFinal) {
+        this.miembrosSala = miembrosSala;
+        this.responsable = responsable;
+        this.conserje = conserje;
+        this.material = material;
+        this.dataInici = dataInici;
+        this.dataFinal = dataFinal;
+        this.ID = id;
     }
 
     public Reserva(ArrayList<Persona> miembrosSala,Cliente responsable, Conserje conserje, Material material, Date dataInici, Date dataFinal) {
@@ -31,7 +43,12 @@ public class Reserva {
         this.material = material;
         this.dataInici = dataInici;
         this.dataFinal = dataFinal;
+        incrementoID++;
+        this.ID = incrementoID;
     }
+
+
+
 
     @Override
     public String toString() {
@@ -86,4 +103,11 @@ public class Reserva {
         this.dataFinal = dataFinal;
     }
 
+    public int getID() {
+        return ID;
+    }
+
+    public void setID(int ID) {
+        this.ID = ID;
+    }
 }
