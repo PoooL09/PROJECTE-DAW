@@ -36,6 +36,8 @@ public class ControllerGestioSalas extends Application implements Initializable 
     @FXML
     ImageView logo;
 
+    String s;
+
     /**
      * Inicia el controlador
      *
@@ -92,16 +94,37 @@ public class ControllerGestioSalas extends Application implements Initializable 
      */
     @FXML
     private void handleButtonMateriales(ActionEvent event) {
- 
+
+    }
+
+    /**
+     *
+     *
+     * @param event
+     */
+    @FXML
+    private void handleButtonAtras(ActionEvent event) {
+
+        s = "/matplace/presentacio/view/FXML_MenuPrincipal.fxml";
+        cambioScene((Node) event.getSource());
+
+    }
+
+    private void cambioScene(Node st) {
+        try {
+            this.start((Stage) st.getScene().getWindow());
+        } catch (Exception ex) {
+            Logger.getLogger(ControllerMenuPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("/bitcloud/client/presentacion/view/FXML_MenuPrincipal.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource(s));
 
         Scene scene = new Scene(root);
 
-        stage.setTitle("BitCloud");
+        stage.setTitle("MatPlace");
         stage.setScene(scene);
         stage.getIcons().add(new Image("file:icon.png"));
         stage.setResizable(false);
