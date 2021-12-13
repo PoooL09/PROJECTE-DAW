@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Text?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Button layoutX="101.0" layoutY="344.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="103.0" text="EDITAR" />
+      <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" text="Atras" />
+      <Text layoutX="210.0" layoutY="44.0" strokeType="OUTSIDE" strokeWidth="0.0" text="USUARIO: &quot;NOMBRE DE USUARIO" />
+      <CheckBox layoutX="409.0" layoutY="71.0" mnemonicParsing="false" text="Conserje" />
+      <Button layoutX="382.0" layoutY="344.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="121.0" text="ELIMINAR" />
+      <Text layoutX="128.0" layoutY="101.0" strokeType="OUTSIDE" strokeWidth="0.0" text="NOMBRE" />
+      <Text layoutX="123.0" layoutY="179.0" strokeType="OUTSIDE" strokeWidth="0.0" text="APELLIDOS" />
+      <Text layoutX="418.0" layoutY="179.0" strokeType="OUTSIDE" strokeWidth="0.0" text="MAIL" />
+      <Text layoutX="142.0" layoutY="277.0" strokeType="OUTSIDE" strokeWidth="0.0" text="DNI" />
+      <Text layoutX="403.0" layoutY="286.0" strokeType="OUTSIDE" strokeWidth="0.0" text="TELEFONO" />
+   </children>
+</Pane>

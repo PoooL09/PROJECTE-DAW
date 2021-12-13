@@ -17,7 +17,6 @@ import java.util.logging.Logger;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 /**
  * @author pg_po
  */
@@ -203,11 +202,9 @@ public class FileService {
         return CHARACTER_SPLIT_LV1;
     }
 
-
     public String getCHARACTER_SPLIT_LV2() {
         return CHARACTER_SPLIT_LV2;
     }
-
 
     public String getCHARACTER_SPLIT_LV3() {
         return this.CHARACTER_SPLIT_LV3;
