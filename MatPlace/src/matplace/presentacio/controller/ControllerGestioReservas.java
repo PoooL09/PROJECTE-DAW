@@ -17,9 +17,6 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
@@ -29,9 +26,6 @@ import javafx.stage.Stage;
  * @version: 02/06/2021/A
  */
 public class ControllerGestioReservas extends Application implements Initializable {
-
-    @FXML
-    Button btnLogout;
 
     @FXML
     ImageView logo;
@@ -73,7 +67,7 @@ public class ControllerGestioReservas extends Application implements Initializab
      * @param event
      */
     @FXML
-    private void handleButtonPersonas(ActionEvent event) {
+    private void handleButtonCrear(ActionEvent event) {
 
     }
 
@@ -83,17 +77,7 @@ public class ControllerGestioReservas extends Application implements Initializab
      * @param event
      */
     @FXML
-    private void handleButtonReservas(ActionEvent event) {
-
-    }
-
-    /**
-     *
-     *
-     * @param event
-     */
-    @FXML
-    private void handleButtonMateriales(ActionEvent event) {
+    private void handleButtonBuscar(ActionEvent event) {
 
     }
 

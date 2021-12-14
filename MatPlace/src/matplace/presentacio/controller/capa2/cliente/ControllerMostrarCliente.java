@@ -29,10 +29,7 @@ import javafx.stage.Stage;
  * @version: 02/06/2021/A
  */
 public class ControllerMostrarCliente extends Application implements Initializable {
-
-    @FXML
-    Button btnLogout;
-
+    
     @FXML
     ImageView logo;
 
@@ -105,7 +102,7 @@ public class ControllerMostrarCliente extends Application implements Initializab
     @FXML
     private void handleButtonAtras(ActionEvent event) {
 
-        s = "/matplace/presentacio/view/FXML_MenuPrincipal.fxml";
+        s = "/matplace/presentacio/view/GestioPersonas.fxml";
         cambioScene((Node) event.getSource());
 
     }

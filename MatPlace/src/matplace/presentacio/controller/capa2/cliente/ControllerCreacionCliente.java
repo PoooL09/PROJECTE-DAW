@@ -17,9 +17,6 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
@@ -29,9 +26,6 @@ import javafx.stage.Stage;
  * @version: 02/06/2021/A
  */
 public class ControllerCreacionCliente extends Application implements Initializable {
-
-    @FXML
-    Button btnLogout;
 
     @FXML
     ImageView logo;
@@ -105,7 +99,7 @@ public class ControllerCreacionCliente extends Application implements Initializa
     @FXML
     private void handleButtonAtras(ActionEvent event) {
 
-        s = "/matplace/presentacio/view/FXML_MenuPrincipal.fxml";
+        s = "/matplace/presentacio/view/FXML_GestioPersonas.fxml";
         cambioScene((Node) event.getSource());
 
     }

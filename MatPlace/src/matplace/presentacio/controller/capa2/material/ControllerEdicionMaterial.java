@@ -31,9 +31,6 @@ import javafx.stage.Stage;
 public class ControllerEdicionMaterial extends Application implements Initializable {
 
     @FXML
-    Button btnLogout;
-
-    @FXML
     ImageView logo;
 
     String s;
@@ -105,7 +102,7 @@ public class ControllerEdicionMaterial extends Application implements Initializa
     @FXML
     private void handleButtonAtras(ActionEvent event) {
 
-        s = "/matplace/presentacio/view/FXML_MenuPrincipal.fxml";
+        s = "/matplace/presentacio/view/FXML_GestioMaterial.fxml";
         cambioScene((Node) event.getSource());
 
     }

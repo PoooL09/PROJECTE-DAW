@@ -17,9 +17,6 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
@@ -29,9 +26,6 @@ import javafx.stage.Stage;
  * @version: 02/06/2021/A
  */
 public class ControllerGestioPersonas extends Application implements Initializable {
-
-    @FXML
-    Button btnLogout;
 
     @FXML
     ImageView logo;
@@ -48,7 +42,6 @@ public class ControllerGestioPersonas extends Application implements Initializab
     public void initialize(URL location, ResourceBundle resources) {
 
         logo.setImage(new Image("icon.png"));
-
     }
 
     /**
@@ -57,14 +50,11 @@ public class ControllerGestioPersonas extends Application implements Initializab
      * @param event
      */
     @FXML
-    private void handleButtonSalas(ActionEvent event) {
-        Node st = (Node) event.getSource();
+    private void handleButtonCrear(ActionEvent event) {
 
-        try {
-            this.start((Stage) st.getScene().getWindow());
-        } catch (Exception ex) {
-            Logger.getLogger(ControllerGestioPersonas.class.getName()).log(Level.SEVERE, null, ex);
-        }
+         s = "/matplace/presentacio/view/capa2/cliente/creacionCliente.fxml";
+        cambioScene((Node) event.getSource());
+        
     }
 
     /**
@@ -73,27 +63,7 @@ public class ControllerGestioPersonas extends Application implements Initializab
      * @param event
      */
     @FXML
-    private void handleButtonPersonas(ActionEvent event) {
-
-    }
-
-    /**
-     *
-     *
-     * @param event
-     */
-    @FXML
-    private void handleButtonReservas(ActionEvent event) {
-
-    }
-
-    /**
-     *
-     *
-     * @param event
-     */
-    @FXML
-    private void handleButtonMateriales(ActionEvent event) {
+    private void handleButtonBuscar(ActionEvent event) {
 
     }
 

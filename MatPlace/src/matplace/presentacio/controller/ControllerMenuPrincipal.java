@@ -31,9 +31,6 @@ import javafx.stage.Stage;
 public class ControllerMenuPrincipal extends Application implements Initializable {
 
     @FXML
-    Button btnLogout;
-
-    @FXML
     ImageView logo;
 
     String s;
