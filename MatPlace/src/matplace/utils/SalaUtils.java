@@ -17,8 +17,8 @@ import java.util.ArrayList;
  */
 public class SalaUtils {
 
-    ArrayList<Sala> salas;
-    ConserjeDao dao;
+    private static ArrayList<Sala> salas;
+    private ConserjeDao dao;
 
     public void create(Object object) {
         Sala sala = (Sala) object;
@@ -26,8 +26,8 @@ public class SalaUtils {
         dao.create(object);
     }
 
-    public Object read(int id) {
-        for (Sala c: salas) {
+    public Sala read(int id) {
+        for (Sala c : salas) {
             if (c.getID() == id) {
                 dao.read(id);
                 return c;

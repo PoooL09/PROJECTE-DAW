@@ -17,8 +17,8 @@ import java.util.ArrayList;
  */
 public class MaterialUtils {
 
-    ArrayList<Material> materials;
-    ConserjeDao dao;
+    private static ArrayList<Material> materials;
+    private ConserjeDao dao;
 
     public void create(Object object) {
         Material material = (Material) object;
@@ -26,8 +26,8 @@ public class MaterialUtils {
         dao.create(object);
     }
 
-    public Object read(int id) {
-        for (Material c: materials) {
+    public Material read(int id) {
+        for (Material c : materials) {
             if (c.getEAN() == id) {
                 dao.read(id);
                 return c;
@@ -52,6 +52,14 @@ public class MaterialUtils {
         Material material = (Material) object;
         materials.remove(material);
         dao.delete(object);
+    }
+
+    public ArrayList<Material> getMaterials() {
+        return materials;
+    }
+
+    public void setMaterials(ArrayList<Material> materials) {
+        this.materials = materials;
     }
 
 }

@@ -5,8 +5,8 @@
  */
 package matplace.presentacio.controller.capa2.reservas;
 
-import java.awt.*;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -18,11 +18,16 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
-import javafx.scene.control.MenuButton;
+import javafx.scene.control.TextArea;
 import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
+import matplace.model.Conserje;
+import matplace.model.Reserva;
+import matplace.utils.ConserjeUtils;
+import matplace.utils.MaterialUtils;
+import matplace.utils.ReservaUtils;
 
 /**
  * @author pg_po
@@ -30,11 +35,15 @@ import javafx.stage.Stage;
  */
 public class ControllerCreacionReservas extends Application implements Initializable {
 
-    @FXML
-    MenuButton mb_persona, mb_conserje, mb_personas, mb_material;
+    ReservaUtils reservaUtils;
+    ConserjeUtils conserjeUtils;
+    MaterialUtils materialUtils;
 
     @FXML
-    TextArea ta_hora;
+    ComboBox mb_persona, mb_conserje, mb_material;
+
+    @FXML
+    TextArea ta_hora, ta;
 
     @FXML
     DatePicker datePicker;
@@ -50,6 +59,16 @@ public class ControllerCreacionReservas extends Application implements Initializ
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
+        //ArrayList<Conserje> conserjes = conserjeUtils.getConserjes();
+        ArrayList<Conserje> conserjes = new ArrayList<>();
+        conserjes.add(new Conserje(1,"Aitor","Burruezo","74385235","aitor@gmail.com","3256"));
+
+        for (int i = 0; i < conserjes.size(); i++) {
+
+            mb_conserje.getItems().add(conserjes.get(i));
+            
+        }
+        
     }
 
     /**
@@ -58,14 +77,8 @@ public class ControllerCreacionReservas extends Application implements Initializ
      * @param event
      */
     @FXML
-    private void handleButtonSalas(ActionEvent event) {
-        Node st = (Node) event.getSource();
+    private void handleButtonAdd(ActionEvent event) {
 
-        try {
-            this.start((Stage) st.getScene().getWindow());
-        } catch (Exception ex) {
-            Logger.getLogger(ControllerCreacionReservas.class.getName()).log(Level.SEVERE, null, ex);
-        }
     }
 
     /**
@@ -76,8 +89,9 @@ public class ControllerCreacionReservas extends Application implements Initializ
     @FXML
     private void handleButtonCrear(ActionEvent event) {
 
-        
-        
+        Reserva reserva = new Reserva();
+        reservaUtils.create(reserva);
+
     }
 
     /**

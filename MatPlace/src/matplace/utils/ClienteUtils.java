@@ -16,8 +16,8 @@ import java.util.ArrayList;
  */
 public class ClienteUtils {
 
-    ArrayList<Cliente> clientes;
-    ClienteDao dao;
+    private static ArrayList<Cliente> clientes;
+    private ClienteDao dao;
 
     public void create(Object object) {
 
@@ -27,7 +27,7 @@ public class ClienteUtils {
         
     }
 
-    public Object read(int id) {
+    public Cliente read(int id) {
 
         for (Cliente c: clientes) {
             if (c.getID() == id) {

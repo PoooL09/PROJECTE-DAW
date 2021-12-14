@@ -17,8 +17,8 @@ import java.util.ArrayList;
  */
 public class ReservaUtils {
 
-    ArrayList<Reserva> reservas;
-    ConserjeDao dao;
+    private static ArrayList<Reserva> reservas;
+    private ConserjeDao dao;
 
     public void create(Object object) {
         Reserva reserva = (Reserva) object;
@@ -26,8 +26,8 @@ public class ReservaUtils {
         dao.create(object);
     }
 
-    public Object read(int id) {
-        for (Reserva c: reservas) {
+    public Reserva read(int id) {
+        for (Reserva c : reservas) {
             if (c.getID() == id) {
                 dao.read(id);
                 return c;
