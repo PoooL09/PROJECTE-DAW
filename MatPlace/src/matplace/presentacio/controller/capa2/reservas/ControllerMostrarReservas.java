@@ -36,6 +36,10 @@ public class ControllerMostrarReservas extends Application implements Initializa
     @FXML
     ImageView logo;
 
+    @FXML
+    Text text_title, text_fecha, text_hora, text_persona, text_conserje;
+
+
     String s;
 
     /**
@@ -73,7 +77,7 @@ public class ControllerMostrarReservas extends Application implements Initializa
      * @param event
      */
     @FXML
-    private void handleButtonPersonas(ActionEvent event) {
+    private void handleButtonEditar(ActionEvent event) {
 
     }
 
@@ -83,17 +87,7 @@ public class ControllerMostrarReservas extends Application implements Initializa
      * @param event
      */
     @FXML
-    private void handleButtonReservas(ActionEvent event) {
-
-    }
-
-    /**
-     *
-     *
-     * @param event
-     */
-    @FXML
-    private void handleButtonMateriales(ActionEvent event) {
+    private void handleButtonEliminar(ActionEvent event) {
 
     }
 
