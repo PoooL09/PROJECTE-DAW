@@ -16,8 +16,8 @@ import java.util.ArrayList;
  */
 public class ConserjeUtils {
 
-    ArrayList<Conserje> conserjes;
-    ConserjeDao dao;
+    private ArrayList<Conserje> conserjes;
+    private ConserjeDao dao;
 
     public void create(Object object) {
         Conserje conserje = (Conserje) object;
@@ -56,4 +56,12 @@ public class ConserjeUtils {
         dao.delete(object);
     }
 
+    public ArrayList<Conserje> getConserjes() {
+        return conserjes;
+    }
+
+    public void setConserjes(ArrayList<Conserje> conserjes) {
+        this.conserjes = conserjes;
+    }
+    
 }

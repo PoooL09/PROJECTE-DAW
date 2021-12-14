@@ -6,6 +6,7 @@
 package matplace.presentacio.controller.capa2.reservas;
 
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -22,7 +23,10 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextArea;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
+import matplace.model.Conserje;
 import matplace.model.Reserva;
+import matplace.utils.ConserjeUtils;
+import matplace.utils.MaterialUtils;
 import matplace.utils.ReservaUtils;
 
 /**
@@ -32,7 +36,9 @@ import matplace.utils.ReservaUtils;
 public class ControllerCreacionReservas extends Application implements Initializable {
 
     ReservaUtils reservaUtils;
-    
+    ConserjeUtils conserjeUtils;
+    MaterialUtils materialUtils;
+
     @FXML
     ComboBox mb_persona, mb_conserje, mb_material;
 
@@ -53,7 +59,15 @@ public class ControllerCreacionReservas extends Application implements Initializ
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
-        
+        //ArrayList<Conserje> conserjes = conserjeUtils.getConserjes();
+        ArrayList<Conserje> conserjes = new ArrayList<>();
+        conserjes.add(new Conserje(1,"Aitor","Burruezo","74385235","aitor@gmail.com","3256"));
+
+        for (int i = 0; i < conserjes.size(); i++) {
+
+            mb_conserje.getItems().add(conserjes.get(i));
+            
+        }
         
     }
 
@@ -64,7 +78,7 @@ public class ControllerCreacionReservas extends Application implements Initializ
      */
     @FXML
     private void handleButtonAdd(ActionEvent event) {
-     
+
     }
 
     /**
@@ -77,7 +91,7 @@ public class ControllerCreacionReservas extends Application implements Initializ
 
         Reserva reserva = new Reserva();
         reservaUtils.create(reserva);
-        
+
     }
 
     /**
