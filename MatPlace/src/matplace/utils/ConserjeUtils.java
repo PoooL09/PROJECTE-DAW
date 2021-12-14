@@ -16,7 +16,7 @@ import java.util.ArrayList;
  */
 public class ConserjeUtils {
 
-    private ArrayList<Conserje> conserjes;
+    private static ArrayList<Conserje> conserjes;
     private ConserjeDao dao;
 
     public void create(Object object) {
@@ -27,7 +27,7 @@ public class ConserjeUtils {
 
     public Conserje read(int id) {
 
-        for (Conserje c: conserjes) {
+        for (Conserje c : conserjes) {
             if (c.getID() == id) {
                 dao.read(id);
                 return c;
@@ -63,5 +63,5 @@ public class ConserjeUtils {
     public void setConserjes(ArrayList<Conserje> conserjes) {
         this.conserjes = conserjes;
     }
-    
+
 }
