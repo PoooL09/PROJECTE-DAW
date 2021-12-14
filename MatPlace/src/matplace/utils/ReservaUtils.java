@@ -5,11 +5,10 @@
  */
 package matplace.utils;
 
-import matplace.dao.ConserjeDao;
-import matplace.model.Conserje;
 import matplace.model.Reserva;
 
 import java.util.ArrayList;
+import matplace.dao.ReservaDao;
 
 /**
  *
@@ -17,8 +16,8 @@ import java.util.ArrayList;
  */
 public class ReservaUtils {
 
-    private static ArrayList<Reserva> reservas;
-    private ConserjeDao dao;
+    private static ArrayList<Reserva> reservas = new ArrayList<>();
+    private ReservaDao dao = new ReservaDao();
 
     public void create(Object object) {
         Reserva reserva = (Reserva) object;

@@ -21,7 +21,7 @@ public class ReservaDao implements Crud {
     private Format format = new Format();
     private Undo undo = new Undo();
 
-    private File archivoDestino = new File(fileService.getCARPETA_ARCHIVOS() + File.separator + "conserje");
+    private File archivoDestino = new File(fileService.getCARPETA_ARCHIVOS() + File.separator + "reserva");
 
     //ArrayList<Persona> miembrosSala,Cliente responsable, Conserje conserje, Material material, Date dataInici, Date dataFinal
 

@@ -21,12 +21,14 @@ public class Reserva {
     private Date dataInici;
     private Date dataFinal;
     private int ID;
-    private int incrementoID;
+    private static int incrementoID=1;
 
     public Reserva() {
+        this.ID = incrementoID;
+        incrementoID++;
     }
 
-    public Reserva(int id, ArrayList<Persona> miembrosSala,Cliente responsable, Conserje conserje, Material material, Date dataInici, Date dataFinal) {
+    public Reserva(int id, ArrayList<Persona> miembrosSala, Cliente responsable, Conserje conserje, Material material, Date dataInici, Date dataFinal) {
         this.miembrosSala = miembrosSala;
         this.responsable = responsable;
         this.conserje = conserje;
@@ -36,19 +38,16 @@ public class Reserva {
         this.ID = id;
     }
 
-    public Reserva(ArrayList<Persona> miembrosSala,Cliente responsable, Conserje conserje, Material material, Date dataInici, Date dataFinal) {
+    public Reserva(ArrayList<Persona> miembrosSala, Cliente responsable, Conserje conserje, Material material, Date dataInici, Date dataFinal) {
         this.miembrosSala = miembrosSala;
         this.responsable = responsable;
         this.conserje = conserje;
         this.material = material;
         this.dataInici = dataInici;
         this.dataFinal = dataFinal;
-        incrementoID++;
         this.ID = incrementoID;
+        incrementoID++;
     }
-
-
-
 
     @Override
     public String toString() {

@@ -16,7 +16,7 @@ import java.util.ArrayList;
  */
 public class ClienteUtils {
 
-    private static ArrayList<Cliente> clientes;
+    private static ArrayList<Cliente> clientes = new ArrayList<>();
     private ClienteDao dao;
 
     public void create(Object object) {
@@ -24,12 +24,12 @@ public class ClienteUtils {
         Cliente cliente = (Cliente) object;
         clientes.add(cliente);
         dao.create(object);
-        
+
     }
 
     public Cliente read(int id) {
 
-        for (Cliente c: clientes) {
+        for (Cliente c : clientes) {
             if (c.getID() == id) {
                 dao.read(id);
                 return c;
@@ -54,7 +54,6 @@ public class ClienteUtils {
                 c = cliente;
             }
         }*/
-
     }
 
     public void delete(Object object) {
@@ -63,4 +62,13 @@ public class ClienteUtils {
         clientes.remove(cliente);
         dao.delete(object);
     }
+
+    public static ArrayList<Cliente> getClientes() {
+        return clientes;
+    }
+
+    public static void setClientes(ArrayList<Cliente> clientes) {
+        ClienteUtils.clientes = clientes;
+    }
+
 }

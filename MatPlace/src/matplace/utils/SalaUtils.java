@@ -17,7 +17,7 @@ import java.util.ArrayList;
  */
 public class SalaUtils {
 
-    private static ArrayList<Sala> salas;
+    private static ArrayList<Sala> salas = new ArrayList<>();
     private ConserjeDao dao;
 
     public void create(Object object) {

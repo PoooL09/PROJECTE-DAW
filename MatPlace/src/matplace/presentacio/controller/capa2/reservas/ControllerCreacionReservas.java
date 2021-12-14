@@ -7,6 +7,7 @@ package matplace.presentacio.controller.capa2.reservas;
 
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -23,8 +24,13 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextArea;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
+import javax.swing.JOptionPane;
+import matplace.model.Cliente;
 import matplace.model.Conserje;
+import matplace.model.Material;
+import matplace.model.Persona;
 import matplace.model.Reserva;
+import matplace.utils.ClienteUtils;
 import matplace.utils.ConserjeUtils;
 import matplace.utils.MaterialUtils;
 import matplace.utils.ReservaUtils;
@@ -35,9 +41,10 @@ import matplace.utils.ReservaUtils;
  */
 public class ControllerCreacionReservas extends Application implements Initializable {
 
-    ReservaUtils reservaUtils;
+    ReservaUtils reservaUtils = new ReservaUtils();
     ConserjeUtils conserjeUtils;
     MaterialUtils materialUtils;
+    ClienteUtils clienteUtils;
 
     @FXML
     ComboBox mb_persona, mb_conserje, mb_material;
@@ -49,6 +56,7 @@ public class ControllerCreacionReservas extends Application implements Initializ
     DatePicker datePicker;
 
     String s;
+    ArrayList <Persona> personas = new ArrayList<>();
 
     /**
      * Inicia el controlador
@@ -69,6 +77,25 @@ public class ControllerCreacionReservas extends Application implements Initializ
             
         }
         
+        ArrayList<Cliente> clientes = ClienteUtils.getClientes();
+        //ArrayList<Cliente> clientes = new ArrayList<>();
+        clientes.add(new Cliente(1,"Aitor","Burruezo","74385235","aitor@gmail.com","3256"));
+
+        for (int i = 0; i < clientes.size(); i++) {
+
+            mb_persona.getItems().add(clientes.get(i));
+            
+        }
+        
+        ArrayList<Material> material = MaterialUtils.getMaterials();
+        //ArrayList<Material> material = new ArrayList<>();
+        material.add(new Material("pelota"));
+
+        for (int i = 0; i < material.size(); i++) {
+
+            mb_material.getItems().add(material.get(i));
+            
+        }
     }
 
     /**
@@ -78,7 +105,16 @@ public class ControllerCreacionReservas extends Application implements Initializ
      */
     @FXML
     private void handleButtonAdd(ActionEvent event) {
+        
+        Persona persona = new Persona();
+        persona.setNombre(JOptionPane.showInputDialog("Introduce el nombre;"));
+        persona.setApellidos(JOptionPane.showInputDialog("Introduce el apellido;"));
+        persona.setMail(JOptionPane.showInputDialog("Introduce el mail;"));
+        persona.setTelefono(JOptionPane.showInputDialog("Introduce el telefono;"));
+        
+        ta.appendText(persona.toString()+ "\n");
 
+        personas.add(persona);
     }
 
     /**
@@ -89,8 +125,19 @@ public class ControllerCreacionReservas extends Application implements Initializ
     @FXML
     private void handleButtonCrear(ActionEvent event) {
 
-        Reserva reserva = new Reserva();
-        reservaUtils.create(reserva);
+       Reserva reserva = new Reserva();
+       
+       reserva.setConserje((Conserje) mb_conserje.getSelectionModel().getSelectedItem());
+       reserva.setMaterial((Material) mb_material.getSelectionModel().getSelectedItem());
+       reserva.setResponsable((Cliente) mb_persona.getSelectionModel().getSelectedItem());
+       reserva.setMiembrosSala(personas);
+       reserva.setDataFinal(new Date());
+       reserva.setDataInici(new Date());
+   
+       //reserva.setDataInici(datePicker.getValue());
+       
+       
+       reservaUtils.create(reserva);
 
     }
 

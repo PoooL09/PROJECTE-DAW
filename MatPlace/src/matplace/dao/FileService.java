@@ -37,6 +37,9 @@ public class FileService {
      */
     private FileService() {
 
+        if (!this.CARPETA_ARCHIVOS.exists()) {
+            this.CARPETA_ARCHIVOS.mkdir();
+        }
     }
 
     /**

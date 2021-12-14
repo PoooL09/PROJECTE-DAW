@@ -17,7 +17,7 @@ import java.util.ArrayList;
  */
 public class MaterialUtils {
 
-    private static ArrayList<Material> materials;
+    private static ArrayList<Material> materials = new ArrayList<>();
     private ConserjeDao dao;
 
     public void create(Object object) {
@@ -54,12 +54,14 @@ public class MaterialUtils {
         dao.delete(object);
     }
 
-    public ArrayList<Material> getMaterials() {
+    public static ArrayList<Material> getMaterials() {
         return materials;
     }
 
-    public void setMaterials(ArrayList<Material> materials) {
-        this.materials = materials;
+    public static void setMaterials(ArrayList<Material> materials) {
+        MaterialUtils.materials = materials;
     }
+
+    
 
 }
