@@ -17,7 +17,6 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.DatePicker;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
@@ -69,6 +68,9 @@ public class ControllerGestioReservas extends Application implements Initializab
      */
     @FXML
     private void handleButtonCrear(ActionEvent event) {
+
+        s = "/matplace/presentacio/view/capa2/reservas/crear reservas.fxml";
+        cambioScene((Node) event.getSource());
 
     }
 
