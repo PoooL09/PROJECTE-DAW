@@ -18,11 +18,12 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
-import javafx.scene.control.MenuButton;
 import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
+import matplace.model.Reserva;
+import matplace.utils.ReservaUtils;
 
 /**
  * @author pg_po
@@ -30,11 +31,13 @@ import javafx.stage.Stage;
  */
 public class ControllerCreacionReservas extends Application implements Initializable {
 
+    ReservaUtils reservaUtils;
+    
     @FXML
-    MenuButton mb_persona, mb_conserje, mb_personas, mb_material;
+    ComboBox mb_persona, mb_conserje, mb_material;
 
     @FXML
-    TextArea ta_hora;
+    TextArea ta_hora, ta;
 
     @FXML
     DatePicker datePicker;
@@ -50,6 +53,8 @@ public class ControllerCreacionReservas extends Application implements Initializ
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
+        
+        
     }
 
     /**
@@ -76,7 +81,8 @@ public class ControllerCreacionReservas extends Application implements Initializ
     @FXML
     private void handleButtonCrear(ActionEvent event) {
 
-        
+        Reserva reserva = new Reserva();
+        reservaUtils.create(reserva);
         
     }
 
