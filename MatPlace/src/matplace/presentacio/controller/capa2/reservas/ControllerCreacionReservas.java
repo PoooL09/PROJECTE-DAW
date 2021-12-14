@@ -59,8 +59,8 @@ public class ControllerCreacionReservas extends Application implements Initializ
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
-        //ArrayList<Conserje> conserjes = conserjeUtils.getConserjes();
-        ArrayList<Conserje> conserjes = new ArrayList<>();
+        ArrayList<Conserje> conserjes = ConserjeUtils.getConserjes();
+        //ArrayList<Conserje> conserjes = new ArrayList<>();
         conserjes.add(new Conserje(1,"Aitor","Burruezo","74385235","aitor@gmail.com","3256"));
 
         for (int i = 0; i < conserjes.size(); i++) {

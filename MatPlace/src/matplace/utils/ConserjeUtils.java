@@ -56,12 +56,12 @@ public class ConserjeUtils {
         dao.delete(object);
     }
 
-    public ArrayList<Conserje> getConserjes() {
+    public static ArrayList<Conserje> getConserjes() {
         return conserjes;
     }
 
-    public void setConserjes(ArrayList<Conserje> conserjes) {
-        this.conserjes = conserjes;
+    public static void setConserjes(ArrayList<Conserje> conserjes) {
+        ConserjeUtils.conserjes = conserjes;
     }
-
+    
 }
