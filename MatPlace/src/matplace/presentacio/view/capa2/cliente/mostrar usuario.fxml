@@ -7,15 +7,15 @@
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="matplace.presentacio.controller.capa2.cliente.ControllerMostrarCliente">
    <children>
-      <Button layoutX="101.0" layoutY="344.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="103.0" text="EDITAR" />
-      <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" text="Atras" />
-      <Text layoutX="210.0" layoutY="44.0" strokeType="OUTSIDE" strokeWidth="0.0" text="USUARIO: &quot;NOMBRE DE USUARIO" />
-      <CheckBox layoutX="409.0" layoutY="71.0" mnemonicParsing="false" text="Conserje" />
-      <Button layoutX="382.0" layoutY="344.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="121.0" text="ELIMINAR" />
-      <Text layoutX="128.0" layoutY="101.0" strokeType="OUTSIDE" strokeWidth="0.0" text="NOMBRE" />
-      <Text layoutX="123.0" layoutY="179.0" strokeType="OUTSIDE" strokeWidth="0.0" text="APELLIDOS" />
-      <Text layoutX="418.0" layoutY="179.0" strokeType="OUTSIDE" strokeWidth="0.0" text="MAIL" />
-      <Text layoutX="142.0" layoutY="277.0" strokeType="OUTSIDE" strokeWidth="0.0" text="DNI" />
-      <Text layoutX="403.0" layoutY="286.0" strokeType="OUTSIDE" strokeWidth="0.0" text="TELEFONO" />
+      <Button layoutX="101.0" layoutY="344.0" mnemonicParsing="false" onAction="#handleButtonEditar" prefHeight="25.0" prefWidth="103.0" text="EDITAR" />
+      <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#handleButtonAtras" text="Atras" />
+      <Text id="text_title" fx:id="text_title" layoutX="210.0" layoutY="44.0" strokeType="OUTSIDE" strokeWidth="0.0" text="USUARIO: &quot;NOMBRE DE USUARIO" />
+      <CheckBox id="cb_conserje" fx:id="cb_conserje" layoutX="409.0" layoutY="88.0" mnemonicParsing="false" text="Conserje" />
+      <Button layoutX="382.0" layoutY="344.0" mnemonicParsing="false" onAction="#handleButtonEliminar" prefHeight="25.0" prefWidth="121.0" text="ELIMINAR" />
+      <Text id="text_nombre" fx:id="text_nombre" layoutX="128.0" layoutY="101.0" strokeType="OUTSIDE" strokeWidth="0.0" text="NOMBRE" />
+      <Text id="text_apellido" fx:id="text_apellido" layoutX="123.0" layoutY="179.0" strokeType="OUTSIDE" strokeWidth="0.0" text="APELLIDOS" />
+      <Text id="text_mail" fx:id="text_mail" layoutX="418.0" layoutY="179.0" strokeType="OUTSIDE" strokeWidth="0.0" text="MAIL" />
+      <Text id="text_dni" fx:id="text_dni" layoutX="142.0" layoutY="277.0" strokeType="OUTSIDE" strokeWidth="0.0" text="DNI" />
+      <Text id="text_tel" fx:id="text_tel" layoutX="403.0" layoutY="286.0" strokeType="OUTSIDE" strokeWidth="0.0" text="TELEFONO" />
    </children>
 </Pane>

@@ -6,16 +6,16 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Text?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="matplace.presentacio.controller.capa2.cliente.ControllerCreacionCliente">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="matplace.presentacio.controller.capa2.cliente.ControllerCreacionCliente">
    <children>
-      <CheckBox layoutX="399.0" layoutY="61.0" mnemonicParsing="false" text="Conserje" />
-      <Button layoutX="123.0" layoutY="346.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="354.0" text="Crear" />
-      <TextField layoutX="58.0" layoutY="262.0" prefHeight="25.0" prefWidth="169.0" />
+      <Button layoutX="123.0" layoutY="346.0" mnemonicParsing="false" onAction="#handleButtonCrear" prefHeight="25.0" prefWidth="354.0" text="CREAR" />
       <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#handleButtonAtras" text="Atras" />
-      <TextField layoutX="58.0" layoutY="164.0" prefHeight="25.0" prefWidth="169.0" />
-      <TextField layoutX="58.0" layoutY="69.0" prefHeight="25.0" prefWidth="169.0" />
-      <TextField layoutX="351.0" layoutY="164.0" prefHeight="25.0" prefWidth="169.0" />
-      <TextField layoutX="351.0" layoutY="262.0" prefHeight="25.0" prefWidth="169.0" />
       <Text layoutX="236.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CREACION DE USUARIO" />
+      <CheckBox id="cb_conserje" fx:id="cb_conserje" layoutX="409.0" layoutY="71.0" mnemonicParsing="false" text="Conserje" />
+      <TextField id="tf_dni" fx:id="tf_dni" layoutX="68.0" layoutY="272.0" prefHeight="25.0" prefWidth="169.0" promptText="DNI" />
+      <TextField id="tf_apellidos" fx:id="tf_apellidos" layoutX="68.0" layoutY="174.0" prefHeight="25.0" prefWidth="169.0" promptText="Apellidos" />
+      <TextField id="tf_nombre" fx:id="tf_nombre" layoutX="68.0" layoutY="79.0" prefHeight="25.0" prefWidth="169.0" promptText="Nombre" />
+      <TextField id="tf_mail" fx:id="tf_mail" layoutX="361.0" layoutY="174.0" prefHeight="25.0" prefWidth="169.0" promptText="Mail" />
+      <TextField id="tf_tel" fx:id="tf_tel" layoutX="361.0" layoutY="272.0" prefHeight="25.0" prefWidth="169.0" promptText="Teléfono" />
    </children>
 </Pane>

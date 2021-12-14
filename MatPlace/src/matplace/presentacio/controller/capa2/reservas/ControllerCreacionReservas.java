@@ -18,6 +18,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.MenuButton;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -30,13 +31,13 @@ import javafx.stage.Stage;
 public class ControllerCreacionReservas extends Application implements Initializable {
 
     @FXML
-    ImageView logo;
-
-    @FXML
     MenuButton mb_persona, mb_conserje, mb_personas, mb_material;
 
     @FXML
-    TextArea ta_fecha, ta_hora;
+    TextArea ta_hora;
+
+    @FXML
+    DatePicker datePicker;
 
     String s;
 
@@ -48,8 +49,6 @@ public class ControllerCreacionReservas extends Application implements Initializ
      */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-
-        logo.setImage(new Image("icon.png"));
 
     }
 

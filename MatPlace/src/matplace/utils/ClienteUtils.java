@@ -10,5 +10,24 @@ package matplace.utils;
  * @author pg_po
  */
 public class ClienteUtils {
-    
+
+    public void create(Object object) {
+
+        
+        
+    }
+
+    public Object read(int id) {
+        
+        return null;
+
+    }
+
+    public void update(Object object) {
+
+    }
+
+    public void delete(Object object) {
+
+    }
 }

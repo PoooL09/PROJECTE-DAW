@@ -30,9 +30,6 @@ import javafx.stage.Stage;
 public class ControllerMostrarMaterial extends Application implements Initializable {
     
     @FXML
-    ImageView logo;
-
-    @FXML
     Text text_nombre, text_cantidad;
 
     @FXML
@@ -49,7 +46,6 @@ public class ControllerMostrarMaterial extends Application implements Initializa
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
-        logo.setImage(new Image("icon.png"));
 
     }
 

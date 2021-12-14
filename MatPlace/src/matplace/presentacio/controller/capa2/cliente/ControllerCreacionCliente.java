@@ -5,7 +5,6 @@
  */
 package matplace.presentacio.controller.capa2.cliente;
 
-import java.awt.*;
 import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
@@ -18,6 +17,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.CheckBox;
+import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
@@ -29,13 +30,10 @@ import javafx.stage.Stage;
 public class ControllerCreacionCliente extends Application implements Initializable {
 
     @FXML
-    ImageView logo;
-
-    @FXML
     TextField tf_nombre, tf_apellidos, tf_mail, tf_dni, tf_tel;
 
     @FXML
-    Checkbox cb_conserje;
+    CheckBox cb_conserje;
 
     String s;
 
@@ -47,8 +45,6 @@ public class ControllerCreacionCliente extends Application implements Initializa
      */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-
-        logo.setImage(new Image("icon.png"));
 
     }
 
@@ -76,6 +72,8 @@ public class ControllerCreacionCliente extends Application implements Initializa
     @FXML
     private void handleButtonCrear(ActionEvent event) {
 
+        
+        
     }
 
     /**

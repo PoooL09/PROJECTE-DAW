@@ -4,21 +4,21 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Text?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="matplace.presentacio.controller.capa2.reservas.ControllerMostrarReservas">
+<Pane fx:id="text_hora" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="matplace.presentacio.controller.capa2.reservas.ControllerMostrarReservas">
    <children>
-      <Button layoutX="89.0" layoutY="346.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="165.0" text="EDITAR" />
-      <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" text="Atras" />
-      <Text layoutX="213.0" layoutY="44.0" strokeType="OUTSIDE" strokeWidth="0.0" text="RESERVA &quot;NOMBRE DE LA SALA&quot;" />
-      <Text layoutX="135.0" layoutY="96.0" strokeType="OUTSIDE" strokeWidth="0.0" text="FECHA" />
-      <Text layoutX="434.0" layoutY="96.0" strokeType="OUTSIDE" strokeWidth="0.0" text="HORA" />
-      <Text layoutX="90.0" layoutY="179.0" strokeType="OUTSIDE" strokeWidth="0.0" text="PERSONA ENCARGADA" />
-      <Text layoutX="422.0" layoutY="179.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CONSERJE" />
+      <Button layoutX="89.0" layoutY="346.0" mnemonicParsing="false" onAction="#handleButtonEditar" prefHeight="25.0" prefWidth="165.0" text="EDITAR" />
+      <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#handleButtonAtras" text="Atras" />
+      <Text fx:id="text_title" layoutX="213.0" layoutY="44.0" strokeType="OUTSIDE" strokeWidth="0.0" text="RESERVA &quot;NOMBRE DE LA SALA&quot;" />
+      <Text fx:id="text_fecha" layoutX="154.0" layoutY="103.0" strokeType="OUTSIDE" strokeWidth="0.0" text="FECHA" />
+      <Text fx:id="text_hora" layoutX="434.0" layoutY="96.0" strokeType="OUTSIDE" strokeWidth="0.0" text="HORA" />
+      <Text fx:id="text_persona" layoutX="90.0" layoutY="179.0" strokeType="OUTSIDE" strokeWidth="0.0" text="PERSONA ENCARGADA" />
+      <Text fx:id="text_conserje" layoutX="422.0" layoutY="179.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CONSERJE" />
       <Text layoutX="88.0" layoutY="245.0" strokeType="OUTSIDE" strokeWidth="0.0" text="USUARIO       &quot;NUMERO/MAIL&quot;" />
       <Text layoutX="88.0" layoutY="257.0" strokeType="OUTSIDE" strokeWidth="0.0" text="USUARIO       &quot;NUMERO/MAIL&quot;" />
       <Text layoutX="88.0" layoutY="270.0" strokeType="OUTSIDE" strokeWidth="0.0" text="USUARIO       &quot;NUMERO/MAIL&quot;" />
       <Text layoutX="389.0" layoutY="245.0" strokeType="OUTSIDE" strokeWidth="0.0" text="RAQUETA DE TENIS - 4" />
       <Text layoutX="389.0" layoutY="257.0" strokeType="OUTSIDE" strokeWidth="0.0" text="RAQUETA DE TENIS - 4" />
       <Text layoutX="389.0" layoutY="270.0" strokeType="OUTSIDE" strokeWidth="0.0" text="RAQUETA DE TENIS - 4" />
-      <Button layoutX="367.0" layoutY="346.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="165.0" text="ELIMINAR" />
+      <Button layoutX="367.0" layoutY="346.0" mnemonicParsing="false" onAction="#handleButtonEliminar" prefHeight="25.0" prefWidth="165.0" text="ELIMINAR" />
    </children>
 </Pane>

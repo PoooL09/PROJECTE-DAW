@@ -29,9 +29,6 @@ import javafx.stage.Stage;
 public class ControllerMostrarReservas extends Application implements Initializable {
 
     @FXML
-    ImageView logo;
-
-    @FXML
     Text text_title, text_fecha, text_hora, text_persona, text_conserje;
 
 
@@ -46,7 +43,6 @@ public class ControllerMostrarReservas extends Application implements Initializa
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
-        logo.setImage(new Image("icon.png"));
 
     }
 

@@ -28,9 +28,6 @@ import org.w3c.dom.Text;
  * @version: 02/06/2021/A
  */
 public class ControllerMostrarCliente extends Application implements Initializable {
-    
-    @FXML
-    ImageView logo;
 
     @FXML
     Text text_title, text_nombre, text_apellido, text_mail, text_dni, text_tel;
@@ -48,8 +45,6 @@ public class ControllerMostrarCliente extends Application implements Initializab
      */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-
-        logo.setImage(new Image("icon.png"));
 
     }
 

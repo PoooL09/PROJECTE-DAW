@@ -8,11 +8,11 @@
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="matplace.presentacio.controller.capa2.sala.ControllerEdicionSala">
    <children>
-      <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" text="Atras" />
+      <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#handleButtonAtras" text="Atras" />
       <Text layoutX="267.0" layoutY="44.0" strokeType="OUTSIDE" strokeWidth="0.0" text="EDITAR SALA" />
-      <Button layoutX="142.0" layoutY="347.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="316.0" text="EDITAR" />
-      <TextField layoutX="68.0" layoutY="79.0" prefHeight="25.0" prefWidth="169.0" promptText="Nombre" />
-      <TextField layoutX="347.0" layoutY="79.0" prefHeight="25.0" prefWidth="169.0" promptText="Cantidad" />
-      <TextArea layoutX="66.0" layoutY="130.0" prefHeight="200.0" prefWidth="454.0" promptText="Descripción de la sala" />
+      <Button layoutX="142.0" layoutY="347.0" mnemonicParsing="false" onAction="#handleButtonEditar" prefHeight="25.0" prefWidth="316.0" text="EDITAR" />
+      <TextField id="tf_nombre" fx:id="tf_nombre" layoutX="68.0" layoutY="79.0" prefHeight="25.0" prefWidth="169.0" promptText="Nombre" />
+      <TextField id="tf_cantidad" fx:id="tf_cantidad" layoutX="347.0" layoutY="79.0" prefHeight="25.0" prefWidth="169.0" promptText="Cantidad" />
+      <TextArea id="ta_descripcion" fx:id="ta_descripcion" layoutX="66.0" layoutY="130.0" prefHeight="200.0" prefWidth="454.0" promptText="Descripción de la sala" />
    </children>
 </Pane>

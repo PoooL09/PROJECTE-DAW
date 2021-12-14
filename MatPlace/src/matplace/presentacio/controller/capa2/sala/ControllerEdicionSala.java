@@ -29,9 +29,6 @@ import javafx.stage.Stage;
 public class ControllerEdicionSala extends Application implements Initializable {
 
     @FXML
-    ImageView logo;
-
-    @FXML
     TextField tf_nombre, tf_cantidad;
 
     @FXML
@@ -48,7 +45,6 @@ public class ControllerEdicionSala extends Application implements Initializable 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
-        logo.setImage(new Image("icon.png"));
 
     }
 
