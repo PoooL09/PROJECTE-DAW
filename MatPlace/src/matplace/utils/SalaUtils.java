@@ -5,28 +5,53 @@
  */
 package matplace.utils;
 
+import matplace.dao.ConserjeDao;
+import matplace.model.Conserje;
+import matplace.model.Sala;
+
+import java.util.ArrayList;
+
 /**
  *
  * @author pg_po
  */
 public class SalaUtils {
 
-    public void create(Object object) {
+    ArrayList<Sala> salas;
+    ConserjeDao dao;
 
+    public void create(Object object) {
+        Sala sala = (Sala) object;
+        salas.add(sala);
+        dao.create(object);
     }
 
     public Object read(int id) {
+        for (Sala c: salas) {
+            if (c.getID() == id) {
+                dao.read(id);
+                return c;
+            }
+        }
 
         return null;
 
     }
 
     public void update(Object object) {
-
+        Sala sala = (Sala) object;
+        for (int i = 0; i < salas.size(); i++) {
+            if (salas.get(i).getID() == sala.getID()) {
+                salas.set(i, sala);
+                dao.update(object);
+            }
+        }
     }
 
     public void delete(Object object) {
-
+        Sala sala = (Sala) object;
+        salas.remove(sala);
+        dao.delete(object);
     }
 
 }
