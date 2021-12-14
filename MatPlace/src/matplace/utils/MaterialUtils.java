@@ -5,28 +5,53 @@
  */
 package matplace.utils;
 
+import matplace.dao.ConserjeDao;
+import matplace.model.Conserje;
+import matplace.model.Material;
+
+import java.util.ArrayList;
+
 /**
  *
  * @author pg_po
  */
 public class MaterialUtils {
 
-    public void create(Object object) {
+    ArrayList<Material> materials;
+    ConserjeDao dao;
 
+    public void create(Object object) {
+        Material material = (Material) object;
+        materials.add(material);
+        dao.create(object);
     }
 
     public Object read(int id) {
+        for (Material c: materials) {
+            if (c.getEAN() == id) {
+                dao.read(id);
+                return c;
+            }
+        }
 
         return null;
 
     }
 
     public void update(Object object) {
-
+        Material material = (Material) object;
+        for (int i = 0; i < materials.size(); i++) {
+            if (materials.get(i).getEAN() == material.getEAN()) {
+                materials.set(i, material);
+                dao.update(object);
+            }
+        }
     }
 
     public void delete(Object object) {
-
+        Material material = (Material) object;
+        materials.remove(material);
+        dao.delete(object);
     }
 
 }

@@ -5,17 +5,36 @@
  */
 package matplace.utils;
 
+import matplace.dao.ClienteDao;
+import matplace.dao.ConserjeDao;
+import matplace.model.Cliente;
+import matplace.model.Conserje;
+
+import java.util.ArrayList;
+
 /**
  *
  * @author pg_po
  */
 public class ConserjeUtils {
 
-    public void create(Object object) {
+    ArrayList<Conserje> conserjes;
+    ConserjeDao dao;
 
+    public void create(Object object) {
+        Conserje conserje = (Conserje) object;
+        conserjes.add(conserje);
+        dao.create(object);
     }
 
     public Object read(int id) {
+
+        for (Conserje c: conserjes) {
+            if (c.getID() == id) {
+                dao.read(id);
+                return c;
+            }
+        }
 
         return null;
 
@@ -23,10 +42,20 @@ public class ConserjeUtils {
 
     public void update(Object object) {
 
+        Conserje conserje = (Conserje) object;
+        for (int i = 0; i < conserjes.size(); i++) {
+            if (conserjes.get(i).getID() == conserje.getID()) {
+                conserjes.set(i, conserje);
+                dao.update(object);
+            }
+        }
+
     }
 
     public void delete(Object object) {
-
+        Conserje conserje = (Conserje) object;
+        conserjes.remove(conserje);
+        dao.delete(object);
     }
 
 }
