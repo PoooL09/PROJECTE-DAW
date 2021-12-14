@@ -27,7 +27,6 @@ public class Conserje extends Persona {
         this.DNI = DNI;
     }
 
-
     public int getID() {
         return this.ID;
     }

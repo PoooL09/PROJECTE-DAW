@@ -31,6 +31,12 @@ public class Cliente extends Persona {
         this.DNI = DNI;
     }
 
+    @Override
+    public String toString() {
+        return "ID:" + ID +
+                " " + this.getNombre() + " " + this.getApellidos() +
+                " DNI:" + this.getDNI();
+    }
 
     public String getDNI() {
         return this.DNI;
