@@ -5,6 +5,8 @@
  */
 package matplace.model;
 
+import matplace.utils.SalaUtils;
+
 /**
  *
  * @author pg_po
@@ -26,7 +28,15 @@ public class Material {
         this.cantidad = cantidad;
         this.cantidad_disponible = cantidad_disponible;
     }
-    
+
+    @Override
+    public String toString() {
+        return  "EAN:" + EAN +
+                " nombre:" + nombre +
+                " cantidad:" + cantidad +
+                " cantidad_disponible=" + cantidad_disponible;
+    }
+
     public Material(String nombre) {
         this.nombre = nombre;
     }
