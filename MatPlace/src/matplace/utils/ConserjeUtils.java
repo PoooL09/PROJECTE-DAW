@@ -5,9 +5,7 @@
  */
 package matplace.utils;
 
-import matplace.dao.ClienteDao;
 import matplace.dao.ConserjeDao;
-import matplace.model.Cliente;
 import matplace.model.Conserje;
 
 import java.util.ArrayList;
@@ -27,7 +25,7 @@ public class ConserjeUtils {
         dao.create(object);
     }
 
-    public Object read(int id) {
+    public Conserje read(int id) {
 
         for (Conserje c: conserjes) {
             if (c.getID() == id) {

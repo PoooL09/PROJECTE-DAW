@@ -5,7 +5,6 @@
  */
 package matplace.presentacio.controller.capa2.reservas;
 
-import java.awt.*;
 import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
@@ -20,6 +19,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
+import javafx.scene.control.TextArea;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import matplace.model.Reserva;
@@ -63,14 +63,8 @@ public class ControllerCreacionReservas extends Application implements Initializ
      * @param event
      */
     @FXML
-    private void handleButtonSalas(ActionEvent event) {
-        Node st = (Node) event.getSource();
-
-        try {
-            this.start((Stage) st.getScene().getWindow());
-        } catch (Exception ex) {
-            Logger.getLogger(ControllerCreacionReservas.class.getName()).log(Level.SEVERE, null, ex);
-        }
+    private void handleButtonAdd(ActionEvent event) {
+     
     }
 
     /**

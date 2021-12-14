@@ -26,7 +26,7 @@ public class MaterialUtils {
         dao.create(object);
     }
 
-    public Object read(int id) {
+    public Material read(int id) {
         for (Material c: materials) {
             if (c.getEAN() == id) {
                 dao.read(id);

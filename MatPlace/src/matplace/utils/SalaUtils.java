@@ -26,7 +26,7 @@ public class SalaUtils {
         dao.create(object);
     }
 
-    public Object read(int id) {
+    public Sala read(int id) {
         for (Sala c: salas) {
             if (c.getID() == id) {
                 dao.read(id);

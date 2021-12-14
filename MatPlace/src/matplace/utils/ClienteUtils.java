@@ -27,7 +27,7 @@ public class ClienteUtils {
         
     }
 
-    public Object read(int id) {
+    public Cliente read(int id) {
 
         for (Cliente c: clientes) {
             if (c.getID() == id) {
