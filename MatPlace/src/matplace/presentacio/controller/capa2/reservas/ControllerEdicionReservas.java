@@ -5,6 +5,7 @@
  */
 package matplace.presentacio.controller.capa2.reservas;
 
+import java.awt.*;
 import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
@@ -32,6 +33,12 @@ public class ControllerEdicionReservas extends Application implements Initializa
 
     @FXML
     ImageView logo;
+
+    @FXML
+    MenuButton mb_persona, mb_conserje, mb_personas, mb_material;
+
+    @FXML
+    TextArea ta_fecha, ta_hora;
 
     String s;
 
@@ -70,27 +77,7 @@ public class ControllerEdicionReservas extends Application implements Initializa
      * @param event
      */
     @FXML
-    private void handleButtonPersonas(ActionEvent event) {
-
-    }
-
-    /**
-     *
-     *
-     * @param event
-     */
-    @FXML
-    private void handleButtonReservas(ActionEvent event) {
-
-    }
-
-    /**
-     *
-     *
-     * @param event
-     */
-    @FXML
-    private void handleButtonMateriales(ActionEvent event) {
+    private void handleButtonCrear(ActionEvent event) {
 
     }
 

@@ -5,6 +5,7 @@
  */
 package matplace.presentacio.controller.capa2.material;
 
+import java.awt.*;
 import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
@@ -32,6 +33,12 @@ public class ControllerMostrarMaterial extends Application implements Initializa
     
     @FXML
     ImageView logo;
+
+    @FXML
+    Text text_nombre, text_cantidad;
+
+    @FXML
+    TextArea ta_descripcion;
 
     String s;
 
@@ -70,7 +77,7 @@ public class ControllerMostrarMaterial extends Application implements Initializa
      * @param event
      */
     @FXML
-    private void handleButtonPersonas(ActionEvent event) {
+    private void handleButtonEditar(ActionEvent event) {
 
     }
 
@@ -80,7 +87,7 @@ public class ControllerMostrarMaterial extends Application implements Initializa
      * @param event
      */
     @FXML
-    private void handleButtonReservas(ActionEvent event) {
+    private void handleButtonEliminar(ActionEvent event) {
 
     }
 

@@ -5,6 +5,7 @@
  */
 package matplace.presentacio.controller.capa2.cliente;
 
+import java.awt.*;
 import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
@@ -23,6 +24,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
+import org.w3c.dom.Text;
 
 /**
  * @author pg_po
@@ -32,6 +34,12 @@ public class ControllerMostrarCliente extends Application implements Initializab
     
     @FXML
     ImageView logo;
+
+    @FXML
+    Text text_title, text_nombre, text_apellido, text_mail, text_dni, text_tel;
+
+    @FXML
+    Checkbox cb_conserje;
 
     String s;
 
@@ -70,7 +78,7 @@ public class ControllerMostrarCliente extends Application implements Initializab
      * @param event
      */
     @FXML
-    private void handleButtonPersonas(ActionEvent event) {
+    private void handleButtonEditar(ActionEvent event) {
 
     }
 
@@ -80,19 +88,10 @@ public class ControllerMostrarCliente extends Application implements Initializab
      * @param event
      */
     @FXML
-    private void handleButtonReservas(ActionEvent event) {
+    private void handleButtonEliminar(ActionEvent event) {
 
     }
 
-    /**
-     *
-     *
-     * @param event
-     */
-    @FXML
-    private void handleButtonMateriales(ActionEvent event) {
-
-    }
 
     /**
      *

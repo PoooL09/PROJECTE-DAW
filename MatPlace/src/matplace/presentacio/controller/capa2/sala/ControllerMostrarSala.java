@@ -5,6 +5,7 @@
  */
 package matplace.presentacio.controller.capa2.sala;
 
+import java.awt.*;
 import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
@@ -32,6 +33,12 @@ public class ControllerMostrarSala extends Application implements Initializable 
 
     @FXML
     ImageView logo;
+
+    @FXML
+    Text text_title, text_nombre, text_capacidad;
+
+    @FXML
+    TextArea ta_descripcion;
 
     String s;
 
@@ -70,7 +77,7 @@ public class ControllerMostrarSala extends Application implements Initializable 
      * @param event
      */
     @FXML
-    private void handleButtonPersonas(ActionEvent event) {
+    private void handleButtonEditar(ActionEvent event) {
 
     }
 
@@ -80,17 +87,7 @@ public class ControllerMostrarSala extends Application implements Initializable 
      * @param event
      */
     @FXML
-    private void handleButtonReservas(ActionEvent event) {
-
-    }
-
-    /**
-     *
-     *
-     * @param event
-     */
-    @FXML
-    private void handleButtonMateriales(ActionEvent event) {
+    private void handleButtonEliminar(ActionEvent event) {
 
     }
 
