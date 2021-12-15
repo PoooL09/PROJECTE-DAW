@@ -29,6 +29,6 @@
          </columns>
       </TableView>
       <Button layoutX="490.0" layoutY="273.0" mnemonicParsing="false" onAction="#handleButtonDel" prefHeight="25.0" prefWidth="81.0" text="Eliminar" />
-      <ComboBox fx:id="mb_sala" layoutX="414.0" layoutY="79.0" prefHeight="25.0" prefWidth="152.0" promptText="Sala" />
+      <ComboBox fx:id="mb_salas" layoutX="414.0" layoutY="79.0" prefHeight="25.0" prefWidth="152.0" promptText="Sala" />
    </children>
 </Pane>

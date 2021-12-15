@@ -38,7 +38,6 @@ import matplace.presentacio.controller.ControllerMenuPrincipal;
 import matplace.utils.ClienteUtils;
 import matplace.utils.ConserjeUtils;
 import matplace.utils.MaterialUtils;
-import matplace.utils.ReservaUtils;
 import matplace.utils.SalaUtils;
 
 /**
@@ -51,9 +50,9 @@ public class ControllerCreacionReservas extends Application implements Initializ
     MaterialUtils materialUtils = new MaterialUtils();
     ClienteUtils clienteUtils = new ClienteUtils();
     SalaUtils salaUtils = new SalaUtils();
-    
+
     @FXML
-    ComboBox mb_persona, mb_conserje, mb_material, mb_sala;
+    ComboBox mb_persona, mb_conserje, mb_material, mb_salas;
 
     @FXML
     TextArea ta_hora, ta;
@@ -63,7 +62,7 @@ public class ControllerCreacionReservas extends Application implements Initializ
 
     String s;
     ArrayList<Persona> personas = new ArrayList<>();
-    
+
     @FXML
     TableView tvFicheros;
 
@@ -105,14 +104,14 @@ public class ControllerCreacionReservas extends Application implements Initializ
             mb_material.getItems().add(material.get(i));
 
         }
-        
+
         ArrayList<Sala> salas = SalaUtils.getSalas();
         //ArrayList<Material> material = new ArrayList<>();
         salas.add(new Sala());
 
-        for (int i = 0; i < material.size(); i++) {
+        for (int i = 0; i < salas.size(); i++) {
 
-            mb_material.getItems().add(material.get(i));
+            mb_salas.getItems().add(salas.get(i));
 
         }
     }
@@ -142,6 +141,17 @@ public class ControllerCreacionReservas extends Application implements Initializ
      * @param event
      */
     @FXML
+    private void handleButtonDel(ActionEvent event) {
+
+
+    }
+
+    /**
+     *
+     *
+     * @param event
+     */
+    @FXML
     private void handleButtonCrear(ActionEvent event) {
 
         Reserva reserva = new Reserva();
@@ -154,7 +164,11 @@ public class ControllerCreacionReservas extends Application implements Initializ
         reserva.setDataInici(new Date());
 
         //reserva.setDataInici(datePicker.getValue());
-        //reservaUtils.create(reserva);
+        
+        Sala salaSeleccionada = (Sala) mb_salas.getSelectionModel().getSelectedItem();
+        
+        salaUtils.addReserva(reserva,salaSeleccionada);
+        
         ControllerMenuPrincipal.ventanaInformativa("Reserva creada con exito.");
 
     }

@@ -3,6 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+/*
 package matplace.utils;
 
 import matplace.model.Reserva;
@@ -14,6 +15,7 @@ import matplace.dao.ReservaDao;
  *
  * @author pg_po
  */
+/*
 public class ReservaUtils {
 
     private static ArrayList<Reserva> reservas = new ArrayList<>();
@@ -54,3 +56,4 @@ public class ReservaUtils {
     }
 
 }
+*/
