@@ -17,12 +17,15 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 /**
  * @author pg_po
@@ -111,6 +114,15 @@ public class ControllerMenuPrincipal extends Application implements Initializabl
         stage.getIcons().add(new Image("icon.png"));
         stage.setResizable(false);
         stage.show();
+    }
+
+    public static void ventanaInformativa(String s) {
+        Alert dialogoAlerta = new Alert(AlertType.INFORMATION);
+        dialogoAlerta.setTitle("Ventana de información");
+        dialogoAlerta.setHeaderText(null);
+        dialogoAlerta.initStyle(StageStyle.UTILITY);
+        dialogoAlerta.setContentText(s);
+        dialogoAlerta.showAndWait();
     }
 
 }
