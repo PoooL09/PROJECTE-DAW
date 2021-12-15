@@ -54,4 +54,12 @@ public class SalaUtils {
         dao.delete(object);
     }
 
+    public static ArrayList<Sala> getSalas() {
+        return salas;
+    }
+
+    public static void setSalas(ArrayList<Sala> salas) {
+        SalaUtils.salas = salas;
+    }
+
 }

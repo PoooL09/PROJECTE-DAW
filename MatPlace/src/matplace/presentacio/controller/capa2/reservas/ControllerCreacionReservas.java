@@ -12,6 +12,8 @@ import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.application.Application;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -21,6 +23,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
+import javafx.scene.control.TableView;
 import javafx.scene.control.TextArea;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
@@ -30,10 +33,13 @@ import matplace.model.Conserje;
 import matplace.model.Material;
 import matplace.model.Persona;
 import matplace.model.Reserva;
+import matplace.model.Sala;
+import matplace.presentacio.controller.ControllerMenuPrincipal;
 import matplace.utils.ClienteUtils;
 import matplace.utils.ConserjeUtils;
 import matplace.utils.MaterialUtils;
 import matplace.utils.ReservaUtils;
+import matplace.utils.SalaUtils;
 
 /**
  * @author pg_po
@@ -41,13 +47,13 @@ import matplace.utils.ReservaUtils;
  */
 public class ControllerCreacionReservas extends Application implements Initializable {
 
-    ReservaUtils reservaUtils = new ReservaUtils();
-    ConserjeUtils conserjeUtils;
-    MaterialUtils materialUtils;
-    ClienteUtils clienteUtils;
-
+    ConserjeUtils conserjeUtils = new ConserjeUtils();
+    MaterialUtils materialUtils = new MaterialUtils();
+    ClienteUtils clienteUtils = new ClienteUtils();
+    SalaUtils salaUtils = new SalaUtils();
+    
     @FXML
-    ComboBox mb_persona, mb_conserje, mb_material;
+    ComboBox mb_persona, mb_conserje, mb_material, mb_sala;
 
     @FXML
     TextArea ta_hora, ta;
@@ -56,7 +62,10 @@ public class ControllerCreacionReservas extends Application implements Initializ
     DatePicker datePicker;
 
     String s;
-    ArrayList <Persona> personas = new ArrayList<>();
+    ArrayList<Persona> personas = new ArrayList<>();
+    
+    @FXML
+    TableView tvFicheros;
 
     /**
      * Inicia el controlador
@@ -69,24 +78,24 @@ public class ControllerCreacionReservas extends Application implements Initializ
 
         ArrayList<Conserje> conserjes = ConserjeUtils.getConserjes();
         //ArrayList<Conserje> conserjes = new ArrayList<>();
-        conserjes.add(new Conserje(1,"Aitor","Burruezo","74385235","aitor@gmail.com","3256"));
+        conserjes.add(new Conserje(1, "Aitor", "Burruezo", "74385235", "aitor@gmail.com", "3256"));
 
         for (int i = 0; i < conserjes.size(); i++) {
 
             mb_conserje.getItems().add(conserjes.get(i));
-            
+
         }
-        
+
         ArrayList<Cliente> clientes = ClienteUtils.getClientes();
         //ArrayList<Cliente> clientes = new ArrayList<>();
-        clientes.add(new Cliente(1,"Aitor","Burruezo","74385235","aitor@gmail.com","3256"));
+        clientes.add(new Cliente(1, "Aitor", "Burruezo", "74385235", "aitor@gmail.com", "3256"));
 
         for (int i = 0; i < clientes.size(); i++) {
 
             mb_persona.getItems().add(clientes.get(i));
-            
+
         }
-        
+
         ArrayList<Material> material = MaterialUtils.getMaterials();
         //ArrayList<Material> material = new ArrayList<>();
         material.add(new Material("pelota"));
@@ -94,7 +103,17 @@ public class ControllerCreacionReservas extends Application implements Initializ
         for (int i = 0; i < material.size(); i++) {
 
             mb_material.getItems().add(material.get(i));
-            
+
+        }
+        
+        ArrayList<Sala> salas = SalaUtils.getSalas();
+        //ArrayList<Material> material = new ArrayList<>();
+        salas.add(new Sala());
+
+        for (int i = 0; i < material.size(); i++) {
+
+            mb_material.getItems().add(material.get(i));
+
         }
     }
 
@@ -105,14 +124,14 @@ public class ControllerCreacionReservas extends Application implements Initializ
      */
     @FXML
     private void handleButtonAdd(ActionEvent event) {
-        
+
         Persona persona = new Persona();
         persona.setNombre(JOptionPane.showInputDialog("Introduce el nombre;"));
         persona.setApellidos(JOptionPane.showInputDialog("Introduce el apellido;"));
         persona.setMail(JOptionPane.showInputDialog("Introduce el mail;"));
         persona.setTelefono(JOptionPane.showInputDialog("Introduce el telefono;"));
-        
-        ta.appendText(persona.toString()+ "\n");
+
+        ta.appendText(persona.toString() + "\n");
 
         personas.add(persona);
     }
@@ -125,19 +144,18 @@ public class ControllerCreacionReservas extends Application implements Initializ
     @FXML
     private void handleButtonCrear(ActionEvent event) {
 
-       Reserva reserva = new Reserva();
-       
-       reserva.setConserje((Conserje) mb_conserje.getSelectionModel().getSelectedItem());
-       reserva.setMaterial((Material) mb_material.getSelectionModel().getSelectedItem());
-       reserva.setResponsable((Cliente) mb_persona.getSelectionModel().getSelectedItem());
-       reserva.setMiembrosSala(personas);
-       reserva.setDataFinal(new Date());
-       reserva.setDataInici(new Date());
-   
-       //reserva.setDataInici(datePicker.getValue());
-       
-       
-       reservaUtils.create(reserva);
+        Reserva reserva = new Reserva();
+
+        reserva.setConserje((Conserje) mb_conserje.getSelectionModel().getSelectedItem());
+        reserva.setMaterial((Material) mb_material.getSelectionModel().getSelectedItem());
+        reserva.setResponsable((Cliente) mb_persona.getSelectionModel().getSelectedItem());
+        reserva.setMiembrosSala(personas);
+        reserva.setDataFinal(new Date());
+        reserva.setDataInici(new Date());
+
+        //reserva.setDataInici(datePicker.getValue());
+        //reservaUtils.create(reserva);
+        ControllerMenuPrincipal.ventanaInformativa("Reserva creada con exito.");
 
     }
 
@@ -160,6 +178,20 @@ public class ControllerCreacionReservas extends Application implements Initializ
         } catch (Exception ex) {
             Logger.getLogger(ControllerCreacionReservas.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+
+    private void mostrarFicheros() {
+
+        try {
+
+            ObservableList<Persona> llistaObservableFicheros = FXCollections.<Persona>observableArrayList(personas);
+            tvFicheros.setItems(llistaObservableFicheros);
+
+        } catch (java.lang.NullPointerException e) {
+            System.out.println("No hay ficheros que mostrar");
+
+        }
+
     }
 
     @Override
