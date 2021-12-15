@@ -17,7 +17,7 @@ import java.util.ArrayList;
 public class ConserjeUtils {
 
     private static ArrayList<Conserje> conserjes = new ArrayList<>();
-    private ConserjeDao dao;
+    private ConserjeDao dao = new ConserjeDao();
 
     public void create(Object object) {
         Conserje conserje = (Conserje) object;

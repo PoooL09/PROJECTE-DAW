@@ -18,7 +18,7 @@ import java.util.ArrayList;
 public class SalaUtils {
 
     private static ArrayList<Sala> salas = new ArrayList<>();
-    private ConserjeDao dao;
+    private SalaUtils dao = new SalaUtils();
 
     public void create(Object object) {
         Sala sala = (Sala) object;
