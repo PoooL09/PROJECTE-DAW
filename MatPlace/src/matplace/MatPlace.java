@@ -69,6 +69,31 @@ public class MatPlace extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
+        /*
+        Implementar lista negra
+        Si se intenta hacer una reserva de un DNI que no existe dar la opción de crear usuario.
+        Buscar las reservas que hay en una sala en concreto.
+        
+        FALTA LA SALA EN LA PAGINA DE RESERVA
+        
+        Mostrar a nom de qui esta cada reserva.
+        
+        Usabilidad de la aplicación. Facil acceso a toda la aplicación. 
+        
+        Implementar JTable para los acompañantes en gestión reserva.
+        
+        Implementar JTable para mostrar reservas, usuarios, salas, etc
+        
+        Separar por pestañas 
+        
+        Implementar resrervas perodicas?
+        
+        Mostrar mensajes de error cuando algo no funcione. 
+        
+        Implementar un drag an roll sobre una JTable para importar un fichero de texto entero.
+        
+        Crear pattern(validador) para DNI, telefono etc.
+        */
         Parent root = null;
 
         root = FXMLLoader.load(getClass().getResource("/matPlace/presentacio/view/FXML_MenuPrincipal.fxml"));
