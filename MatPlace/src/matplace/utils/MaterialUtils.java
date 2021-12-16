@@ -6,6 +6,7 @@
 package matplace.utils;
 
 import matplace.dao.ConserjeDao;
+import matplace.dao.MaterialDao;
 import matplace.model.Conserje;
 import matplace.model.Material;
 
@@ -18,7 +19,7 @@ import java.util.ArrayList;
 public class MaterialUtils {
 
     private static ArrayList<Material> materials = new ArrayList<>();
-    private ConserjeDao dao;
+    private MaterialDao dao = new MaterialDao();
 
     public void create(Object object) {
         Material material = (Material) object;

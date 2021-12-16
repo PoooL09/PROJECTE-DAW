@@ -6,6 +6,7 @@
 package matplace.dao;
 
 import java.io.File;
+import java.util.ArrayList;
 
 import matplace.model.Cliente;
 
@@ -25,6 +26,9 @@ public class ClienteDao implements Crud{
     private Format format = new Format();
     private Undo undo = new Undo();
 
+    public ClienteDao() {
+        
+    }
 
     @Override
     public void create(Object object) {
@@ -53,6 +57,16 @@ public class ClienteDao implements Crud{
     public void delete(Object object) { // se podria recibir un id y ya
         Cliente cliente = (Cliente) object;
         fileService.eliminar(archivoDestino, String.valueOf(cliente.getID()));
+    }
+
+    public ArrayList<Cliente> cargar () {
+        String dato = fileService.leerFichero(archivoDestino);
+        
+        if(dato==null || dato.equals("")){  
+            return new ArrayList<>();   
+        }
+        
+        return undo.yourClientes(dato, fileService.getCHARACTER_SPLIT_LV1());
     }
 
 

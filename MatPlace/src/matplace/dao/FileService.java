@@ -88,6 +88,17 @@ public class FileService {
     }
 
     public String leerFichero(File ficheroObjetivo) {
+        
+        try {
+            if (ficheroObjetivo.createNewFile()) {
+                
+                System.out.println("El fichero " + ficheroObjetivo.getName() + " no existe. Creando fichero.");
+
+            }
+        } catch (IOException ex) {
+            Logger.getLogger(FileService.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
         Scanner entrada = null;
         String contenido = "";
         int numeroDeLinea = 1;
@@ -106,7 +117,7 @@ public class FileService {
 
     }
 
-    public boolean actualizar(File fichero0bjetivo, String lineaEliminarID, String lineaNuevaText) {
+     public boolean actualizar(File fichero0bjetivo, String lineaEliminarID, String lineaNuevaText) {
         String nombreF = "temp" + fichero0bjetivo.toString();
         File fileTemp = new File(nombreF);
 

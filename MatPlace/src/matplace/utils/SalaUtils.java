@@ -5,11 +5,10 @@
  */
 package matplace.utils;
 
-import matplace.dao.ConserjeDao;
-import matplace.model.Conserje;
 import matplace.model.Sala;
 
 import java.util.ArrayList;
+import matplace.dao.SalaDao;
 import matplace.model.Reserva;
 
 /**
@@ -19,7 +18,7 @@ import matplace.model.Reserva;
 public class SalaUtils {
 
     private static ArrayList<Sala> salas = new ArrayList<>();
-    private ConserjeDao dao;
+    private SalaDao dao = new SalaDao();
 
     public void create(Object object) {
         Sala sala = (Sala) object;
@@ -39,14 +38,16 @@ public class SalaUtils {
 
     }
 
-    public void update(Object object) {
+    public boolean update(Object object) {
         Sala sala = (Sala) object;
         for (int i = 0; i < salas.size(); i++) {
             if (salas.get(i).getID() == sala.getID()) {
                 salas.set(i, sala);
                 dao.update(object);
+                return true;
             }
         }
+        return false;
     }
 
     public void delete(Object object) {

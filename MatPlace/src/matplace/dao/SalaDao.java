@@ -1,7 +1,9 @@
 package matplace.dao;
 
 import java.io.File;
+import java.util.ArrayList;
 
+import matplace.model.Cliente;
 import matplace.model.Sala;
 
 /*
@@ -9,7 +11,6 @@ import matplace.model.Sala;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 /**
  * @author pg_po
  */
@@ -56,5 +57,19 @@ public class SalaDao implements Crud {
         fileService.eliminar(archivoDestino, String.valueOf(sala.getID()));
     }
 
+    public ArrayList<Sala> cargar() {
+        String dato = fileService.leerFichero(archivoDestino);
+
+        if (dato == null || dato.equals("")) {
+            return new ArrayList<>();
+        }
+
+        return undo.yourSalas(fileService.leerFichero(archivoDestino),
+                fileService.getCHARACTER_SPLIT_LV1(),
+                fileService.getCHARACTER_SPLIT_LV2(),
+                fileService.getCHARACTER_SPLIT_LV3(),
+                fileService.getCHARACTER_SPLIT_LV4(),
+                fileService.getCHARACTER_SPLIT_LV5());
+    }
 
 }

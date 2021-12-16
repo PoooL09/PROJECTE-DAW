@@ -90,6 +90,7 @@ public class ControllerCreacionReservas extends Application implements Initializ
         this.mostrarPersonas();
 
         tvPersonas.setPlaceholder(new Label("Ningun acompañante añadido."));
+
         colNombre.setCellValueFactory(new PropertyValueFactory<>("nombre"));
         colApellido.setCellValueFactory(new PropertyValueFactory<>("apellidos"));
         colMail.setCellValueFactory(new PropertyValueFactory<>("mail"));
@@ -111,9 +112,9 @@ public class ControllerCreacionReservas extends Application implements Initializ
         persona.setTelefono(JOptionPane.showInputDialog("Introduce el telefono;"));
 
         personas.add(persona);
-        
-         ControllerMenuPrincipal.ventanaInformativa("Acompañante añadido con exito.");
-         mostrarPersonas();
+
+        ControllerMenuPrincipal.ventanaInformativa("Acompañante añadido con exito.");
+        mostrarPersonas();
     }
 
     /**
@@ -182,7 +183,11 @@ public class ControllerCreacionReservas extends Application implements Initializ
 
         salaUtils.addReserva(reserva, salaSeleccionada);
 
-        ControllerMenuPrincipal.ventanaInformativa("Reserva creada con exito.");
+        if (salaUtils.update(salaSeleccionada)) {
+            ControllerMenuPrincipal.ventanaInformativa("Reserva creada con exito.");
+        } else {
+            ControllerMenuPrincipal.ventanaInformativa("No se ha podido crear la reserva.");
+        }
 
     }
 
@@ -224,8 +229,6 @@ public class ControllerCreacionReservas extends Application implements Initializ
     private void setCombobox() {
 
         ArrayList<Conserje> conserjes = ConserjeUtils.getConserjes();
-        //ArrayList<Conserje> conserjes = new ArrayList<>();
-        conserjes.add(new Conserje(1, "Aitor", "Burruezo", "74385235", "aitor@gmail.com", "3256"));
 
         for (int i = 0; i < conserjes.size(); i++) {
 
@@ -234,8 +237,6 @@ public class ControllerCreacionReservas extends Application implements Initializ
         }
 
         ArrayList<Cliente> clientes = ClienteUtils.getClientes();
-        //ArrayList<Cliente> clientes = new ArrayList<>();
-        clientes.add(new Cliente(1, "Aitor", "Burruezo", "74385235", "aitor@gmail.com", "3256"));
 
         for (int i = 0; i < clientes.size(); i++) {
 
@@ -244,8 +245,6 @@ public class ControllerCreacionReservas extends Application implements Initializ
         }
 
         ArrayList<Material> material = MaterialUtils.getMaterials();
-        //ArrayList<Material> material = new ArrayList<>();
-        material.add(new Material("pelota"));
 
         for (int i = 0; i < material.size(); i++) {
 
@@ -254,8 +253,6 @@ public class ControllerCreacionReservas extends Application implements Initializ
         }
 
         ArrayList<Sala> salas = SalaUtils.getSalas();
-        //ArrayList<Material> material = new ArrayList<>();
-        salas.add(new Sala());
 
         for (int i = 0; i < salas.size(); i++) {
 

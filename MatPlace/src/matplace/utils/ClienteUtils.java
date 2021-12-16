@@ -17,7 +17,7 @@ import java.util.ArrayList;
 public class ClienteUtils {
 
     private static ArrayList<Cliente> clientes = new ArrayList<>();
-    private ClienteDao dao;
+    private ClienteDao dao = new ClienteDao();
 
     public void create(Object object) {
 

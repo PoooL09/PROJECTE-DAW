@@ -17,9 +17,6 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
@@ -54,23 +51,10 @@ public class ControllerGestioSalas extends Application implements Initializable 
      * @param event
      */
     @FXML
-    private void handleButtonSalas(ActionEvent event) {
-        Node st = (Node) event.getSource();
+    private void handleButtonCrear(ActionEvent event) {
 
-        try {
-            this.start((Stage) st.getScene().getWindow());
-        } catch (Exception ex) {
-            Logger.getLogger(ControllerGestioSalas.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
-
-    /**
-     *
-     *
-     * @param event
-     */
-    @FXML
-    private void handleButtonPersonas(ActionEvent event) {
+        s = "/matplace/presentacio/view/capa2/sala/crear sala.fxml";
+        cambioScene((Node) event.getSource());
 
     }
 
@@ -80,17 +64,7 @@ public class ControllerGestioSalas extends Application implements Initializable 
      * @param event
      */
     @FXML
-    private void handleButtonReservas(ActionEvent event) {
-
-    }
-
-    /**
-     *
-     *
-     * @param event
-     */
-    @FXML
-    private void handleButtonMateriales(ActionEvent event) {
+    private void handleButtonBuscar(ActionEvent event) {
 
     }
 

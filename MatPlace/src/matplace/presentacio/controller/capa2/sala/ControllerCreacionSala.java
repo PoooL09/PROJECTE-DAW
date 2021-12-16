@@ -5,7 +5,6 @@
  */
 package matplace.presentacio.controller.capa2.sala;
 
-import java.awt.*;
 import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
@@ -18,9 +17,12 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
+import matplace.model.Sala;
+import matplace.utils.Validador;
 
 /**
  * @author pg_po
@@ -47,21 +49,7 @@ public class ControllerCreacionSala extends Application implements Initializable
 
     }
 
-    /**
-     *
-     *
-     * @param event
-     */
-    @FXML
-    private void handleButtonSalas(ActionEvent event) {
-        Node st = (Node) event.getSource();
-
-        try {
-            this.start((Stage) st.getScene().getWindow());
-        } catch (Exception ex) {
-            Logger.getLogger(ControllerCreacionSala.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
+  
 
     /**
      *
@@ -70,6 +58,17 @@ public class ControllerCreacionSala extends Application implements Initializable
      */
     @FXML
     private void handleButtonCrear(ActionEvent event) {
+ 
+        if (Validador.checkNumb(tf_cantidad.getText())){
+            
+        }
+        
+        
+        
+       Sala sala = new Sala();
+       sala.setNombre(tf_nombre.getText());
+       sala.setCapacidad(Integer.parseInt(tf_cantidad.getText()));
+       sala.setDescripcion()
 
     }
 
