@@ -6,6 +6,7 @@
 package matplace.presentacio.controller.capa2.sala;
 
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -70,10 +71,11 @@ public class ControllerCreacionSala extends Application implements Initializable
         sala.setNombre(tf_nombre.getText());
         sala.setCapacidad(Integer.parseInt(tf_cantidad.getText()));
         sala.setDescripcion(ta_descripcion.getText());
-
+        sala.setReservas(new ArrayList<>());
+        
         salaUtils.create(sala);
 
-        ControllerMenuPrincipal.ventanaInformativa("Reserva creada con exito.");
+        ControllerMenuPrincipal.ventanaInformativa("Sala creada con exito.");
 
     }
 

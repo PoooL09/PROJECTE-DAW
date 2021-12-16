@@ -20,8 +20,11 @@ import javafx.scene.Scene;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
+import matplace.model.Cliente;
+import matplace.model.Conserje;
+import matplace.presentacio.controller.ControllerMenuPrincipal;
+import matplace.utils.Validador;
 
 /**
  * @author pg_po
@@ -72,8 +75,41 @@ public class ControllerCreacionCliente extends Application implements Initializa
     @FXML
     private void handleButtonCrear(ActionEvent event) {
 
-        
-        
+        if (!Validador.checkNumb(tf_tel.getText())) {
+            ControllerMenuPrincipal.ventanaInformativa("El campo \"Telefeno\" debe ser un número.");
+            return;
+        }
+        if (!Validador.chekMail(tf_mail.getText())) {
+            ControllerMenuPrincipal.ventanaInformativa("El campo \"mail\" no tiene el formato adecuado.");
+            return;
+        }
+        if (!Validador.checkDNI(tf_dni.getText())) {
+            ControllerMenuPrincipal.ventanaInformativa("El campo \"DNI\" no tiene el formato adecuado.");
+            return;
+        }
+
+        if (!cb_conserje.isSelected()) {
+
+            Cliente cliente = new Cliente();
+            cliente.setNombre(tf_nombre.getText());
+            cliente.setApellidos(tf_apellidos.getText());
+            cliente.setMail(tf_mail.getText());
+            cliente.setDNI(tf_dni.getText());
+            cliente.setTelefono(tf_tel.getText());
+
+            ControllerMenuPrincipal.ventanaInformativa("Cliente creado con exito.");
+
+        } else {
+            Conserje conserje = new Conserje();
+            conserje.setNombre(tf_nombre.getText());
+            conserje.setApellidos(tf_apellidos.getText());
+            conserje.setMail(tf_mail.getText());
+            conserje.setDNI(tf_dni.getText());
+            conserje.setTelefono(tf_tel.getText());
+
+            ControllerMenuPrincipal.ventanaInformativa("Conserje creado con exito.");
+        }
+
     }
 
     /**

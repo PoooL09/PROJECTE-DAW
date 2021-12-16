@@ -27,6 +27,10 @@ public class Conserje extends Persona {
         this.DNI = DNI;
     }
 
+    public Conserje() {
+        
+    }
+
     @Override
     public String toString() {
         return "ID:" + ID + " " + this.getNombre() +" " + this.getApellidos() + " DNI:" + DNI ;
