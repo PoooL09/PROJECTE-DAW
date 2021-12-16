@@ -10,6 +10,7 @@ import matplace.model.Conserje;
 import matplace.model.Sala;
 
 import java.util.ArrayList;
+import matplace.model.Reserva;
 
 /**
  *
@@ -60,6 +61,20 @@ public class SalaUtils {
 
     public static void setSalas(ArrayList<Sala> salas) {
         SalaUtils.salas = salas;
+    }
+    
+    public void addReserva(Reserva reserva, Sala sala){
+        
+        for (int i = 0; i < salas.size(); i++) {
+            
+            if(salas.get(i)==sala){
+                
+                salas.get(i).getReservas().add(reserva);
+                
+            }
+            
+        }
+                
     }
 
 }
