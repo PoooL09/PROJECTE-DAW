@@ -30,7 +30,7 @@ import javafx.stage.Stage;
 public class ControllerMostrarMaterial extends Application implements Initializable {
     
     @FXML
-    Text text_nombre, text_cantidad;
+    Text text_nombre, text_cantidad, tf_EAN;
 
     @FXML
     TextArea ta_descripcion;
