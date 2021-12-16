@@ -5,6 +5,8 @@
  */
 package matplace.model;
 
+import matplace.dao.ServiceID;
+
 /**
  *
  * @author pg_po
@@ -16,6 +18,9 @@ public class Cliente extends Persona {
     private static int incrementoID;
 
     public Cliente() {
+        this.ID = incrementoID;
+        incrementoID++;
+        new ServiceID().setIDFile();
     }
 
     public Cliente(int ID, String nombre, String apellidos, String telefono, String mail, String DNI) {
@@ -29,6 +34,7 @@ public class Cliente extends Persona {
         incrementoID++;
         this.ID = incrementoID;
         this.DNI = DNI;
+        new ServiceID().setIDFile();
     }
 
     @Override

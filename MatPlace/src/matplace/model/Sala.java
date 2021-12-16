@@ -5,6 +5,8 @@
  */
 package matplace.model;
 
+import matplace.dao.ServiceID;
+
 import java.util.ArrayList;
 
 /**
@@ -23,6 +25,7 @@ public class Sala {
     public Sala() {
         ID = incrementoID;
         incrementoID++;
+        new ServiceID().setIDFile();
     }
 
     public Sala(String nombre, String descripcion, int capacidad, ArrayList<Reserva> reservas) {
@@ -32,6 +35,7 @@ public class Sala {
         this.reservas = reservas;
         ID = incrementoID;
         incrementoID++;
+        new ServiceID().setIDFile();
     }
 
     public Sala(int ID, String nombre, String descripcion, int capacidad, ArrayList<Reserva> reservas) {
@@ -89,6 +93,12 @@ public class Sala {
     public void setReservas(ArrayList<Reserva> reservas) {
         this.reservas = reservas;
     }
-    
 
+    public static int getIncrementoID() {
+        return incrementoID;
+    }
+
+    public static void setIncrementoID(int incrementoID) {
+        Sala.incrementoID = incrementoID;
+    }
 }
