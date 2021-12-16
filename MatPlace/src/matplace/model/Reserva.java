@@ -23,7 +23,7 @@ public class Reserva {
     private Date dataInici;
     private Date dataFinal;
     private int ID;
-    private static int incrementoID=1;
+    private static int incrementoID;
 
     public Reserva() {
         this.ID = incrementoID;

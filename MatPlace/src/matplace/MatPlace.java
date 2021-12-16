@@ -12,6 +12,7 @@ import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import matplace.dao.ArrayService;
+import matplace.dao.ServiceID;
 
 /**
  *
@@ -89,9 +90,9 @@ public class MatPlace extends Application {
         Implementar un drag an roll sobre una JTable para importar un fichero de texto entero.
         
         Crear pattern(validador) para DNI, telefono etc.
-        */
-
-        //new ArrayService().startAll();
+         */
+        new ServiceID().takeID();
+        new ArrayService().startAll();
 
         Parent root = null;
 
