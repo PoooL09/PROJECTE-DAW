@@ -4,6 +4,9 @@ import matplace.model.*;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Locale;
@@ -183,17 +186,39 @@ public class Undo {
         return reserva;
     }
 
-    public Date takeDate(String dato) {
+    public LocalDateTime takeDate(String dato) {
         //DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MMMM d, yyyy", Locale.ENGLISH);
         //Date date = formatter.parse(dato);
-        Date thedate = null;
+        LocalDateTime thedate = null;
         try {
-            thedate = new SimpleDateFormat("MMMM d, yyyy", Locale.ENGLISH).parse(dato);
-        } catch (ParseException e) {
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
+            thedate = LocalDateTime.parse(dato, formatter);
+        } catch (Exception e) {
             e.printStackTrace();
         }
         return thedate;
     }
+
+    public void stringtoDate() {
+        String date_time = "11/27/2020 05:35";
+        String time = "05:35";
+        LocalDate localdate = LocalDate.parse("2019-04-03");
+        String date2 = localdate.toString().replace("-", "/");
+        SimpleDateFormat dateParser = new SimpleDateFormat("MM/dd/yy HH:mm");
+        String finalDate = date2 + " " + time;
+
+            try {
+                Date date = dateParser.parse(finalDate);
+                System.out.println(date);
+
+                SimpleDateFormat dateFormatter = new SimpleDateFormat("MM/dd/yy");
+                System.out.println(dateFormatter.format(date));
+
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
+    }
+
 
 
     public ArrayList<Reserva> arrayReserva(String dato, String charactherSplitLv2, String charatherSplitLv3, String charatherSplitLv4, String charatherSplitLv5) {
