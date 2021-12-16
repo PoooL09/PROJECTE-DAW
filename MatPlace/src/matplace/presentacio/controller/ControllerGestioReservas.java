@@ -6,11 +6,14 @@
 package matplace.presentacio.controller;
 
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.application.Application;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -18,12 +21,18 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.Label;
+import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import matplace.model.Reserva;
+import matplace.model.Sala;
+import matplace.utils.SalaUtils;
 
 /**
  * @author pg_po
@@ -32,11 +41,18 @@ import matplace.model.Reserva;
 public class ControllerGestioReservas extends Application implements Initializable {
 
     @FXML
+    ComboBox cb_sala;
+
+    @FXML
     TextField buscador;
 
     @FXML
     TableView tvReservas;
-    
+    @FXML
+    TableColumn colID, colCliente, colFecha, colHora, colMaterial;
+
+    ArrayList<Reserva> reservas = new ArrayList<>();
+
     String s;
 
     /**
@@ -48,12 +64,22 @@ public class ControllerGestioReservas extends Application implements Initializab
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
-       
+        this.setCombobox();
+        this.mostrarReservas();
+
+        tvReservas.setPlaceholder(new Label("No hay ninguna reserva."));
+
+        colID.setCellValueFactory(new PropertyValueFactory<>("ID"));
+        colCliente.setCellValueFactory(new PropertyValueFactory<>("responsable"));
+        colFecha.setCellValueFactory(new PropertyValueFactory<>("dataInici"));
+        //colHora.setCellValueFactory(new PropertyValueFactory<>("telefono"));
+        colMaterial.setCellValueFactory(new PropertyValueFactory<>("material"));
 
     }
 
     Reserva temp = null;
     Date lastClickTime = null;
+
     /**
      * Detecta un doble clik sobre un fichero de la tableview.
      */
@@ -137,6 +163,37 @@ public class ControllerGestioReservas extends Application implements Initializab
         } catch (Exception ex) {
             Logger.getLogger(ControllerMenuPrincipal.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+
+    private void setCombobox() {
+
+        ArrayList<Sala> salas = SalaUtils.getSalas();
+
+        for (int i = 0; i < salas.size(); i++) {
+
+            cb_sala.getItems().add(salas.get(i));
+
+        }
+
+        cb_sala.setOnAction((evento) -> {
+            Sala sala = (Sala) cb_sala.getSelectionModel().getSelectedItem();
+            reservas = sala.getReservas();
+            mostrarReservas();
+        });
+
+    }
+
+    private void mostrarReservas() {
+
+        try {
+            ObservableList<Reserva> llistaObservableReservas = FXCollections.<Reserva>observableArrayList(reservas);
+            tvReservas.setItems(llistaObservableReservas);
+
+        } catch (java.lang.NullPointerException e) {
+            System.out.println("No hay ficheros que mostrar");
+
+        }
+
     }
 
     @Override

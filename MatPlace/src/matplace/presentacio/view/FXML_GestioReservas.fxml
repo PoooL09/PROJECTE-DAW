@@ -24,6 +24,6 @@
             <TableColumn fx:id="colMaterial" prefWidth="121.0" text="Material" />
         </columns>
       </TableView>
-      <ComboBox fx:id="sala" layoutX="577.0" layoutY="11.0" prefHeight="25.0" prefWidth="70.0" promptText="Sala" />
+      <ComboBox fx:id="cb_sala" layoutX="577.0" layoutY="11.0" prefHeight="25.0" prefWidth="70.0" promptText="Sala" />
   </children>
 </AnchorPane>

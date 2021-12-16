@@ -91,7 +91,7 @@ public class MatPlace extends Application {
         Crear pattern(validador) para DNI, telefono etc.
         */
 
-        new ArrayService().startAll();
+        //new ArrayService().startAll();
 
         Parent root = null;
 

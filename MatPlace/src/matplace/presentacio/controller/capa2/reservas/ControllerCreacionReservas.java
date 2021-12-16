@@ -69,6 +69,7 @@ public class ControllerCreacionReservas extends Application implements Initializ
     DatePicker datePicker;
 
     String s;
+    
     ArrayList<Persona> personas = new ArrayList<>();
 
     @FXML
@@ -216,8 +217,8 @@ public class ControllerCreacionReservas extends Application implements Initializ
 
         try {
 
-            ObservableList<Persona> llistaObservableFicheros = FXCollections.<Persona>observableArrayList(personas);
-            tvPersonas.setItems(llistaObservableFicheros);
+            ObservableList<Persona> llistaObservablePersonas = FXCollections.<Persona>observableArrayList(personas);
+            tvPersonas.setItems(llistaObservablePersonas);
 
         } catch (java.lang.NullPointerException e) {
             System.out.println("No hay ficheros que mostrar");
