@@ -68,7 +68,7 @@ public class ControllerCreacionSala extends Application implements Initializable
        Sala sala = new Sala();
        sala.setNombre(tf_nombre.getText());
        sala.setCapacidad(Integer.parseInt(tf_cantidad.getText()));
-       sala.setDescripcion()
+      
 
     }
 
