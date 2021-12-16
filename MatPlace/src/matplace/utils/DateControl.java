@@ -16,6 +16,11 @@ public class DateControl {
         return localDateTime;
     }
 
+    public String[] dateTimeSeparateDateaAndTime (LocalDateTime localDateTime) {
+        String[] x = localDateTime.toString().split("T");
+        return x;
+    }
+
 
 
 }
