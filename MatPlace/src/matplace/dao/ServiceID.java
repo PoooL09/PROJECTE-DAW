@@ -37,12 +37,16 @@ public class ServiceID {
     public void takeID() {
         String dato = fileService.leerFichero(archivoDestino);
 
-        String[] datos = dato.split(fileService.getCHARACTER_SPLIT_LV1());
+        if (!dato.equals("")) {
+            String[] datos = dato.split(fileService.getCHARACTER_SPLIT_LV1());
 
-        Cliente.setIncrementoID(Integer.parseInt(datos[1]));
-        Conserje.setIncrementoID(Integer.parseInt(datos[2]));
-        Reserva.setIncrementoID(Integer.parseInt(datos[3]));
-        Sala.setIncrementoID(Integer.parseInt(datos[4]));
+            Cliente.setIncrementoID(Integer.parseInt(datos[1]));
+            Conserje.setIncrementoID(Integer.parseInt(datos[2]));
+            Reserva.setIncrementoID(Integer.parseInt(datos[3]));
+            Sala.setIncrementoID(Integer.parseInt(datos[4]));
+        }
+
+
     }
 
 
