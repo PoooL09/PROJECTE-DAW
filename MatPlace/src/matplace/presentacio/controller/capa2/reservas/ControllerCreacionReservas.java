@@ -153,8 +153,8 @@ public class ControllerCreacionReservas extends Application implements Initializ
         reserva.setDataFinal(new Date());
         reserva.setDataInici(new Date());
 
-        //reserva.setDataInici(datePicker.getValue());
-        //reservaUtils.create(reserva);
+        reserva.setDataInici(datePicker.getValue());
+        reservaUtils.create(reserva);
         ControllerMenuPrincipal.ventanaInformativa("Reserva creada con exito.");
 
     }
