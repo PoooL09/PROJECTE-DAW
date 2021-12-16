@@ -24,7 +24,7 @@ public class Reserva {
     private LocalDateTime dataInici;
     private LocalDateTime dataFinal;
     private int ID;
-    private static int incrementoID=1;
+    private static int incrementoID;
 
     public Reserva() {
         this.ID = incrementoID;

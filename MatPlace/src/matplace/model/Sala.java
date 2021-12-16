@@ -16,7 +16,7 @@ import java.util.ArrayList;
 public class Sala {
 
     private final int ID;
-    private static int incrementoID = 1;
+    private static int incrementoID;
     private String nombre;
     private String descripcion;
     private int capacidad;

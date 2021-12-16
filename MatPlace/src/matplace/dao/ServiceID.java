@@ -28,11 +28,11 @@ public class ServiceID {
         int reservaId = Reserva.getIncrementoID();
         int salaId = Sala.getIncrementoID();
 
-        String dato = "0" + fileService.getCHARACTER_SPLIT_LV1() +
-                clienteId + fileService.getCHARACTER_SPLIT_LV1() +
-                conserjeId + fileService.getCHARACTER_SPLIT_LV1() +
-                reservaId+ fileService.getCHARACTER_SPLIT_LV1() +
-                salaId;
+        String dato = "0" + fileService.getCHARACTER_SPLIT_LV1()
+                + clienteId + fileService.getCHARACTER_SPLIT_LV1()
+                + conserjeId + fileService.getCHARACTER_SPLIT_LV1()
+                + reservaId + fileService.getCHARACTER_SPLIT_LV1()
+                + salaId;
 
         fileService.actualizar(archivoDestino, "0", dato);
     }
@@ -44,29 +44,32 @@ public class ServiceID {
             String[] placeHolder = dato.split("\n");
             String[] datos = placeHolder[0].split(fileService.getCHARACTER_SPLIT_LV1());
 
+            System.out.println(datos[4]);
+
             Cliente.setIncrementoID(Integer.parseInt(datos[1]));
             Conserje.setIncrementoID(Integer.parseInt(datos[2]));
             Reserva.setIncrementoID(Integer.parseInt(datos[3]));
             Sala.setIncrementoID(Integer.parseInt(datos[4]));
         }
+
     }
 
     public void startID() {
         createFile();
-        setIDFile();
+        takeID();
     }
 
-    public void createFile () {
+    public void createFile() {
 
         try {
             if (archivoDestino.createNewFile()) {
 
                 System.out.println("El fichero " + archivoDestino.getName() + " no existe. Creando fichero.");
-                String dato = "0" + fileService.getCHARACTER_SPLIT_LV1() +
-                        "1" + fileService.getCHARACTER_SPLIT_LV1() +
-                        "1" + fileService.getCHARACTER_SPLIT_LV1() +
-                        "1"+ fileService.getCHARACTER_SPLIT_LV1() +
-                        "1";
+                String dato = "0" + fileService.getCHARACTER_SPLIT_LV1()
+                        + "1" + fileService.getCHARACTER_SPLIT_LV1()
+                        + "1" + fileService.getCHARACTER_SPLIT_LV1()
+                        + "1" + fileService.getCHARACTER_SPLIT_LV1()
+                        + "1";
                 fileService.escribirFichero(archivoDestino, dato);
 
             }
@@ -76,8 +79,4 @@ public class ServiceID {
 
     }
 
-
-
-
-    
 }
