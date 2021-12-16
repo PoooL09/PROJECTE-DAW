@@ -53,4 +53,17 @@ public class Validador {
         return true;
     }
 
+    public static boolean checkNom(String nom) {
+        Pattern pat = Pattern.compile("[A-Z a-z]");
+        Matcher mat = pat.matcher(nom);
+
+        if (!mat.matches()) {
+            return mat.matches();
+
+        } else {
+            return mat.matches();
+        }
+
+    }
+
 }

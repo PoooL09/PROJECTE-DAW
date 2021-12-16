@@ -213,11 +213,21 @@ public class Undo {
 
     public Sala creatorSala(String[] dato, String charactherSplitLv2, String charatherSplitLv3, String charatherSplitLv4, String charatherSplitLv5) {
 
-        Sala sala = new Sala(Integer.parseInt(dato[0]),
-                dato[1],
-                dato[2],
-                Integer.parseInt(dato[3]),
-                arrayReserva(dato[4], charactherSplitLv2, charatherSplitLv3, charatherSplitLv4, charatherSplitLv5));
+        Sala sala = null;
+
+        if (dato[4].equals("")) {
+            sala = new Sala(Integer.parseInt(dato[0]),
+                    dato[1],
+                    dato[2],
+                    Integer.parseInt(dato[3]),
+                    new ArrayList<>());
+        } else {
+             sala = new Sala(Integer.parseInt(dato[0]),
+                    dato[1],
+                    dato[2],
+                    Integer.parseInt(dato[3]),
+                    arrayReserva(dato[4], charactherSplitLv2, charatherSplitLv3, charatherSplitLv4, charatherSplitLv5));
+        }
 
         return sala;
     }
