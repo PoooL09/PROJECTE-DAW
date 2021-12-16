@@ -6,6 +6,7 @@
 package matplace.dao;
 
 import java.io.File;
+import java.util.ArrayList;
 
 import matplace.model.Conserje;
 import matplace.model.Material;
@@ -53,7 +54,10 @@ public class MaterialDao implements Crud{
         Material material = (Material) object;
         fileService.eliminar(archivoDestino, String.valueOf(material.getEAN()));
     }
-    
-    
 
+
+    public ArrayList<Material> cargar() {
+        String dato = fileService.leerFichero(archivoDestino);
+        return undo.yourMaterials(dato, fileService.getCHARACTER_SPLIT_LV1());
+    }
 }

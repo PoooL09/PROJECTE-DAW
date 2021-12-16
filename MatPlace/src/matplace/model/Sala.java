@@ -42,6 +42,13 @@ public class Sala {
         this.reservas = reservas;
     }
 
+    @Override
+    public String toString() {
+        return "ID:" + ID +
+                " nombre:" + nombre +
+                " capacidad:" + capacidad;
+    }
+
     //public void afegir(Reserva reserva) {
     //  reservas.add(reserva);
     //}

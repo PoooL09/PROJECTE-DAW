@@ -32,9 +32,9 @@ public class Material {
     @Override
     public String toString() {
         return  "EAN:" + EAN +
-                " nombre:" + nombre +
+                " " + nombre +
                 " cantidad:" + cantidad +
-                " cantidad_disponible=" + cantidad_disponible;
+                " cantidad disponible:" + cantidad_disponible;
     }
 
     public Material(String nombre) {

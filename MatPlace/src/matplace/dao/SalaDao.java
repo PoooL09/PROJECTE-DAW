@@ -1,7 +1,9 @@
 package matplace.dao;
 
 import java.io.File;
+import java.util.ArrayList;
 
+import matplace.model.Cliente;
 import matplace.model.Sala;
 
 /*
@@ -54,6 +56,16 @@ public class SalaDao implements Crud {
     public void delete(Object object) {
         Sala sala = (Sala) object;
         fileService.eliminar(archivoDestino, String.valueOf(sala.getID()));
+    }
+
+    public ArrayList<Sala> cargar () {
+        String dato = fileService.leerFichero(archivoDestino);
+        return undo.yourSalas(fileService.leerFichero(archivoDestino),
+                fileService.getCHARACTER_SPLIT_LV1(),
+                fileService.getCHARACTER_SPLIT_LV2(),
+                fileService.getCHARACTER_SPLIT_LV3(),
+                fileService.getCHARACTER_SPLIT_LV4(),
+                fileService.getCHARACTER_SPLIT_LV5());
     }
 
 

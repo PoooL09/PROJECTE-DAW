@@ -14,6 +14,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
+import matplace.dao.ArrayService;
 import matplace.model.Sala;
 import matplace.presentacio.controller.ControllerMenuPrincipal;
 
@@ -94,6 +95,9 @@ public class MatPlace extends Application {
         
         Crear pattern(validador) para DNI, telefono etc.
         */
+
+        new ArrayService().startAll();
+
         Parent root = null;
 
         root = FXMLLoader.load(getClass().getResource("/matPlace/presentacio/view/FXML_MenuPrincipal.fxml"));

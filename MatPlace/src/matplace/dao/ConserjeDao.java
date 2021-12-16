@@ -6,6 +6,7 @@
 package matplace.dao;
 
 import java.io.File;
+import java.util.ArrayList;
 
 import matplace.model.Cliente;
 import matplace.model.Conserje;
@@ -58,4 +59,8 @@ public class ConserjeDao implements Crud {
         fileService.eliminar(archivoDestino, String.valueOf(conserje.getID()));
     }
 
+    public ArrayList<Conserje> cargar() {
+        String dato = fileService.leerFichero(archivoDestino);
+        return undo.yourConserjes(dato, fileService.getCHARACTER_SPLIT_LV1());
+    }
 }

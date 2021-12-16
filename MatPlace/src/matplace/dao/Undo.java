@@ -24,6 +24,15 @@ public class Undo {
         return null;
     }
 
+    public ArrayList<Cliente> yourClientes(String dato, String characterSplitLv1) {
+        String[] clientesString = separate(dato, "\n");
+        ArrayList<Cliente> clientes = null;
+        for (String x : clientesString) {
+            clientes.add(creatorCliente(separate(x, characterSplitLv1)));
+        }
+        return clientes;
+    }
+
     public Conserje yourConserje(String dato, int id, String characterSplitLv1) {
 
         String[] conserjeString = separate(dato, "\n");
@@ -36,6 +45,15 @@ public class Undo {
         }
 
         return null;
+    }
+
+    public ArrayList<Conserje> yourConserjes(String dato, String characterSplitLv1) {
+        String[] conserjesString = separate(dato, "\n");
+        ArrayList<Conserje> conserjes = null;
+        for (String x : conserjesString) {
+            conserjes.add(creatorConserje(separate(x, characterSplitLv1)));
+        }
+        return conserjes;
     }
 
     public Material yourMaterial(String dato, int id, String characterSplitLv1) {
@@ -57,6 +75,16 @@ public class Undo {
 
         return null;
     }
+
+    public ArrayList<Material> yourMaterials(String dato, String characterSplitLv1) {
+        String[] materialsString = separate(dato, "\n");
+        ArrayList<Material> materials = null;
+        for (String x : materialsString) {
+            materials.add(creatorMaterial(separate(x, characterSplitLv1)));
+        }
+        return materials;
+    }
+
 
     public Reserva yourReserva(String dato, int id, String characterSplitLv1, String characterSplitLv2, String characterSplitLv3) {
         /*
@@ -90,6 +118,14 @@ public class Undo {
         return null;
     }
 
+    public ArrayList<Sala> yourSalas(String dato, String characterSplitLv1, String characterSplitLv2, String characterSplitLv3, String characterSplitLv4, String characterSplitLv5) {
+        String[] salasString = separate(dato, "\n");
+        ArrayList<Sala> salas = null;
+        for (String x : salasString) {
+            salas.add(creatorSala(separate(x, characterSplitLv1), characterSplitLv2, characterSplitLv3, characterSplitLv4, characterSplitLv5));
+        }
+        return salas;
+    }
 
     public String[] separate(String dato, String characterSplitLv1) {
 
