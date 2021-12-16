@@ -41,7 +41,6 @@ public class Conserje extends Persona {
         return "ID:" + ID + " " + this.getNombre() +" " + this.getApellidos() + " DNI:" + DNI ;
     }
 
-
     public int getID() {
         return this.ID;
     }

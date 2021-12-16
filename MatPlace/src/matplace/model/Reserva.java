@@ -7,6 +7,7 @@ package matplace.model;
 
 import matplace.dao.ServiceID;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -20,8 +21,8 @@ public class Reserva {
     private Cliente responsable;
     private Conserje conserje;
     private Material material;
-    private Date dataInici;
-    private Date dataFinal;
+    private LocalDateTime dataInici;
+    private LocalDateTime dataFinal;
     private int ID;
     private static int incrementoID;
 
@@ -31,7 +32,7 @@ public class Reserva {
         new ServiceID().setIDFile();
     }
 
-    public Reserva(int id, ArrayList<Persona> miembrosSala, Cliente responsable, Conserje conserje, Material material, Date dataInici, Date dataFinal) {
+    public Reserva(int id, ArrayList<Persona> miembrosSala, Cliente responsable, Conserje conserje, Material material, LocalDateTime dataInici, LocalDateTime dataFinal) {
         this.miembrosSala = miembrosSala;
         this.responsable = responsable;
         this.conserje = conserje;
@@ -41,7 +42,7 @@ public class Reserva {
         this.ID = id;
     }
 
-    public Reserva(ArrayList<Persona> miembrosSala, Cliente responsable, Conserje conserje, Material material, Date dataInici, Date dataFinal) {
+    public Reserva(ArrayList<Persona> miembrosSala, Cliente responsable, Conserje conserje, Material material, LocalDateTime dataInici, LocalDateTime dataFinal) {
         this.miembrosSala = miembrosSala;
         this.responsable = responsable;
         this.conserje = conserje;
@@ -90,19 +91,19 @@ public class Reserva {
         this.material = material;
     }
 
-    public Date getDataInici() {
-        return this.dataInici;
+    public LocalDateTime getDataInici() {
+        return dataInici;
     }
 
-    public void setDataInici(Date dataInici) {
+    public void setDataInici(LocalDateTime dataInici) {
         this.dataInici = dataInici;
     }
 
-    public Date getDataFinal() {
-        return this.dataFinal;
+    public LocalDateTime getDataFinal() {
+        return dataFinal;
     }
 
-    public void setDataFinal(Date dataFinal) {
+    public void setDataFinal(LocalDateTime dataFinal) {
         this.dataFinal = dataFinal;
     }
 
