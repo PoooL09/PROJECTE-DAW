@@ -90,8 +90,9 @@ public class MatPlace extends Application {
         Implementar un drag an roll sobre una JTable para importar un fichero de texto entero.
         
         Crear pattern(validador) para DNI, telefono etc.
-         */
-        new ServiceID().takeID();
+        */
+
+        new ServiceID().startID();
         new ArrayService().startAll();
 
         Parent root = null;
