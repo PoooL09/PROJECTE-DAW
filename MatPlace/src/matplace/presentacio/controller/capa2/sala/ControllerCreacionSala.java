@@ -22,6 +22,8 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import matplace.model.Sala;
+import matplace.presentacio.controller.ControllerMenuPrincipal;
+import matplace.utils.SalaUtils;
 import matplace.utils.Validador;
 
 /**
@@ -36,6 +38,8 @@ public class ControllerCreacionSala extends Application implements Initializable
     @FXML
     TextArea ta_descripcion;
 
+    SalaUtils salaUtils = new SalaUtils();
+
     String s;
 
     /**
@@ -49,8 +53,6 @@ public class ControllerCreacionSala extends Application implements Initializable
 
     }
 
-  
-
     /**
      *
      *
@@ -58,17 +60,20 @@ public class ControllerCreacionSala extends Application implements Initializable
      */
     @FXML
     private void handleButtonCrear(ActionEvent event) {
- 
-        if (Validador.checkNumb(tf_cantidad.getText())){
-            
+
+        if (!Validador.checkNumb(tf_cantidad.getText())) {
+            ControllerMenuPrincipal.ventanaInformativa("El campo \"Capacidad máxima\" debe ser un número.");
+            return;
         }
-        
-        
-        
-       Sala sala = new Sala();
-       sala.setNombre(tf_nombre.getText());
-       sala.setCapacidad(Integer.parseInt(tf_cantidad.getText()));
-      
+
+        Sala sala = new Sala();
+        sala.setNombre(tf_nombre.getText());
+        sala.setCapacidad(Integer.parseInt(tf_cantidad.getText()));
+        sala.setDescripcion(ta_descripcion.getText());
+
+        salaUtils.create(sala);
+
+        ControllerMenuPrincipal.ventanaInformativa("Reserva creada con exito.");
 
     }
 

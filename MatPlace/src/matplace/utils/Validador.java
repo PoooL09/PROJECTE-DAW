@@ -35,7 +35,7 @@ public class Validador {
     }
 
     public static boolean checkNumb(String num) {
-        if (num.matches("[0-9]*") && num.length() == 9) {
+        if (num.matches("[0-9]*")) {
             return true;
         } else {
             return false;

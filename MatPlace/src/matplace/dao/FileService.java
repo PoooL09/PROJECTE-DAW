@@ -69,7 +69,7 @@ public class FileService {
             }
             fw = new FileWriter(ficheroDestino.getAbsoluteFile(), true);
             bw = new BufferedWriter(fw);
-            bw.write("\n" + textoGuardado);
+            bw.write(textoGuardado + "\n");
 
         } catch (IOException e) {
             e.printStackTrace();
