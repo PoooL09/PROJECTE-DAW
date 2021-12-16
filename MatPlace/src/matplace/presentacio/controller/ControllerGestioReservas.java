@@ -19,6 +19,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
@@ -31,7 +32,7 @@ import matplace.model.Reserva;
 public class ControllerGestioReservas extends Application implements Initializable {
 
     @FXML
-    ImageView logo;
+    TextField buscador;
 
     @FXML
     TableView tvReservas;
@@ -47,7 +48,7 @@ public class ControllerGestioReservas extends Application implements Initializab
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
-        logo.setImage(new Image("icon.png"));
+       
 
     }
 
