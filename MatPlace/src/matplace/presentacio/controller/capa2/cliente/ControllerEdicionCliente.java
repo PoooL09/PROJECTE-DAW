@@ -5,7 +5,6 @@
  */
 package matplace.presentacio.controller.capa2.cliente;
 
-import java.awt.*;
 import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
@@ -18,22 +17,27 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.CheckBox;
+import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
+import matplace.model.Cliente;
+import matplace.presentacio.controller.ControllerGestioPersonas;
+import matplace.utils.ClienteUtils;
 
 /**
  * @author pg_po
  * @version: 02/06/2021/A
  */
 public class ControllerEdicionCliente extends Application implements Initializable {
-
+    
     @FXML
     TextField tf_nombre, tf_apellidos, tf_mail, tf_dni, tf_tel;
-
+    
     @FXML
-    Checkbox cb_conserje;
-
+    CheckBox cb_conserje;
+    
     String s;
 
     /**
@@ -44,8 +48,13 @@ public class ControllerEdicionCliente extends Application implements Initializab
      */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-
-
+        
+        Cliente cliente = ControllerGestioPersonas.getPersonaSeleccionada();
+        tf_nombre.setText(cliente.getNombre());
+        tf_apellidos.setText(cliente.getApellidos());
+        tf_mail.setText(cliente.getMail());
+        tf_dni.setText(cliente.getDNI());
+        tf_tel.setText(cliente.getTelefono());
     }
 
     /**
@@ -56,7 +65,7 @@ public class ControllerEdicionCliente extends Application implements Initializab
     @FXML
     private void handleButtonSalas(ActionEvent event) {
         Node st = (Node) event.getSource();
-
+        
         try {
             this.start((Stage) st.getScene().getWindow());
         } catch (Exception ex) {
@@ -71,7 +80,16 @@ public class ControllerEdicionCliente extends Application implements Initializab
      */
     @FXML
     private void handleButtonEditar(ActionEvent event) {
-
+        
+        Cliente cliente = new Cliente();
+        cliente.setNombre(tf_nombre.getText());
+        cliente.setApellidos(tf_apellidos.getText());
+        cliente.setMail(tf_mail.getText());
+        cliente.setDNI(tf_dni.getText());
+        cliente.setTelefono(tf_tel.getText());
+        
+        new ClienteUtils().update(cliente);
+        
     }
 
     /**
@@ -81,12 +99,12 @@ public class ControllerEdicionCliente extends Application implements Initializab
      */
     @FXML
     private void handleButtonAtras(ActionEvent event) {
-
-        s = "/matplace/presentacio/view/GestioPersonas.fxml";
+        
+        s = "/matplace/presentacio/view/FXML_GestioPersonas.fxml";
         cambioScene((Node) event.getSource());
-
+        
     }
-
+    
     private void cambioScene(Node st) {
         try {
             this.start((Stage) st.getScene().getWindow());
@@ -94,18 +112,18 @@ public class ControllerEdicionCliente extends Application implements Initializab
             Logger.getLogger(ControllerEdicionCliente.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-
+    
     @Override
     public void start(Stage stage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource(s));
-
+        
         Scene scene = new Scene(root);
-
+        
         stage.setTitle("MatPlace");
         stage.setScene(scene);
         stage.getIcons().add(new Image("icon.png"));
         stage.setResizable(false);
         stage.show();
     }
-
+    
 }

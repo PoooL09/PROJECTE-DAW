@@ -45,6 +45,7 @@ public class ControllerGestioMateriales extends Application implements Initializ
 
     ArrayList<Material> material = new ArrayList<>();
     String s;
+    private static Material materialSeleccionado;
 
     /**
      * Inicia el controlador
@@ -126,7 +127,7 @@ public class ControllerGestioMateriales extends Application implements Initializ
             Logger.getLogger(ControllerMenuPrincipal.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
+
     private void mostrarMateriales() {
 
         try {
@@ -139,17 +140,17 @@ public class ControllerGestioMateriales extends Application implements Initializ
         }
 
     }
-    
-    Sala temp = null;
+
+    Material temp = null;
     Date lastClickTime = null;
 
     /**
      * Detecta un doble clik sobre un fichero de la tableview.
      */
     @FXML
-    private void handleRowSelect() {
+    private void handleRowSelect() throws Exception {
 
-        Sala row = (Sala) tvMaterial.getSelectionModel().getSelectedItem();
+        Material row = (Material) tvMaterial.getSelectionModel().getSelectedItem();
         if (row == null) {
             return;
         }
@@ -161,7 +162,9 @@ public class ControllerGestioMateriales extends Application implements Initializ
             long diff = now.getTime() - lastClickTime.getTime();
             if (diff < 300) { //another click registered in 300 millis
                 System.out.println(row);
-                //aqui metodo mostrar reserva
+                materialSeleccionado = row;
+                s = "/matplace/presentacio/view/capa2/cliente/edicion cliente.fxml";
+                this.start((Stage) tvMaterial.getScene().getWindow());
             } else {
                 lastClickTime = new Date();
             }

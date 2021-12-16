@@ -6,10 +6,10 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Text?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="matplace.presentacio.controller.capa2.cliente.ControllerEdicionCliente">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="matplace.presentacio.controller.capa2.cliente.ControllerEdicionCliente">
    <children>
-      <CheckBox id="cb_conserje" fx:id="cb_conserje" layoutX="399.0" layoutY="61.0" mnemonicParsing="false" text="Conserje" />
-      <Button layoutX="123.0" layoutY="346.0" mnemonicParsing="false" onAction="#handleButtonEditar" prefHeight="25.0" prefWidth="354.0" text="EDITAR" />
+      <CheckBox id="cb_conserje" fx:id="cb_conserje" layoutX="351.0" layoutY="73.0" mnemonicParsing="false" text="Conserje" />
+      <Button layoutX="123.0" layoutY="327.0" mnemonicParsing="false" onAction="#handleButtonEditar" prefHeight="25.0" prefWidth="354.0" text="EDITAR" />
       <TextField id="tf_dni" fx:id="tf_dni" layoutX="58.0" layoutY="262.0" prefHeight="25.0" prefWidth="169.0" promptText="DNI" />
       <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#handleButtonAtras" text="Atras" />
       <TextField id="tf_apellidos" fx:id="tf_apellidos" layoutX="58.0" layoutY="164.0" prefHeight="25.0" prefWidth="169.0" promptText="Apellidos" />

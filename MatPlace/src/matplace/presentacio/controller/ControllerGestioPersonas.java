@@ -41,7 +41,7 @@ public class ControllerGestioPersonas extends Application implements Initializab
     TableView tvPersonas;
     @FXML
     TableColumn colID, colDNI, colNombre, colApellidos;
-    
+
     ArrayList<Cliente> clientes = new ArrayList<>();
 
     private static Cliente personaSeleccionada;
@@ -75,9 +75,9 @@ public class ControllerGestioPersonas extends Application implements Initializab
     @FXML
     private void handleButtonCrear(ActionEvent event) {
 
-         s = "/matplace/presentacio/view/capa2/cliente/creacionCliente.fxml";
+        s = "/matplace/presentacio/view/capa2/cliente/creacionCliente.fxml";
         cambioScene((Node) event.getSource());
-        
+
     }
 
     /**
@@ -110,7 +110,7 @@ public class ControllerGestioPersonas extends Application implements Initializab
             Logger.getLogger(ControllerMenuPrincipal.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
+
     Cliente temp = null;
     Date lastClickTime = null;
 
@@ -118,7 +118,7 @@ public class ControllerGestioPersonas extends Application implements Initializab
      * Detecta un doble clik sobre un fichero de la tableview.
      */
     @FXML
-    private void handleRowSelect() {
+    private void handleRowSelect() throws Exception {
 
         Cliente row = (Cliente) tvPersonas.getSelectionModel().getSelectedItem();
         if (row == null) {
@@ -133,14 +133,17 @@ public class ControllerGestioPersonas extends Application implements Initializab
             if (diff < 300) { //another click registered in 300 millis
                 System.out.println(row);
                 personaSeleccionada = row;
+                s = "/matplace/presentacio/view/capa2/cliente/edicion cliente.fxml";
+                this.start((Stage) tvPersonas.getScene().getWindow());
                 
+
             } else {
                 lastClickTime = new Date();
             }
         }
     }
-    
-     private void mostrarPersonas() {
+
+    private void mostrarPersonas() {
 
         try {
             ObservableList<Cliente> llistaObservableReservas = FXCollections.<Cliente>observableArrayList(clientes);
@@ -168,5 +171,5 @@ public class ControllerGestioPersonas extends Application implements Initializab
 
     public static Cliente getPersonaSeleccionada() {
         return personaSeleccionada;
-    }  
+    }
 }

@@ -86,17 +86,17 @@ public class FileService {
     }
 
     public String leerFichero(File ficheroObjetivo) {
-        
+
         try {
             if (ficheroObjetivo.createNewFile()) {
-                
+
                 System.out.println("El fichero " + ficheroObjetivo.getName() + " no existe. Creando fichero.");
 
             }
         } catch (IOException ex) {
             Logger.getLogger(FileService.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
         Scanner entrada = null;
         String contenido = "";
         int numeroDeLinea = 1;
@@ -115,8 +115,8 @@ public class FileService {
 
     }
 
-     public boolean actualizar(File fichero0bjetivo, String lineaEliminarID, String lineaNuevaText) {
-        String nombreF = "temp" + fichero0bjetivo.toString();
+    /*public boolean actualizar(File fichero0bjetivo, String lineaEliminarID, String lineaNuevaText) {
+        String nombreF = fichero0bjetivo.toString() + "temp" ;
         File fileTemp = new File(nombreF);
 
         Scanner entrada = null;
@@ -166,7 +166,7 @@ public class FileService {
 
         return false;
     }
-
+*/
     public void eliminar(File ficheroDestino, String lineaEliminarID) {
         String lineToRemove = "";
         File tempFile = new File("tempFile.txt");
@@ -204,6 +204,57 @@ public class FileService {
             Logger.getLogger(FileService.class.getName()).log(Level.SEVERE, null, ex);
         }
 
+    }
+    public boolean actualizar(File fichero0bjetivo, String lineaEliminarID, String lineaNuevaText) {
+        String nombreF = fichero0bjetivo.toString() + "temp";
+        File fileTemp = new File(nombreF);
+
+        Scanner entrada = null;
+        String linea;
+        FileWriter fw = null;
+        PrintWriter pw = null;
+
+        int numeroDeLinea = 1;
+
+        try {
+            fw = new FileWriter(nombreF, true);
+            pw = new PrintWriter(fw);
+            entrada = new Scanner(fichero0bjetivo);
+
+            while (entrada.hasNext()) {
+                linea = entrada.nextLine().toLowerCase();
+                String id = linea.split("#")[0];
+                if (id.equals(lineaEliminarID)) {
+                    String split[] = leerFichero(fichero0bjetivo).split("\n");
+                    split[numeroDeLinea - 1] = lineaNuevaText;
+
+                    try {
+                        for (int i = 0; i < split.length; i++) {
+                            pw.println(split[i]);
+                        }
+                        fichero0bjetivo.delete();
+                        fileTemp.renameTo(fichero0bjetivo);
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    } finally {
+                        try {
+                            if (null != fw) {
+                                fw.close();
+                            }
+                        } catch (Exception e2) {
+                            e2.printStackTrace();
+                        }
+                    }
+                    return true;
+                }
+                numeroDeLinea++;
+            }
+
+        } catch (IOException ex) {
+            Logger.getLogger(FileService.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return false;
     }
 
     public File getCARPETA_ARCHIVOS() {
