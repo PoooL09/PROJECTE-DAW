@@ -24,6 +24,8 @@ import javafx.stage.Stage;
 import matplace.model.Cliente;
 import matplace.model.Conserje;
 import matplace.presentacio.controller.ControllerMenuPrincipal;
+import matplace.utils.ClienteUtils;
+import matplace.utils.ConserjeUtils;
 import matplace.utils.Validador;
 
 /**
@@ -97,8 +99,11 @@ public class ControllerCreacionCliente extends Application implements Initializa
             cliente.setDNI(tf_dni.getText());
             cliente.setTelefono(tf_tel.getText());
 
+            ClienteUtils clienteUtils = new ClienteUtils();
+            clienteUtils.create(cliente);
+            
             ControllerMenuPrincipal.ventanaInformativa("Cliente creado con exito.");
-
+                  
         } else {
             Conserje conserje = new Conserje();
             conserje.setNombre(tf_nombre.getText());
@@ -107,6 +112,9 @@ public class ControllerCreacionCliente extends Application implements Initializa
             conserje.setDNI(tf_dni.getText());
             conserje.setTelefono(tf_tel.getText());
 
+            ConserjeUtils conserjeUtils = new ConserjeUtils();
+            conserjeUtils.create(conserje);
+            
             ControllerMenuPrincipal.ventanaInformativa("Conserje creado con exito.");
         }
 

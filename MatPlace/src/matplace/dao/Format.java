@@ -86,9 +86,7 @@ public class Format {
         return dato.getEAN() + characterSplit +
                 dato.getNombre() + characterSplit +
                 dato.getDescripcion() + characterSplit +
-                dato.getDescripcion() + characterSplit +
-                dato.getCantidad() + characterSplit +
-                dato.getCantidad_disponible();
+                dato.getCantidad() + characterSplit;
     }
 
 // String nombre, String descripcion, int capacidad, ArrayList<Reserva> reservas

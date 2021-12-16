@@ -5,7 +5,6 @@
  */
 package matplace.presentacio.controller.capa2.material;
 
-import java.awt.*;
 import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
@@ -18,9 +17,14 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
+import matplace.model.Material;
+import matplace.presentacio.controller.ControllerMenuPrincipal;
+import matplace.utils.MaterialUtils;
+import matplace.utils.Validador;
 
 /**
  * @author pg_po
@@ -34,6 +38,8 @@ public class ControllerCreacionMaterial extends Application implements Initializ
     @FXML
     TextArea ta_descripcion;
 
+    MaterialUtils materialUtils = new MaterialUtils();
+    
     String s;
 
     /**
@@ -70,6 +76,22 @@ public class ControllerCreacionMaterial extends Application implements Initializ
      */
     @FXML
     private void handleButtonCrear(ActionEvent event) {
+
+        if (!Validador.checkNum(tf_cantidad.getText())) {
+            ControllerMenuPrincipal.ventanaInformativa("El campo \"Cantidad\" debe ser un número.");
+            return;
+        }
+
+        Material material = new Material();
+        material.setNombre(tf_nombre.getText());
+        material.setCantidad(Integer.parseInt(tf_cantidad.getText()));
+        material.setDescripcion(ta_descripcion.getText());
+
+        System.out.println(material);
+        
+        materialUtils.create(material);
+
+        ControllerMenuPrincipal.ventanaInformativa("Material creado con exito.");
 
     }
 
