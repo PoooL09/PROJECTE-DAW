@@ -18,6 +18,7 @@ public class ArrayService {
         startConserjes();
         startMaterials();
         startSalas();
+        new ServiceID().takeID();
     }
 
     public void startClientes() {

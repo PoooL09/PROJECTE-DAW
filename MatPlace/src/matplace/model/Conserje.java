@@ -5,6 +5,8 @@
  */
 package matplace.model;
 
+import matplace.dao.ServiceID;
+
 /**
  * @author pg_po
  */
@@ -25,10 +27,13 @@ public class Conserje extends Persona {
         incrementoID++;
         this.ID = incrementoID;
         this.DNI = DNI;
+        new ServiceID().setIDFile();
     }
 
     public Conserje() {
-        
+        this.ID = incrementoID;
+        incrementoID++;
+        new ServiceID().setIDFile();
     }
 
     @Override
