@@ -9,19 +9,18 @@
 
 <AnchorPane id="AnchorPane" minWidth="298.0" prefHeight="405.0" prefWidth="668.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="matplace.presentacio.controller.ControllerGestioSalas">
   <children>
-      <Button mnemonicParsing="false" onAction="#handleButtonAtras" text="Atras" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0" />
       <Label alignment="TOP_CENTER" layoutX="11.0" layoutY="15.0" prefHeight="18.0" prefWidth="667.0" text="Gestio Salas" />
       <TextField fx:id="buscador" layoutX="36.0" layoutY="67.0" prefHeight="25.0" prefWidth="543.0" promptText="BUSCADOR" />
-      <Button layoutX="602.0" layoutY="73.0" mnemonicParsing="false" onAction="#handleButtonBuscar" text="buscar" />
+      <Button layoutX="602.0" layoutY="67.0" mnemonicParsing="false" onAction="#handleButtonBuscar" text="buscar" />
       <Button layoutX="168.0" layoutY="358.0" mnemonicParsing="false" onAction="#handleButtonCrear" prefHeight="25.0" prefWidth="354.0" text="CREAR" />
       <TableView fx:id="tvSalas" layoutX="36.0" layoutY="113.0" onMouseClicked="#handleRowSelect" prefHeight="231.0" prefWidth="617.0">
          <columns>
-            <TableColumn fx:id="colID" prefWidth="75.0" text="ID" />
-            <TableColumn fx:id="colCliente" prefWidth="119.0" text="Cliente" />
-            <TableColumn fx:id="colFecha" prefWidth="204.0" text="Fecha" />
-            <TableColumn fx:id="colHora" minWidth="0.0" prefWidth="97.0" text="Hora" />
-            <TableColumn fx:id="colMaterial" prefWidth="121.0" text="Material" />
+            <TableColumn fx:id="colID" prefWidth="52.0" text="ID" />
+            <TableColumn fx:id="colNombre" prefWidth="133.0" text="Nombre" />
+            <TableColumn fx:id="colDescripcion" prefWidth="344.0" text="Descripcion" />
+            <TableColumn fx:id="colCapacidad" minWidth="0.0" prefWidth="87.0" text="Capacidad" />
          </columns>
       </TableView>
+      <Button mnemonicParsing="false" onAction="#handleButtonAtras" text="Atras" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0" />
   </children>
 </AnchorPane>

@@ -215,7 +215,7 @@ public class Undo {
 
         Sala sala = null;
 
-        if (dato[4].equals("")) {
+        if (dato.length<5) {
             sala = new Sala(Integer.parseInt(dato[0]),
                     dato[1],
                     dato[2],

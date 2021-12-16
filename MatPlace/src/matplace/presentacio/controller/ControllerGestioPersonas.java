@@ -6,10 +6,14 @@
 package matplace.presentacio.controller;
 
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.application.Application;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -17,9 +21,15 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
+import matplace.model.Cliente;
+import matplace.utils.ClienteUtils;
 
 /**
  * @author pg_po
@@ -28,8 +38,13 @@ import javafx.stage.Stage;
 public class ControllerGestioPersonas extends Application implements Initializable {
 
     @FXML
-    ImageView logo;
+    TableView tvPersonas;
+    @FXML
+    TableColumn colID, colDNI, colNombre, colApellidos;
+    
+    ArrayList<Cliente> clientes = new ArrayList<>();
 
+    private static Cliente personaSeleccionada;
     String s;
 
     /**
@@ -41,7 +56,15 @@ public class ControllerGestioPersonas extends Application implements Initializab
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
-        logo.setImage(new Image("icon.png"));
+        clientes = ClienteUtils.getClientes();
+        this.mostrarPersonas();
+
+        tvPersonas.setPlaceholder(new Label("No hay personas que mostrar."));
+
+        colID.setCellValueFactory(new PropertyValueFactory<>("ID"));
+        colDNI.setCellValueFactory(new PropertyValueFactory<>("DNI"));
+        colNombre.setCellValueFactory(new PropertyValueFactory<>("nombre"));
+        colApellidos.setCellValueFactory(new PropertyValueFactory<>("apellidos"));
     }
 
     /**
@@ -87,6 +110,48 @@ public class ControllerGestioPersonas extends Application implements Initializab
             Logger.getLogger(ControllerMenuPrincipal.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    
+    Cliente temp = null;
+    Date lastClickTime = null;
+
+    /**
+     * Detecta un doble clik sobre un fichero de la tableview.
+     */
+    @FXML
+    private void handleRowSelect() {
+
+        Cliente row = (Cliente) tvPersonas.getSelectionModel().getSelectedItem();
+        if (row == null) {
+            return;
+        }
+        if (row != temp) {
+            temp = row;
+            lastClickTime = new Date();
+        } else if (row == temp) {
+            Date now = new Date();
+            long diff = now.getTime() - lastClickTime.getTime();
+            if (diff < 300) { //another click registered in 300 millis
+                System.out.println(row);
+                personaSeleccionada = row;
+                
+            } else {
+                lastClickTime = new Date();
+            }
+        }
+    }
+    
+     private void mostrarPersonas() {
+
+        try {
+            ObservableList<Cliente> llistaObservableReservas = FXCollections.<Cliente>observableArrayList(clientes);
+            tvPersonas.setItems(llistaObservableReservas);
+
+        } catch (java.lang.NullPointerException e) {
+            System.out.println("No hay ficheros que mostrar");
+
+        }
+
+    }
 
     @Override
     public void start(Stage stage) throws Exception {
@@ -101,4 +166,7 @@ public class ControllerGestioPersonas extends Application implements Initializab
         stage.show();
     }
 
+    public static Cliente getPersonaSeleccionada() {
+        return personaSeleccionada;
+    }  
 }

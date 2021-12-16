@@ -87,9 +87,11 @@ public class ControllerCreacionReservas extends Application implements Initializ
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
+        salaUtils.create(new Sala());
+        
         this.setCombobox();
         this.mostrarPersonas();
-
+        
         tvPersonas.setPlaceholder(new Label("Ningun acompañante añadido."));
 
         colNombre.setCellValueFactory(new PropertyValueFactory<>("nombre"));
