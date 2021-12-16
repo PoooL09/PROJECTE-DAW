@@ -41,15 +41,14 @@ public class ServiceID {
         String dato = fileService.leerFichero(archivoDestino);
 
         if (!dato.equals("")) {
-            String[] datos = dato.split(fileService.getCHARACTER_SPLIT_LV1());
+            String[] placeHolder = dato.split("\n");
+            String[] datos = placeHolder[0].split(fileService.getCHARACTER_SPLIT_LV1());
 
             Cliente.setIncrementoID(Integer.parseInt(datos[1]));
             Conserje.setIncrementoID(Integer.parseInt(datos[2]));
             Reserva.setIncrementoID(Integer.parseInt(datos[3]));
             Sala.setIncrementoID(Integer.parseInt(datos[4]));
         }
-
-
     }
 
     public void startID() {
