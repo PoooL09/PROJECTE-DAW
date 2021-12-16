@@ -8,6 +8,9 @@ package matplace.dao;
 import matplace.model.*;
 
 import java.io.File;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -46,6 +49,31 @@ public class ServiceID {
             Sala.setIncrementoID(Integer.parseInt(datos[4]));
         }
 
+
+    }
+
+    public void startID() {
+        createFile();
+        setIDFile();
+    }
+
+    public void createFile () {
+
+        try {
+            if (archivoDestino.createNewFile()) {
+
+                System.out.println("El fichero " + archivoDestino.getName() + " no existe. Creando fichero.");
+                String dato = "0" + fileService.getCHARACTER_SPLIT_LV1() +
+                        "1" + fileService.getCHARACTER_SPLIT_LV1() +
+                        "1" + fileService.getCHARACTER_SPLIT_LV1() +
+                        "1"+ fileService.getCHARACTER_SPLIT_LV1() +
+                        "1";
+                fileService.escribirFichero(archivoDestino, dato);
+
+            }
+        } catch (IOException ex) {
+            Logger.getLogger(FileService.class.getName()).log(Level.SEVERE, null, ex);
+        }
 
     }
 

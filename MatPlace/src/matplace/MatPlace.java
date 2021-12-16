@@ -15,6 +15,7 @@ import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import matplace.dao.ArrayService;
+import matplace.dao.ServiceID;
 import matplace.model.Sala;
 import matplace.presentacio.controller.ControllerMenuPrincipal;
 
@@ -96,6 +97,7 @@ public class MatPlace extends Application {
         Crear pattern(validador) para DNI, telefono etc.
         */
 
+        new ServiceID().startID();
         new ArrayService().startAll();
 
         Parent root = null;
