@@ -62,7 +62,7 @@ public class ControllerCreacionSala extends Application implements Initializable
     @FXML
     private void handleButtonCrear(ActionEvent event) {
 
-        if (!Validador.checkNumb(tf_cantidad.getText())) {
+        if (!Validador.checkNum(tf_cantidad.getText())) {
             ControllerMenuPrincipal.ventanaInformativa("El campo \"Capacidad máxima\" debe ser un número.");
             return;
         }

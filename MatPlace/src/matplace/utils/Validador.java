@@ -35,7 +35,7 @@ public class Validador {
 
     }
 
-    public static boolean checkNumb(String num) {
+    public static boolean checkNum(String num) {
         if (num.matches("[0-9]*")) {
             return true;
         } else {
@@ -43,7 +43,7 @@ public class Validador {
         }
     }
 
-    public static boolean specialCharacthers(String data) {
+    public static boolean checkCharacthers(String data) {
 
         FileService fileService = FileService.getInstance();
         if (data.contains(fileService.getCHARACTER_SPLIT_LV1()) || data.contains(fileService.getCHARACTER_SPLIT_LV2()) || data.contains(fileService.getCHARACTER_SPLIT_LV3()) || data.contains(fileService.getCHARACTER_SPLIT_LV4()) || data.contains(fileService.getCHARACTER_SPLIT_LV5())) {

@@ -75,7 +75,7 @@ public class ControllerCreacionCliente extends Application implements Initializa
     @FXML
     private void handleButtonCrear(ActionEvent event) {
 
-        if (!Validador.checkNumb(tf_tel.getText())) {
+        if (!Validador.checkNum(tf_tel.getText())) {
             ControllerMenuPrincipal.ventanaInformativa("El campo \"Telefeno\" debe ser un número.");
             return;
         }
