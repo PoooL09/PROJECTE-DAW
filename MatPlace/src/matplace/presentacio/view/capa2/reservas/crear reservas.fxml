@@ -14,21 +14,22 @@
       <Button layoutX="123.0" layoutY="354.0" mnemonicParsing="false" onAction="#handleButtonCrear" prefHeight="25.0" prefWidth="354.0" text="CREAR" />
       <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#handleButtonAtras" text="Atras" />
       <Text layoutX="236.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CREACION DE RESERVA" />
-      <TextField id="tf_hora" fx:id="tf_hora" layoutX="216.0" layoutY="79.0" prefHeight="25.0" prefWidth="169.0" promptText="Hora" />
-      <ComboBox fx:id="mb_persona" layoutX="24.0" layoutY="138.0" prefHeight="25.0" prefWidth="174.0" promptText="Persona encargada" />
-      <DatePicker fx:id="datePicker" layoutX="24.0" layoutY="79.0" />
+      <TextField id="tf_hora" fx:id="tf_hora" layoutX="228.0" layoutY="79.0" prefHeight="25.0" prefWidth="169.0" promptText="Hora" />
+      <ComboBox fx:id="mb_persona" layoutX="47.0" layoutY="138.0" prefHeight="25.0" prefWidth="169.0" promptText="Persona encargada" />
+      <DatePicker fx:id="datePicker" layoutX="24.0" layoutY="79.0" prefHeight="25.0" prefWidth="190.0" />
       <ComboBox fx:id="mb_conserje" layoutX="414.0" layoutY="138.0" prefHeight="25.0" prefWidth="152.0" promptText="Conserje" />
       <Button layoutX="490.0" layoutY="238.0" mnemonicParsing="false" onAction="#handleButtonAdd" prefHeight="25.0" prefWidth="81.0" text="Añadir" />
-      <ComboBox fx:id="mb_material" layoutX="216.0" layoutY="138.0" prefHeight="25.0" prefWidth="169.0" promptText="material" />
-      <TableView fx:id="tvFicheros" layoutX="24.0" layoutY="187.0" prefHeight="151.0" prefWidth="451.0">
+      <ComboBox fx:id="mb_material" layoutX="228.0" layoutY="138.0" prefHeight="25.0" prefWidth="169.0" promptText="material" />
+      <TableView fx:id="tvPersonas" layoutX="24.0" layoutY="187.0" prefHeight="151.0" prefWidth="451.0">
          <columns>
-            <TableColumn prefWidth="75.0" text="Nombre" />
-            <TableColumn prefWidth="87.0" text="Apellido" />
-            <TableColumn prefWidth="158.0" text="Mail" />
-            <TableColumn prefWidth="130.0" text="Telefono" />
+            <TableColumn fx:id="colNombre" prefWidth="75.0" text="Nombre" />
+            <TableColumn fx:id="colApellido" prefWidth="87.0" text="Apellido" />
+            <TableColumn fx:id="colMail" prefWidth="158.0" text="Mail" />
+            <TableColumn fx:id="colTelefono" prefWidth="130.0" text="Telefono" />
          </columns>
       </TableView>
       <Button layoutX="490.0" layoutY="273.0" mnemonicParsing="false" onAction="#handleButtonDel" prefHeight="25.0" prefWidth="81.0" text="Eliminar" />
       <ComboBox fx:id="mb_salas" layoutX="414.0" layoutY="79.0" prefHeight="25.0" prefWidth="152.0" promptText="Sala" />
+      <Button layoutX="10.0" layoutY="138.0" mnemonicParsing="false" onAction="#handleButtonBuscar" prefHeight="25.0" prefWidth="28.0" text="Button" />
    </children>
 </Pane>

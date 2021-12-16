@@ -8,6 +8,7 @@ package matplace.presentacio.controller.capa2.reservas;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Optional;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -21,12 +22,19 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
+import javafx.scene.control.Label;
+import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextArea;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import javax.swing.JOptionPane;
 import matplace.model.Cliente;
 import matplace.model.Conserje;
@@ -55,7 +63,7 @@ public class ControllerCreacionReservas extends Application implements Initializ
     ComboBox mb_persona, mb_conserje, mb_material, mb_salas;
 
     @FXML
-    TextArea ta_hora, ta;
+    TextArea ta_hora;
 
     @FXML
     DatePicker datePicker;
@@ -64,7 +72,10 @@ public class ControllerCreacionReservas extends Application implements Initializ
     ArrayList<Persona> personas = new ArrayList<>();
 
     @FXML
-    TableView tvFicheros;
+    TableView tvPersonas;
+
+    @FXML
+    TableColumn colNombre, colApellido, colMail, colTelefono;
 
     /**
      * Inicia el controlador
@@ -74,6 +85,143 @@ public class ControllerCreacionReservas extends Application implements Initializ
      */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+
+        this.setCombobox();
+        this.mostrarPersonas();
+
+        tvPersonas.setPlaceholder(new Label("Ningun acompañante añadido."));
+        colNombre.setCellValueFactory(new PropertyValueFactory<>("nombre"));
+        colApellido.setCellValueFactory(new PropertyValueFactory<>("apellidos"));
+        colMail.setCellValueFactory(new PropertyValueFactory<>("mail"));
+        colTelefono.setCellValueFactory(new PropertyValueFactory<>("telefono"));
+    }
+
+    /**
+     *
+     *
+     * @param event
+     */
+    @FXML
+    private void handleButtonAdd(ActionEvent event) {
+
+        Persona persona = new Persona();
+        persona.setNombre(JOptionPane.showInputDialog("Introduce el nombre;"));
+        persona.setApellidos(JOptionPane.showInputDialog("Introduce el apellido;"));
+        persona.setMail(JOptionPane.showInputDialog("Introduce el mail;"));
+        persona.setTelefono(JOptionPane.showInputDialog("Introduce el telefono;"));
+
+        personas.add(persona);
+        
+         ControllerMenuPrincipal.ventanaInformativa("Acompañante añadido con exito.");
+         mostrarPersonas();
+    }
+
+    /**
+     *
+     *
+     * @param event
+     */
+    @FXML
+
+    private void handleButtonBuscar(ActionEvent event) {
+
+    }
+
+    /**
+     *
+     *
+     * @param event
+     */
+    @FXML
+    private void handleButtonDel(ActionEvent event) {
+
+        Persona persona = (Persona) tvPersonas.getSelectionModel().getSelectedItem();
+
+        if (persona == null) {
+            ControllerMenuPrincipal.ventanaInformativa("No has seleccionado ningun archivo.");
+            return;
+        }
+
+        //Devuelve un 0 si el usuario escoge la opcion SI
+        Alert dialogoAlerta = new Alert(AlertType.CONFIRMATION);
+        dialogoAlerta.setTitle("Ventana de confirmación");
+        dialogoAlerta.setHeaderText(null);
+        dialogoAlerta.initStyle(StageStyle.UTILITY);
+        dialogoAlerta.setContentText("Está seguro que desea borrar a " + persona.getNombre() + "?");
+        Optional<ButtonType> result = dialogoAlerta.showAndWait();
+
+        if (result.get() != ButtonType.OK) {
+            return;
+        }
+
+        personas.remove(persona);
+        mostrarPersonas();
+        ControllerMenuPrincipal.ventanaInformativa("Acompañante eliminado con exito.");
+
+    }
+
+    /**
+     *
+     *
+     * @param event
+     */
+    @FXML
+    private void handleButtonCrear(ActionEvent event) {
+
+        Reserva reserva = new Reserva();
+
+        reserva.setConserje((Conserje) mb_conserje.getSelectionModel().getSelectedItem());
+        reserva.setMaterial((Material) mb_material.getSelectionModel().getSelectedItem());
+        reserva.setResponsable((Cliente) mb_persona.getSelectionModel().getSelectedItem());
+        reserva.setMiembrosSala(personas);
+        reserva.setDataFinal(new Date());
+        reserva.setDataInici(new Date());
+
+        //reserva.setDataInici(datePicker.getValue());
+        Sala salaSeleccionada = (Sala) mb_salas.getSelectionModel().getSelectedItem();
+
+        salaUtils.addReserva(reserva, salaSeleccionada);
+
+        ControllerMenuPrincipal.ventanaInformativa("Reserva creada con exito.");
+
+    }
+
+    /**
+     *
+     *
+     * @param event
+     */
+    @FXML
+    private void handleButtonAtras(ActionEvent event) {
+
+        s = "/matplace/presentacio/view/FXML_GestioReservas.fxml";
+        cambioScene((Node) event.getSource());
+
+    }
+
+    private void cambioScene(Node st) {
+        try {
+            this.start((Stage) st.getScene().getWindow());
+        } catch (Exception ex) {
+            Logger.getLogger(ControllerCreacionReservas.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    private void mostrarPersonas() {
+
+        try {
+
+            ObservableList<Persona> llistaObservableFicheros = FXCollections.<Persona>observableArrayList(personas);
+            tvPersonas.setItems(llistaObservableFicheros);
+
+        } catch (java.lang.NullPointerException e) {
+            System.out.println("No hay ficheros que mostrar");
+
+        }
+
+    }
+
+    private void setCombobox() {
 
         ArrayList<Conserje> conserjes = ConserjeUtils.getConserjes();
         //ArrayList<Conserje> conserjes = new ArrayList<>();
@@ -112,97 +260,6 @@ public class ControllerCreacionReservas extends Application implements Initializ
         for (int i = 0; i < salas.size(); i++) {
 
             mb_salas.getItems().add(salas.get(i));
-
-        }
-    }
-
-    /**
-     *
-     *
-     * @param event
-     */
-    @FXML
-    private void handleButtonAdd(ActionEvent event) {
-
-        Persona persona = new Persona();
-        persona.setNombre(JOptionPane.showInputDialog("Introduce el nombre;"));
-        persona.setApellidos(JOptionPane.showInputDialog("Introduce el apellido;"));
-        persona.setMail(JOptionPane.showInputDialog("Introduce el mail;"));
-        persona.setTelefono(JOptionPane.showInputDialog("Introduce el telefono;"));
-
-        ta.appendText(persona.toString() + "\n");
-
-        personas.add(persona);
-    }
-
-    /**
-     *
-     *
-     * @param event
-     */
-    @FXML
-    private void handleButtonDel(ActionEvent event) {
-
-
-    }
-
-    /**
-     *
-     *
-     * @param event
-     */
-    @FXML
-    private void handleButtonCrear(ActionEvent event) {
-
-        Reserva reserva = new Reserva();
-
-        reserva.setConserje((Conserje) mb_conserje.getSelectionModel().getSelectedItem());
-        reserva.setMaterial((Material) mb_material.getSelectionModel().getSelectedItem());
-        reserva.setResponsable((Cliente) mb_persona.getSelectionModel().getSelectedItem());
-        reserva.setMiembrosSala(personas);
-        reserva.setDataFinal(new Date());
-        reserva.setDataInici(new Date());
-
-        //reserva.setDataInici(datePicker.getValue());
-        
-        Sala salaSeleccionada = (Sala) mb_salas.getSelectionModel().getSelectedItem();
-        
-        salaUtils.addReserva(reserva,salaSeleccionada);
-        
-        ControllerMenuPrincipal.ventanaInformativa("Reserva creada con exito.");
-
-    }
-
-    /**
-     *
-     *
-     * @param event
-     */
-    @FXML
-    private void handleButtonAtras(ActionEvent event) {
-
-        s = "/matplace/presentacio/view/FXML_GestioReservas.fxml";
-        cambioScene((Node) event.getSource());
-
-    }
-
-    private void cambioScene(Node st) {
-        try {
-            this.start((Stage) st.getScene().getWindow());
-        } catch (Exception ex) {
-            Logger.getLogger(ControllerCreacionReservas.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
-
-    private void mostrarFicheros() {
-
-        try {
-
-            ObservableList<Persona> llistaObservableFicheros = FXCollections.<Persona>observableArrayList(personas);
-            tvFicheros.setItems(llistaObservableFicheros);
-
-        } catch (java.lang.NullPointerException e) {
-            System.out.println("No hay ficheros que mostrar");
 
         }
 

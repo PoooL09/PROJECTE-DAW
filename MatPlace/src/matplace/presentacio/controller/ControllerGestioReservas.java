@@ -6,6 +6,7 @@
 package matplace.presentacio.controller;
 
 import java.net.URL;
+import java.util.Date;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -17,9 +18,11 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.TableView;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
+import matplace.model.Reserva;
 
 /**
  * @author pg_po
@@ -30,6 +33,9 @@ public class ControllerGestioReservas extends Application implements Initializab
     @FXML
     ImageView logo;
 
+    @FXML
+    TableView tvReservas;
+    
     String s;
 
     /**
@@ -43,6 +49,33 @@ public class ControllerGestioReservas extends Application implements Initializab
 
         logo.setImage(new Image("icon.png"));
 
+    }
+
+    Reserva temp = null;
+    Date lastClickTime = null;
+    /**
+     * Detecta un doble clik sobre un fichero de la tableview.
+     */
+    @FXML
+    private void handleRowSelect() {
+
+        Reserva row = (Reserva) tvReservas.getSelectionModel().getSelectedItem();
+        if (row == null) {
+            return;
+        }
+        if (row != temp) {
+            temp = row;
+            lastClickTime = new Date();
+        } else if (row == temp) {
+            Date now = new Date();
+            long diff = now.getTime() - lastClickTime.getTime();
+            if (diff < 300) { //another click registered in 300 millis
+                System.out.println(row);
+                //aqui metodo mostrar reserva
+            } else {
+                lastClickTime = new Date();
+            }
+        }
     }
 
     /**
