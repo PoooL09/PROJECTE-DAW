@@ -11,8 +11,9 @@
       <Text layoutX="252.0" layoutY="44.0" strokeType="OUTSIDE" strokeWidth="0.0" text="EDITAR MATERIAL" />
       <Button layoutX="98.0" layoutY="348.0" mnemonicParsing="false" onAction="#handleButtonEditar" prefHeight="25.0" prefWidth="113.0" text="EDITAR" />
       <TextArea id="ta_descripcion" fx:id="ta_descripcion" layoutX="66.0" layoutY="130.0" prefHeight="200.0" prefWidth="454.0" promptText="Descripción del material" text="Descripción del material" />
-      <Text id="text_nombre" fx:id="text_nombre" layoutX="130.0" layoutY="96.0" strokeType="OUTSIDE" strokeWidth="0.0" text="NOMBRE" />
-      <Text id="text_cantidad" fx:id="text_cantidad" layoutX="399.0" layoutY="96.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CANTIDAD" />
+      <Text id="text_nombre" fx:id="text_nombre" layoutX="276.0" layoutY="95.0" strokeType="OUTSIDE" strokeWidth="0.0" text="NOMBRE" />
+      <Text id="text_cantidad" fx:id="text_cantidad" layoutX="456.0" layoutY="94.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CANTIDAD" />
       <Button layoutX="372.0" layoutY="348.0" mnemonicParsing="false" onAction="#handleButtonEliminar" prefHeight="25.0" prefWidth="113.0" text="ELIMINAR" />
+      <Text id="text_nombre" fx:id="text_EAN" layoutX="74.0" layoutY="94.0" strokeType="OUTSIDE" strokeWidth="0.0" text="EAN" />
    </children>
 </Pane>
