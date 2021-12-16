@@ -29,7 +29,7 @@ import javafx.stage.Stage;
 public class ControllerEdicionMaterial extends Application implements Initializable {
 
     @FXML
-    TextField tf_nombre, tf_cantidad;
+    TextField tf_nombre, tf_cantidad, tf_EAN;
 
     @FXML
     TextArea ta_descripcion;
