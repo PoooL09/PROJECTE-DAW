@@ -33,7 +33,7 @@ import matplace.utils.Validador;
 public class ControllerCreacionMaterial extends Application implements Initializable {
 
     @FXML
-    TextField tf_nombre, tf_cantidad;
+    TextField tf_nombre, tf_cantidad, tf_EAN;
 
     @FXML
     TextArea ta_descripcion;
@@ -103,7 +103,7 @@ public class ControllerCreacionMaterial extends Application implements Initializ
     @FXML
     private void handleButtonAtras(ActionEvent event) {
 
-        s = "/matplace/presentacio/view/FXML_GestioMaterial.fxml";
+        s = "/matplace/presentacio/view/FXML_GestioMateriales.fxml";
         cambioScene((Node) event.getSource());
 
     }

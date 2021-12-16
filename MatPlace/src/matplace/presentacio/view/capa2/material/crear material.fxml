@@ -6,13 +6,14 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Text?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="matplace.presentacio.controller.capa2.material.ControllerCreacionMaterial">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="matplace.presentacio.controller.capa2.material.ControllerCreacionMaterial">
    <children>
       <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#handleButtonAtras" text="Atras" />
       <Text layoutX="246.0" layoutY="43.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CREAR MATERIAL" />
       <Button layoutX="142.0" layoutY="347.0" mnemonicParsing="false" onAction="#handleButtonCrear" prefHeight="25.0" prefWidth="316.0" text="CREAR" />
-      <TextField id="tf_nombre" fx:id="tf_nombre" layoutX="68.0" layoutY="79.0" prefHeight="25.0" prefWidth="169.0" promptText="Nombre" />
-      <TextField id="tf_cantidad" fx:id="tf_cantidad" layoutX="347.0" layoutY="79.0" prefHeight="25.0" prefWidth="169.0" promptText="Cantidad" />
+      <TextField id="tf_nombre" fx:id="tf_nombre" layoutX="226.0" layoutY="79.0" prefHeight="25.0" prefWidth="141.0" promptText="Nombre" />
+      <TextField id="tf_cantidad" fx:id="tf_cantidad" layoutX="375.0" layoutY="79.0" prefHeight="25.0" prefWidth="141.0" promptText="Cantidad" />
       <TextArea id="ta_descripcion" fx:id="ta_descripcion" layoutX="66.0" layoutY="130.0" prefHeight="200.0" prefWidth="454.0" promptText="Descripción del material" />
+      <TextField id="tf_nombre" fx:id="tf_EAN" layoutX="68.0" layoutY="79.0" prefHeight="25.0" prefWidth="149.0" promptText="EAN" />
    </children>
 </Pane>
