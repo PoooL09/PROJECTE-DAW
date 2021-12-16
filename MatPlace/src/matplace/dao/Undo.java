@@ -49,7 +49,7 @@ public class Undo {
 
     public ArrayList<Conserje> yourConserjes(String dato, String characterSplitLv1) {
         String[] conserjesString = separate(dato, "\n");
-        ArrayList<Conserje> conserjes = null;
+        ArrayList<Conserje> conserjes = new ArrayList<>();
         for (String x : conserjesString) {
             conserjes.add(creatorConserje(separate(x, characterSplitLv1)));
         }
@@ -78,7 +78,7 @@ public class Undo {
 
     public ArrayList<Material> yourMaterials(String dato, String characterSplitLv1) {
         String[] materialsString = separate(dato, "\n");
-        ArrayList<Material> materials = null;
+        ArrayList<Material> materials = new ArrayList<>();
         for (String x : materialsString) {
             materials.add(creatorMaterial(separate(x, characterSplitLv1)));
         }
@@ -120,7 +120,7 @@ public class Undo {
 
     public ArrayList<Sala> yourSalas(String dato, String characterSplitLv1, String characterSplitLv2, String characterSplitLv3, String characterSplitLv4, String characterSplitLv5) {
         String[] salasString = separate(dato, "\n");
-        ArrayList<Sala> salas = null;
+        ArrayList<Sala> salas = new ArrayList<>();
         for (String x : salasString) {
             salas.add(creatorSala(separate(x, characterSplitLv1), characterSplitLv2, characterSplitLv3, characterSplitLv4, characterSplitLv5));
         }
@@ -161,7 +161,7 @@ public class Undo {
     public ArrayList<Persona> arrayPersona(String dato, String charactherSplitLv2, String charatherSplitLv3) {
 
         String[] abc = separate(dato, charactherSplitLv2);
-        ArrayList<Persona> personas = null;
+        ArrayList<Persona> personas = new ArrayList<>();
 
         for (String x : abc) {
             Persona persona = creatorPersona(separate(x, charatherSplitLv3));
@@ -199,7 +199,7 @@ public class Undo {
     public ArrayList<Reserva> arrayReserva(String dato, String charactherSplitLv2, String charatherSplitLv3, String charatherSplitLv4, String charatherSplitLv5) {
 
         String[] abc = separate(dato, charactherSplitLv2);
-        ArrayList<Reserva> reservas = null;
+        ArrayList<Reserva> reservas = new ArrayList<>();
 
         for (String x : abc) {
             Reserva reserva = creatorReserva(separate(x, charatherSplitLv3), charatherSplitLv4, charatherSplitLv5);

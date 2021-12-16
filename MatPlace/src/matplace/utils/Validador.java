@@ -5,11 +5,12 @@
  */
 package matplace.utils;
 
+import matplace.dao.FileService;
+
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
- *
  * @author PoooL
  */
 public class Validador {
@@ -41,4 +42,15 @@ public class Validador {
             return false;
         }
     }
+
+    public static boolean specialCharacthers(String data) {
+
+        FileService fileService = FileService.getInstance();
+        if (data.contains(fileService.getCHARACTER_SPLIT_LV1()) || data.contains(fileService.getCHARACTER_SPLIT_LV2()) || data.contains(fileService.getCHARACTER_SPLIT_LV3()) || data.contains(fileService.getCHARACTER_SPLIT_LV4()) || data.contains(fileService.getCHARACTER_SPLIT_LV5())) {
+            return false;
+        }
+
+        return true;
+    }
+
 }
