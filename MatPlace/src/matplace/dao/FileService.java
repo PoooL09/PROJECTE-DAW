@@ -54,9 +54,7 @@ public class FileService {
             instance = new FileService();
 
         }
-
         return instance;
-
     }
 
     public void escribirFichero(File ficheroDestino, String textoGuardado) {

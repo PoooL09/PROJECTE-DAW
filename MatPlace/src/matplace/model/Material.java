@@ -17,24 +17,21 @@ public class Material {
     String nombre;
     String descripcion;
     int cantidad;
-    int cantidad_disponible;
 
 
 
-    public Material(int EAN, String nombre, String descripcion, int cantidad, int cantidad_disponible) {
+    public Material(int EAN, String nombre, String descripcion, int cantidad) {
         this.EAN = EAN;
         this.nombre = nombre;
         this.descripcion = descripcion;
         this.cantidad = cantidad;
-        this.cantidad_disponible = cantidad_disponible;
     }
 
     @Override
     public String toString() {
         return  "EAN:" + EAN +
                 " " + nombre +
-                " cantidad:" + cantidad +
-                " cantidad disponible:" + cantidad_disponible;
+                " cantidad:" + cantidad;
     }
 
     public Material(String nombre) {
@@ -76,16 +73,5 @@ public class Material {
         this.cantidad = cantidad;
     }
 
-    public int getCantidad_disponible() {
-        return cantidad_disponible;
-    }
-
-    public void setCantidad_disponible(int cantidad_disponible) {
-        this.cantidad_disponible = cantidad_disponible;
-    }
-
-   
-    
-    
     
 }
