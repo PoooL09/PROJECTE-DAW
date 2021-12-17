@@ -47,6 +47,7 @@ public class ControllerGestioSalas extends Application implements Initializable 
 
     ArrayList<Sala> salas = new ArrayList<>();
     String s;
+    private static Sala salaSeleccionada;
 
     /**
      * Inicia el controlador
@@ -99,7 +100,7 @@ public class ControllerGestioSalas extends Application implements Initializable 
      * Detecta un doble clik sobre un fichero de la tableview.
      */
     @FXML
-    private void handleRowSelect() {
+    private void handleRowSelect() throws Exception {
 
         Sala row = (Sala) tvSalas.getSelectionModel().getSelectedItem();
         if (row == null) {
@@ -113,7 +114,9 @@ public class ControllerGestioSalas extends Application implements Initializable 
             long diff = now.getTime() - lastClickTime.getTime();
             if (diff < 300) { //another click registered in 300 millis
                 System.out.println(row);
-                //aqui metodo mostrar reserva
+                salaSeleccionada = row;
+                s = "/matplace/presentacio/view/capa2/sala/editar sala.fxml";
+                this.start((Stage) tvSalas.getScene().getWindow());
             } else {
                 lastClickTime = new Date();
             }
@@ -165,6 +168,10 @@ public class ControllerGestioSalas extends Application implements Initializable 
         stage.getIcons().add(new Image("file:icon.png"));
         stage.setResizable(false);
         stage.show();
+    }
+
+    public static Sala getSalaSeleccionada() {
+        return salaSeleccionada;
     }
 
 }

@@ -163,7 +163,7 @@ public class ControllerGestioMateriales extends Application implements Initializ
             if (diff < 300) { //another click registered in 300 millis
                 System.out.println(row);
                 materialSeleccionado = row;
-                s = "/matplace/presentacio/view/capa2/cliente/edicion cliente.fxml";
+                s = "/matplace/presentacio/view/capa2/material/editar material.fxml";
                 this.start((Stage) tvMaterial.getScene().getWindow());
             } else {
                 lastClickTime = new Date();
@@ -181,6 +181,10 @@ public class ControllerGestioMateriales extends Application implements Initializ
         stage.getIcons().add(new Image("icon.png"));
         stage.setResizable(false);
         stage.show();
+    }
+
+    public static Material getMaterialSeleccionado() {
+        return materialSeleccionado;
     }
 
 }
