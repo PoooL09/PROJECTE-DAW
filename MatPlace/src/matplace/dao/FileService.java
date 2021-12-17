@@ -115,8 +115,9 @@ public class FileService {
 
     }
 
-    /*public boolean actualizar(File fichero0bjetivo, String lineaEliminarID, String lineaNuevaText) {
-        String nombreF = fichero0bjetivo.toString() + "temp" ;
+    public boolean actualizar(File fichero0bjetivo, String lineaEliminarID, String lineaNuevaText) {
+        String fin = fichero0bjetivo.toString();
+        String nombreF = fichero0bjetivo.toString() + "temp";
         File fileTemp = new File(nombreF);
 
         Scanner entrada = null;
@@ -142,11 +143,11 @@ public class FileService {
                         for (int i = 0; i < split.length; i++) {
                             pw.println(split[i]);
                         }
-                        fichero0bjetivo.delete();
-                        fileTemp.renameTo(fichero0bjetivo);
+
                     } catch (Exception e) {
                         e.printStackTrace();
                     } finally {
+
                         try {
                             if (null != fw) {
                                 fw.close();
@@ -155,6 +156,8 @@ public class FileService {
                             e2.printStackTrace();
                         }
                     }
+                    fichero0bjetivo.delete();
+                    fileTemp.renameTo(new File(fin));
                     return true;
                 }
                 numeroDeLinea++;
@@ -166,7 +169,7 @@ public class FileService {
 
         return false;
     }
-*/
+
     public void eliminar(File ficheroDestino, String lineaEliminarID) {
         String lineToRemove = "";
         File tempFile = new File("tempFile.txt");
@@ -205,43 +208,53 @@ public class FileService {
         }
 
     }
+
+    /*
     public boolean actualizar(File fichero0bjetivo, String lineaEliminarID, String lineaNuevaText) {
+        System.out.println(fichero0bjetivo + "  " + lineaEliminarID + "  "  + lineaNuevaText);
+
         String nombreF = fichero0bjetivo.toString() + "temp";
         File fileTemp = new File(nombreF);
 
         Scanner entrada = null;
         String linea;
         FileWriter fw = null;
-        PrintWriter pw = null;
+        BufferedWriter bw = null;
 
         int numeroDeLinea = 1;
 
         try {
             fw = new FileWriter(nombreF, true);
-            pw = new PrintWriter(fw);
+            bw = new BufferedWriter(fw);
             entrada = new Scanner(fichero0bjetivo);
 
             while (entrada.hasNext()) {
-                linea = entrada.nextLine().toLowerCase();
+                linea = entrada.nextLine();
                 String id = linea.split("#")[0];
                 if (id.equals(lineaEliminarID)) {
                     String split[] = leerFichero(fichero0bjetivo).split("\n");
                     split[numeroDeLinea - 1] = lineaNuevaText;
-
+                    
                     try {
                         for (int i = 0; i < split.length; i++) {
-                            pw.println(split[i]);
+                            System.out.println(i+ " " + split[i]);
+                            bw.write(split[i]);
                         }
-                        fichero0bjetivo.delete();
-                        fileTemp.renameTo(fichero0bjetivo);
+
                     } catch (Exception e) {
+                        System.out.println("hola1");
                         e.printStackTrace();
                     } finally {
+                        System.out.println("inicio");
+                        fichero0bjetivo.delete();
+                        fileTemp.renameTo(fichero0bjetivo);
+                        System.out.println("fin");
                         try {
                             if (null != fw) {
                                 fw.close();
                             }
                         } catch (Exception e2) {
+                            System.out.println("hola2");
                             e2.printStackTrace();
                         }
                     }
@@ -251,12 +264,13 @@ public class FileService {
             }
 
         } catch (IOException ex) {
+            System.out.println("hola3");
             Logger.getLogger(FileService.class.getName()).log(Level.SEVERE, null, ex);
         }
 
         return false;
     }
-
+     */
     public File getCARPETA_ARCHIVOS() {
         return CARPETA_ARCHIVOS;
     }

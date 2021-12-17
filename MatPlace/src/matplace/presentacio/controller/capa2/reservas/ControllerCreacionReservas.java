@@ -7,7 +7,6 @@ package matplace.presentacio.controller.capa2.reservas;
 
 import java.net.URL;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.Optional;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
@@ -30,7 +29,7 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
-import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
@@ -60,7 +59,7 @@ public class ControllerCreacionReservas extends Application implements Initializ
     ComboBox mb_persona, mb_conserje, mb_material, mb_salas;
 
     @FXML
-    TextArea ta_hora;
+    TextField tf_hora;
 
     @FXML
     DatePicker datePicker;
@@ -83,8 +82,6 @@ public class ControllerCreacionReservas extends Application implements Initializ
      */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-
-        salaUtils.create(new Sala());
         
         this.setCombobox();
         this.mostrarPersonas();
@@ -172,11 +169,18 @@ public class ControllerCreacionReservas extends Application implements Initializ
         Reserva reserva = new Reserva();
 
         reserva.setConserje((Conserje) mb_conserje.getSelectionModel().getSelectedItem());
+        
+        if((Conserje) mb_conserje.getSelectionModel().getSelectedItem() == null){
+            reserva.setConserje(new Conserje());
+            System.out.println("hola");
+        }
+        
         reserva.setMaterial((Material) mb_material.getSelectionModel().getSelectedItem());
         reserva.setResponsable((Cliente) mb_persona.getSelectionModel().getSelectedItem());
         reserva.setMiembrosSala(personas);
-        String hour = ta_hora.getText();
-        String date = datePicker.getText();
+        String hour = tf_hora.getText();
+        String date = datePicker.getValue().toString();
+        System.out.println(date);
         DateControl dateControl = new DateControl();
         reserva.setDataFinal(dateControl.datePlusTime(date, hour));
         reserva.setDataInici(dateControl.datePlusTime(date, hour));

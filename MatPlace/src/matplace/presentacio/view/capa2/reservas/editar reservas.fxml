@@ -1,44 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.MenuButton?>
-<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Text?>
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="matplace.presentacio.controller.capa2.reservas.ControllerEdicionReservas">
    <children>
-      <Button layoutX="123.0" layoutY="346.0" mnemonicParsing="false" onAction="#handleButtonCrear" prefHeight="25.0" prefWidth="354.0" text="EDITAR" />
+      <Button layoutX="25.0" layoutY="353.0" mnemonicParsing="false" onAction="#handleButtonEditar" prefHeight="25.0" prefWidth="238.0" text="EDITAR" />
       <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#handleButtonAtras" text="Atras" />
-      <Text layoutX="245.0" layoutY="44.0" strokeType="OUTSIDE" strokeWidth="0.0" text="EDITAR DE RESERVA" />
-      <TextField fx:id="tf_fecha" layoutX="68.0" layoutY="79.0" prefHeight="25.0" prefWidth="169.0" promptText="Fecha" />
-      <TextField fx:id="tf_hora" layoutX="361.0" layoutY="79.0" prefHeight="25.0" prefWidth="169.0" promptText="Hora" />
-      <MenuButton fx:id="mb_persona" layoutX="68.0" layoutY="162.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="169.0" text="Persona encargada(no se si esto es un desplegable)">
-         <items>
-            <MenuItem mnemonicParsing="false" text="Action 1" />
-            <MenuItem mnemonicParsing="false" text="Action 2" />
-         </items>
-      </MenuButton>
-      <MenuButton fx:id="mb_conserje" layoutX="361.0" layoutY="162.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="169.0" text="Conserje(no se si esto es un desplegable)">
-         <items>
-            <MenuItem mnemonicParsing="false" text="Action 1" />
-            <MenuItem mnemonicParsing="false" text="Action 2" />
-         </items>
-      </MenuButton>
-      <MenuButton fx:id="mb_personas" layoutX="68.0" layoutY="240.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="169.0" text="Personas acompañantes(no se si esto es un desplegable)">
-         <items>
-            <MenuItem mnemonicParsing="false" text="Action 1" />
-            <MenuItem mnemonicParsing="false" text="Action 2" />
-         </items>
-      </MenuButton>
-      <MenuButton fx:id="mb_material" layoutX="361.0" layoutY="240.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="169.0" text="Material(no se si esto es un desplegable)">
-         <items>
-            <MenuItem mnemonicParsing="false" text="Action 1" />
-            <MenuItem mnemonicParsing="false" text="Action 2" />
-         </items>
-      </MenuButton>
-      <Text layoutX="55.0" layoutY="309.0" strokeType="OUTSIDE" strokeWidth="0.0" text="falta que se añadan aqui los usuarios" />
-      <Text layoutX="348.0" layoutY="309.0" strokeType="OUTSIDE" strokeWidth="0.0" text="falta que se añadan aqui los materiales" />
+      <Text layoutX="236.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="EDICIÓN DE RESERVA" />
+      <TextField id="tf_hora" fx:id="tf_hora" layoutX="228.0" layoutY="79.0" prefHeight="25.0" prefWidth="169.0" promptText="Hora" />
+      <ComboBox fx:id="mb_persona" layoutX="47.0" layoutY="138.0" prefHeight="25.0" prefWidth="169.0" promptText="Persona encargada" />
+      <DatePicker fx:id="datePicker" layoutX="24.0" layoutY="79.0" prefHeight="25.0" prefWidth="190.0" />
+      <ComboBox fx:id="mb_conserje" layoutX="414.0" layoutY="138.0" prefHeight="25.0" prefWidth="152.0" promptText="Conserje" />
+      <Button layoutX="490.0" layoutY="238.0" mnemonicParsing="false" onAction="#handleButtonAdd" prefHeight="25.0" prefWidth="81.0" text="Añadir" />
+      <ComboBox fx:id="mb_material" layoutX="228.0" layoutY="138.0" prefHeight="25.0" prefWidth="169.0" promptText="material" />
+      <TableView fx:id="tvPersonas" layoutX="24.0" layoutY="187.0" prefHeight="151.0" prefWidth="451.0">
+         <columns>
+            <TableColumn fx:id="colNombre" prefWidth="75.0" text="Nombre" />
+            <TableColumn fx:id="colApellido" prefWidth="87.0" text="Apellido" />
+            <TableColumn fx:id="colMail" prefWidth="158.0" text="Mail" />
+            <TableColumn fx:id="colTelefono" prefWidth="130.0" text="Telefono" />
+         </columns>
+      </TableView>
+      <Button layoutX="490.0" layoutY="273.0" mnemonicParsing="false" onAction="#handleButtonDel" prefHeight="25.0" prefWidth="81.0" text="Eliminar" />
+      <ComboBox fx:id="mb_salas" layoutX="414.0" layoutY="79.0" prefHeight="25.0" prefWidth="152.0" promptText="Sala" />
+      <Button layoutX="10.0" layoutY="138.0" mnemonicParsing="false" onAction="#handleButtonBuscar" prefHeight="25.0" prefWidth="28.0" text="Button" />
+      <Button layoutX="333.0" layoutY="353.0" mnemonicParsing="false" onAction="#handleButtonBorrar" prefHeight="25.0" prefWidth="238.0" text="BORRAR" />
    </children>
 </Pane>

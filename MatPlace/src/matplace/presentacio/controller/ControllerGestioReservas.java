@@ -52,6 +52,7 @@ public class ControllerGestioReservas extends Application implements Initializab
     TableColumn colID, colCliente, colFecha, colHora, colMaterial;
 
     ArrayList<Reserva> reservas = new ArrayList<>();
+    private static Reserva reservaSeleccionada;
 
     String s;
 
@@ -84,7 +85,7 @@ public class ControllerGestioReservas extends Application implements Initializab
      * Detecta un doble clik sobre un fichero de la tableview.
      */
     @FXML
-    private void handleRowSelect() {
+    private void handleRowSelect() throws Exception {
 
         Reserva row = (Reserva) tvReservas.getSelectionModel().getSelectedItem();
         if (row == null) {
@@ -98,7 +99,9 @@ public class ControllerGestioReservas extends Application implements Initializab
             long diff = now.getTime() - lastClickTime.getTime();
             if (diff < 300) { //another click registered in 300 millis
                 System.out.println(row);
-                //aqui metodo mostrar reserva
+                reservaSeleccionada = row;
+                s = "/matplace/presentacio/view/capa2/reservas/editar reservas.fxml";
+                this.start((Stage) tvReservas.getScene().getWindow());
             } else {
                 lastClickTime = new Date();
             }
@@ -207,6 +210,10 @@ public class ControllerGestioReservas extends Application implements Initializab
         stage.getIcons().add(new Image("icon.png"));
         stage.setResizable(false);
         stage.show();
+    }
+
+    public static Reserva getReservaSeleccionada() {
+        return reservaSeleccionada;
     }
 
 }

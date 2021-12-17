@@ -19,9 +19,8 @@
         <columns>
           <TableColumn fx:id="colID" prefWidth="75.0" text="ID" />
           <TableColumn fx:id="colCliente" prefWidth="119.0" text="Cliente" />
-            <TableColumn fx:id="colFecha" prefWidth="204.0" text="Fecha" />
-            <TableColumn fx:id="colHora" minWidth="0.0" prefWidth="97.0" text="Hora" />
-            <TableColumn fx:id="colMaterial" prefWidth="121.0" text="Material" />
+            <TableColumn fx:id="colFecha" prefWidth="277.0" text="Fecha" />
+            <TableColumn fx:id="colMaterial" prefWidth="145.0" text="Material" />
         </columns>
       </TableView>
       <ComboBox fx:id="cb_sala" layoutX="577.0" layoutY="11.0" prefHeight="25.0" prefWidth="70.0" promptText="Sala" />
