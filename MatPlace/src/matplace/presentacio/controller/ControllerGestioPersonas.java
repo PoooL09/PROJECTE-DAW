@@ -55,7 +55,6 @@ public class ControllerGestioPersonas extends Application implements Initializab
      */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-
         clientes = ClienteUtils.getClientes();
         this.mostrarPersonas();
 
