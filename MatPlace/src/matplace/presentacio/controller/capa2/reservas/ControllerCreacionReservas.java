@@ -43,10 +43,7 @@ import matplace.model.Persona;
 import matplace.model.Reserva;
 import matplace.model.Sala;
 import matplace.presentacio.controller.ControllerMenuPrincipal;
-import matplace.utils.ClienteUtils;
-import matplace.utils.ConserjeUtils;
-import matplace.utils.MaterialUtils;
-import matplace.utils.SalaUtils;
+import matplace.utils.*;
 
 /**
  * @author pg_po
@@ -178,8 +175,11 @@ public class ControllerCreacionReservas extends Application implements Initializ
         reserva.setMaterial((Material) mb_material.getSelectionModel().getSelectedItem());
         reserva.setResponsable((Cliente) mb_persona.getSelectionModel().getSelectedItem());
         reserva.setMiembrosSala(personas);
-        reserva.setDataFinal(new Date());
-        reserva.setDataInici(new Date());
+        String hour = ta_hora.getText();
+        String date = datePicker.getText();
+        DateControl dateControl = new DateControl();
+        reserva.setDataFinal(dateControl.datePlusTime(date, hour));
+        reserva.setDataInici(dateControl.datePlusTime(date, hour));
 
         //reserva.setDataInici(datePicker.getValue());
         Sala salaSeleccionada = (Sala) mb_salas.getSelectionModel().getSelectedItem();
